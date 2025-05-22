@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-    DefaultTheme,
-    ThemeProvider,
-    createGlobalStyle,
-  } from 'styled-components';
-  import { AppProps } from 'next/app';
+   DefaultTheme,
+   ThemeProvider,
+   createGlobalStyle,
+} from 'styled-components';
+import { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 
-  const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     body, html {
       background-color:rgb(241, 229, 229);
       box-sizing: border-box;
@@ -44,43 +44,43 @@ import { DefaultSeo } from 'next-seo';
     }
   `;
 
-  const theme: DefaultTheme = {
-    colors: {
+const theme: DefaultTheme = {
+   colors: {
       primary: '#261f1f',
-    },
-  };
-  
-  function MyApp({ Component, pageProps, router }: AppProps) {
-    const url = `https://example-url.com${router.route}`;
-    return (
+   },
+};
+
+const MyApp = ({ Component, pageProps, router }: AppProps) => {
+   const url = `https://black-skies.com${router.route}`;
+   return (
       <>
-        <DefaultSeo
-          titleTemplate="%s"
-          openGraph={{
-            type: 'website',
-            locale: 'en_IE',
-            url,
-            description:'An example SEO configuration',
-            site_name: 'NASC Template',
-            images: [],
-          }}
-          canonical={url}
-          twitter={{
-            handle: '@c0dezer019',
-            site: '@c0dezer019',
-            cardType: 'summary_large_image',
-          }}
-          robotsProps={{
-            noarchive: true,
-            maxImagePreview: 'standard',
-          }}
-        />
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} canonical={url} key={url} />
-        </ThemeProvider>
+         <DefaultSeo
+            titleTemplate="%s"
+            openGraph={{
+               type: 'website',
+               locale: 'en_IE',
+               url,
+               description: 'An ever-evolving gritty sci-fi browser-based RPG.',
+               site_name: 'Black Skies',
+               images: [],
+            }}
+            canonical={url}
+            twitter={{
+               handle: '@c0dezer019',
+               site: '@c0dezer019',
+               cardType: 'summary_large_image',
+            }}
+            robotsProps={{
+               noarchive: true,
+               maxImagePreview: 'standard',
+            }}
+         />
+         <GlobalStyle />
+         <ThemeProvider theme={theme}>
+            <Component {...pageProps} canonical={url} key={url} />
+         </ThemeProvider>
       </>
-    );
-  }
-  
-  export default MyApp;
+   );
+};
+
+export default MyApp;
