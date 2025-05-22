@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable */
-// @ts-nocheck
 "use strict";
 
 const RAW_RUNTIME_STATE =
@@ -59,6 +57,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.0"],\
+          ["server-only", "npm:0.0.1"],\
           ["styled-components", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.1.18"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:8.32.1"]\
@@ -2140,6 +2139,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.0"],\
+          ["server-only", "npm:0.0.1"],\
           ["styled-components", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.1.18"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:8.32.1"]\
@@ -4954,6 +4954,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.local/share/yarn/berry/cache/semver-npm-7.7.2-dfc3bc5ec9-10c0.zip/node_modules/semver/",\
         "packageDependencies": [\
           ["semver", "npm:7.7.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["server-only", [\
+      ["npm:0.0.1", {\
+        "packageLocation": "../../../../.local/share/yarn/berry/cache/server-only-npm-0.0.1-24bf42bde2-10c0.zip/node_modules/server-only/",\
+        "packageDependencies": [\
+          ["server-only", "npm:0.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
