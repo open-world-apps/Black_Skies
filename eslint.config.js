@@ -3,6 +3,13 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import { globalIgnores } from "eslint/config";
+import eslintConfigPrettier from 'eslint-config-prettier';
+
+import { FlatCompat } from '@eslint/eslintrc';
+
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname
+})
 
 export default tseslint.config([
   {
@@ -19,7 +26,7 @@ export default tseslint.config([
       "@typescript-eslint": tseslint.plugin,
       js: js,
     },
-    extends: [js.configs.recommended],
+    extends: [js.configs.recommended, ...compat.extends('next')],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
@@ -28,6 +35,14 @@ export default tseslint.config([
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     rules: {
+      "func-style": [
+        "error",
+        "expression"
+      ],
+      "prefer-arrow-callback": [
+        "error",
+        { "allowNamedFunctions": false }
+      ],
       "prettier/prettier": 0,
       "array-element-newline": [
         "error",
@@ -91,4 +106,5 @@ export default tseslint.config([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  eslintConfigPrettier
 ]);

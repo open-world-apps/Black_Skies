@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import HelloWorld from "@/app/ui/atoms/HelloWorld";
+import HelloWorld from "@/ui/atoms/HelloWorld";
 
 export default function Home() {
   return (
