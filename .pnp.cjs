@@ -36,7 +36,6 @@ const RAW_RUNTIME_STATE =
           ["@next/eslint-plugin-next", "npm:15.3.2"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/eslint-plugin-jsx-a11y", "npm:6.10.0"],\
-          ["@types/next-seo", "npm:2.1.2"],\
           ["@types/node", "npm:22.15.20"],\
           ["@types/react", "npm:19.1.4"],\
           ["@types/react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.5"],\
@@ -55,7 +54,6 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:16.1.0"],\
           ["jiti", "npm:2.4.2"],\
           ["next", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:15.3.2"],\
-          ["next-seo", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.8.0"],\
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.0"],\
@@ -1423,16 +1421,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@types/next-seo", [\
-      ["npm:2.1.2", {\
-        "packageLocation": "../../../../.local/share/yarn/berry/cache/@types-next-seo-npm-2.1.2-ffe2a4b92b-10c0.zip/node_modules/@types/next-seo/",\
-        "packageDependencies": [\
-          ["@types/next-seo", "npm:2.1.2"],\
-          ["next-seo", "virtual:ffe2a4b92b82f84fe3fe49d7a75f41cf36cf2e93d369572b82b2bbfe2e9c93519317caf4df4df45f90589ebdf8902ea9825f291e93ac7f12441726a9e226f97a#npm:6.8.0"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["@types/node", [\
       ["npm:22.15.20", {\
         "packageLocation": "../../../../.local/share/yarn/berry/cache/@types-node-npm-22.15.20-e73baa5cdc-10c0.zip/node_modules/@types/node/",\
@@ -2118,7 +2106,6 @@ const RAW_RUNTIME_STATE =
           ["@next/eslint-plugin-next", "npm:15.3.2"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/eslint-plugin-jsx-a11y", "npm:6.10.0"],\
-          ["@types/next-seo", "npm:2.1.2"],\
           ["@types/node", "npm:22.15.20"],\
           ["@types/react", "npm:19.1.4"],\
           ["@types/react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.5"],\
@@ -2137,7 +2124,6 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:16.1.0"],\
           ["jiti", "npm:2.4.2"],\
           ["next", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:15.3.2"],\
-          ["next-seo", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.8.0"],\
           ["prettier", "npm:3.5.3"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.0"],\
@@ -4402,57 +4388,6 @@ const RAW_RUNTIME_STATE =
           "react-dom",\
           "react",\
           "sass"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["next-seo", [\
-      ["npm:6.8.0", {\
-        "packageLocation": "../../../../.local/share/yarn/berry/cache/next-seo-npm-6.8.0-15746153b0-10c0.zip/node_modules/next-seo/",\
-        "packageDependencies": [\
-          ["next-seo", "npm:6.8.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.8.0", {\
-        "packageLocation": "./.yarn/__virtual__/next-seo-virtual-dcf8d45d2a/5/.local/share/yarn/berry/cache/next-seo-npm-6.8.0-15746153b0-10c0.zip/node_modules/next-seo/",\
-        "packageDependencies": [\
-          ["@types/next", null],\
-          ["@types/react", "npm:19.1.4"],\
-          ["@types/react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.5"],\
-          ["next", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:15.3.2"],\
-          ["next-seo", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:6.8.0"],\
-          ["react", "npm:19.1.0"],\
-          ["react-dom", "virtual:50e85ef9d5547024c611831f29d158849bf7dba5322ea76af112b110c8d711d09c34d13c5ea9edd585cabba68bca75952447616351092b2740614023d257a4af#npm:19.1.0"]\
-        ],\
-        "packagePeers": [\
-          "@types/next",\
-          "@types/react-dom",\
-          "@types/react",\
-          "next",\
-          "react-dom",\
-          "react"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:ffe2a4b92b82f84fe3fe49d7a75f41cf36cf2e93d369572b82b2bbfe2e9c93519317caf4df4df45f90589ebdf8902ea9825f291e93ac7f12441726a9e226f97a#npm:6.8.0", {\
-        "packageLocation": "./.yarn/__virtual__/next-seo-virtual-fbfe5635e7/5/.local/share/yarn/berry/cache/next-seo-npm-6.8.0-15746153b0-10c0.zip/node_modules/next-seo/",\
-        "packageDependencies": [\
-          ["@types/next", null],\
-          ["@types/react", null],\
-          ["@types/react-dom", null],\
-          ["next", null],\
-          ["next-seo", "virtual:ffe2a4b92b82f84fe3fe49d7a75f41cf36cf2e93d369572b82b2bbfe2e9c93519317caf4df4df45f90589ebdf8902ea9825f291e93ac7f12441726a9e226f97a#npm:6.8.0"],\
-          ["react", null],\
-          ["react-dom", null]\
-        ],\
-        "packagePeers": [\
-          "@types/next",\
-          "@types/react-dom",\
-          "@types/react",\
-          "next",\
-          "react-dom",\
-          "react"\
         ],\
         "linkType": "HARD"\
       }]\

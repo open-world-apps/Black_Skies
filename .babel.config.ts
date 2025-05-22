@@ -9,7 +9,9 @@ module.exports = (api: { cache: (arg0: boolean) => void; }) => {
     ]
 
     const plugins = [
-      ["styled-components"],
+        [
+            "styled-components", { "ssr": true }
+        ],
       ["babel-plugin-styled-components"],
     ];
 

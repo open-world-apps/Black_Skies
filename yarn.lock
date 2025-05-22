@@ -1047,15 +1047,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/next-seo@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "@types/next-seo@npm:2.1.2"
-  dependencies:
-    next-seo: "npm:*"
-  checksum: 10c0/c6557607c619948329d1651973a0645faefff8a93fdc52e8773a5842fb489d1a606f46af030d4466eb65e414ca61d4a11cea8939fb4af8cdf2aae452ded9cd6f
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^22.15.20":
   version: 22.15.20
   resolution: "@types/node@npm:22.15.20"
@@ -1563,7 +1554,6 @@ __metadata:
     "@next/eslint-plugin-next": "npm:^15.3.2"
     "@types/babel__core": "npm:^7"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
-    "@types/next-seo": "npm:^2.1.2"
     "@types/node": "npm:^22.15.20"
     "@types/react": "npm:^19.1.4"
     "@types/react-dom": "npm:^19.1.5"
@@ -1581,7 +1571,6 @@ __metadata:
     globals: "npm:^16.1.0"
     jiti: "npm:^2.4.2"
     next: "npm:15.3.2"
-    next-seo: "npm:^6.8.0"
     prettier: "npm:3.5.3"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -3328,17 +3317,6 @@ __metadata:
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
   checksum: 10c0/f5f9a7974bfb28a91afafa254b197f0f22c684d4a1731763dda960d2c8e375b36c7d690e0d9dc8fba774c537af14a7e979129bca23d88d052fbeb9466955e447
-  languageName: node
-  linkType: hard
-
-"next-seo@npm:*, next-seo@npm:^6.8.0":
-  version: 6.8.0
-  resolution: "next-seo@npm:6.8.0"
-  peerDependencies:
-    next: ^8.1.1-canary.54 || >=9.0.0
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: 10c0/63fe63dfb7e5dc8438185f698bec1428925b667808bc6ba5fc4f39758545c50ce049bc48c937d43246ee51913796673b995bd39afd10a8742108db89f0d11e52
   languageName: node
   linkType: hard
 
