@@ -5,12 +5,12 @@ styled-components is setup to work with a full SSR app.
 
 ### Reverting to Next.js' hybrid SSR/SPA functionality <!-- markdownlint-disable-line MD001 -->
 
-Remove the _document.tsx file in src/app/ and uncomment `'use client'` in
+Remove the \_document.tsx file in src/app/ and uncomment `'use client'` in
 src/ui/atoms/HelloWorld.tsx.
 
 ## Getting Started
 
-This is configured to use Yarn, but if you're using npm instead, simply delete the .pnp.* files, .yarn folder, and the yarn.lock file.
+This is configured to use Yarn, but if you're using npm instead, simply delete the .pnp.\* files, .yarn folder, and the yarn.lock file.
 
 1. Run `$yarn install`.
 2. Now you can run `$yarn dev`.

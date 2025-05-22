@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
 import {
-    DefaultTheme,
-    ThemeProvider,
-    createGlobalStyle,
+   DefaultTheme,
+   ThemeProvider,
+   createGlobalStyle,
 } from 'styled-components';
 
 const theme: DefaultTheme = {
-    colors: {
-       primary: '#261f1f',
-    },
- };
+   colors: {
+      primary: '#261f1f',
+   },
+};
 
 const GlobalStyle = createGlobalStyle`
     body, html {
