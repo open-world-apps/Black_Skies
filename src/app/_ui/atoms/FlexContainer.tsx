@@ -15,6 +15,7 @@ interface Props {
   $colGap?: string;
   margin?: string;
   padding?: string;
+  $overflowHidden?: boolean;
 }
 
 const FlexContainer = styled.div<Props>`
@@ -28,6 +29,7 @@ const FlexContainer = styled.div<Props>`
   justify-content: ${({ $justifyContent }) => $justifyContent ?? 'initial'};
   align-items: ${({ $alignItems }) => $alignItems ?? 'initial'};
   padding: ${({ padding }) => padding ?? '0px'};
+  overflow: ${({ $overflowHidden }) => ($overflowHidden ? 'hidden' : 'iniail')};
 `;
 
 export default FlexContainer;

@@ -8,7 +8,7 @@ const Home: FC = (): ReactElement => {
   return (
     <>
       <main>
-        <FlexContainer height="100vh">
+        <FlexContainer height="100vh" $overflowHidden={true}>
           <FlexContainer height="100vh" direction="row">
             <Container width="45%" height="100vh" />
             <FlexContainer
