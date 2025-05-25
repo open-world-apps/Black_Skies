@@ -37,6 +37,7 @@ export default tseslint.config([
       rules: {
          'func-style': ['error', 'expression'],
          'prefer-arrow-callback': ['error', { allowNamedFunctions: false }],
+         'arrow-spacing': 1,
          'prettier/prettier': 0,
          'array-element-newline': [
             'error',
