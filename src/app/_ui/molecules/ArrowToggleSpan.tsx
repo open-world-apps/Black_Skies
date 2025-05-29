@@ -7,8 +7,8 @@ import React, {
   SetStateAction,
   useState,
 } from 'react';
-import { AnimatedArrow } from '../atoms/Arrow';
-import { ClickableSpan } from '../atoms/Span';
+import { AnimatedArrow } from '../atoms/generic/Arrow';
+import { ClickableSpan } from '../atoms/generic/Span';
 
 interface Props {
   setOpen: Dispatch<SetStateAction<boolean>>;
