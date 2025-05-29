@@ -1,19 +1,18 @@
 'use client';
 
+import { ContainerSizing } from '@/lib/types';
 import styled from 'styled-components';
 
 interface Props {
   display?: 'block' | 'inline' | 'inline block';
-  height?: number | string | 'fit-content' | 'initial' | 'inherit';
-  width?: number | string | 'fit-content' | 'initial' | 'inherit';
+  height?: ContainerSizing;
+  width?: ContainerSizing;
 }
 
 const Container = styled.div<Props>`
   display: ${({ display }) => display ?? 'block'};
-  height: ${({ height }) =>
-    typeof height === 'number' ? `${height}px` : (height ?? 'fit-content')};
-  width: ${({ width }) =>
-    typeof width === 'number' ? `${width}px` : (width ?? 'fit-content')};
+  height: ${({ height }) => height ?? 'initial'};
+  width: ${({ width }) => width ?? 'initial'};
 `;
 
 export default Container;

@@ -1,26 +1,30 @@
 'use client';
 
-import { Direction, FAlign, FJustify, Height, Width } from '@/lib/types';
+import { FAlign, FJustify, ContainerSizing, Size } from '@/lib/types';
 import styled from 'styled-components';
 
 interface Props {
-  height?: Height;
-  width?: Width;
+  height?: ContainerSizing;
+  width?: ContainerSizing;
   display?: 'flex' | 'inline-flex';
-  direction?: Direction;
+  $inline?: boolean;
+  $row?: boolean;
+  $column?: boolean;
   $justifyContent?: FJustify;
   $alignItems?: FAlign;
-  gap?: string;
-  $rowGap?: string;
-  $colGap?: string;
-  margin?: string;
-  padding?: string;
+  gap?: Size;
+  $rowGap?: Size;
+  $colGap?: Size;
+  $margin?: string;
+  $padding?: string;
   $overflowHidden?: boolean;
 }
 
 const FlexContainer = styled.div<Props>`
-  display: ${({ display }) => display ?? 'flex'};
-  flex-direction: ${({ direction }) => direction ?? 'column'};
+  display: flex;
+  ${({ $inline }) => $inline && 'display: inline-flex;'};
+  ${({ $column }) => $column && 'flex-direction: column;'};
+  ${({ $row }) => $row && 'flex-direction: row;'};
   gap: ${({ gap }) => gap ?? 'initial'};
   row-gap: ${({ $rowGap }) => $rowGap ?? 'initial'};
   column-gap: ${({ $colGap }) => $colGap ?? 'initial'};
@@ -28,8 +32,9 @@ const FlexContainer = styled.div<Props>`
   width: ${({ width }) => width ?? 'initial'};
   justify-content: ${({ $justifyContent }) => $justifyContent ?? 'initial'};
   align-items: ${({ $alignItems }) => $alignItems ?? 'initial'};
-  padding: ${({ padding }) => padding ?? '0px'};
-  overflow: ${({ $overflowHidden }) => ($overflowHidden ? 'hidden' : 'iniail')};
+  padding: ${({ $padding }) => $padding ?? '0px'};
+  margin: ${({ $margin }) => $margin ?? '0px'};
+  ${({ $overflowHidden }) => $overflowHidden && 'overflow: hidden;'};
 `;
 
 export default FlexContainer;
