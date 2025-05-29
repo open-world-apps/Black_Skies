@@ -1,27 +1,27 @@
 'use client';
 
-import { FAlign, FJustify, ContainerSizing, Size } from '@/lib/types';
+import { FAlign, FJustify, Height, Width } from '@/lib/types';
 import styled from 'styled-components';
 
 interface Props {
-  height?: ContainerSizing;
-  width?: ContainerSizing;
-  display?: 'flex' | 'inline-flex';
+  height?: Height;
+  width?: Width;
+  $flex?: boolean;
   $inline?: boolean;
   $row?: boolean;
   $column?: boolean;
   $justifyContent?: FJustify;
   $alignItems?: FAlign;
-  gap?: Size;
-  $rowGap?: Size;
-  $colGap?: Size;
+  gap?: string;
+  $rowGap?: string;
+  $colGap?: string;
   $margin?: string;
   $padding?: string;
   $overflowHidden?: boolean;
 }
 
-const FlexContainer = styled.div<Props>`
-  display: flex;
+const Span = styled.span<Props>`
+  ${({ $flex }) => $flex && 'display: flex'};
   ${({ $inline }) => $inline && 'display: inline-flex;'};
   ${({ $column }) => $column && 'flex-direction: column;'};
   ${({ $row }) => $row && 'flex-direction: row;'};
@@ -37,4 +37,16 @@ const FlexContainer = styled.div<Props>`
   ${({ $overflowHidden }) => $overflowHidden && 'overflow: hidden;'};
 `;
 
-export default FlexContainer;
+interface ClickableSpanProps {
+  $onClick: () => void;
+}
+
+export const ClickableSpan = styled(Span).attrs<ClickableSpanProps>(
+  ({ $onClick }) => ({
+    onClick: $onClick,
+  })
+)<Props>`
+  cursor: pointer;
+`;
+
+export default Span;

@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from 'react';
-import FlexContainer from './_ui/atoms/FlexContainer';
-import Container from './_ui/atoms/Container';
-import Title from './_ui/atoms/Title';
-import RTButton from './_ui/atoms/RTButton';
+import FlexContainer from './_ui/atoms/generic/FlexContainer';
+import Container from './_ui/atoms/generic/Container';
+import Title from './_ui/atoms/generic/Title';
+import RTButton from './_ui/atoms/generic/RTButton';
 
 const Home: FC = (): ReactElement => {
   return (
