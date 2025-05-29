@@ -12,7 +12,7 @@ interface Props {
   $column?: boolean;
   $justifyContent?: FJustify;
   $alignItems?: FAlign;
-  gap?: Size;
+  $gap?: Size;
   $rowGap?: Size;
   $colGap?: Size;
   $margin?: string;
@@ -25,7 +25,7 @@ const FlexContainer = styled.div<Props>`
   ${({ $inline }) => $inline && 'display: inline-flex;'};
   ${({ $column }) => $column && 'flex-direction: column;'};
   ${({ $row }) => $row && 'flex-direction: row;'};
-  gap: ${({ gap }) => gap ?? 'initial'};
+  gap: ${({ $gap: gap }) => gap ?? 'initial'};
   row-gap: ${({ $rowGap }) => $rowGap ?? 'initial'};
   column-gap: ${({ $colGap }) => $colGap ?? 'initial'};
   height: ${({ height }) => height ?? 'initial'};
@@ -35,6 +35,22 @@ const FlexContainer = styled.div<Props>`
   padding: ${({ $padding }) => $padding ?? '0px'};
   margin: ${({ $margin }) => $margin ?? '0px'};
   ${({ $overflowHidden }) => $overflowHidden && 'overflow: hidden;'};
+`;
+
+interface BorderProps {
+  $border?: string;
+  $borderR?: string;
+  $borderL?: string;
+  $borderT?: string;
+  $borderB?: string;
+}
+
+export const BorderedFlex = styled(FlexContainer)<BorderProps>`
+  ${({ $border }) => $border && `border: ${$border}`};
+  ${({ $borderR }) => $borderR && `border: ${$borderR}`};
+  ${({ $borderL }) => $borderL && `border: ${$borderL}`};
+  ${({ $borderT }) => $borderT && `border: ${$borderT}`};
+  ${({ $borderB }) => $borderB && `border: ${$borderB}`};
 `;
 
 export default FlexContainer;
