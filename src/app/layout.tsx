@@ -5,22 +5,22 @@ import GlobalStyle from '@/app/_ui/layouts/GlobalStyle';
 import StyledComponentsRegistry from '@/lib/registry';
 
 export const metadata: Metadata = {
-   title: 'Black Skies - Text-based Sci-Fi MMORPG',
+  title: 'Black Skies - Text-based Sci-Fi MMORPG',
 };
 
 export default function RootLayout({
-   children,
+  children,
 }: Readonly<{
-   children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-   return (
-      <html lang="en">
-         <body>
-            <StyledComponentsRegistry>
-               <GlobalStyle />
-               {children}
-            </StyledComponentsRegistry>
-         </body>
-      </html>
-   );
+  return (
+    <html lang="en">
+      <body>
+        <StyledComponentsRegistry>
+          <GlobalStyle />
+          {children}
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
 }
