@@ -1,19 +1,25 @@
 import React, { FC, ReactElement } from 'react';
-import FlexContainer from './_ui/atoms/generic/FlexContainer';
-import Container from './_ui/atoms/generic/Container';
-import Title from './_ui/atoms/generic/Title';
-import RTButton from './_ui/atoms/generic/RTButton';
+import FlexContainer from '@/app/_ui/atoms/generic/FlexContainer';
+import Container from '@/app/_ui/atoms/generic/Container';
+import Title from '@/app/_ui/atoms/generic/Title';
+import RTButton from '@/app/_ui/atoms/generic/RTButton';
 
 const Home: FC = (): ReactElement => {
   return (
     <>
       <main>
         <FlexContainer height="100vh" $column>
-          <FlexContainer height="100vh" $row>
-            <Container width="45%" height="100vh" />
+          <FlexContainer
+            height="100%"
+            $justifyContent="center"
+            $alignItems="center"
+            $row
+          >
+            <Container width="36%" height="100%" />
             <FlexContainer
               $alignItems="center"
               $justifyContent="center"
+              height="100%"
               $column
             >
               <Title color="white" $fontSize="8rem">

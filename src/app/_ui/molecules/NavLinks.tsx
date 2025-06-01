@@ -1,22 +1,17 @@
 'use client';
 
 import React, { FC, ReactElement } from 'react';
-import styled from 'styled-components';
-import SLink from '../atoms/SLink';
+import SLink from '../atoms/generic/SLink';
 import FlexContainer from '../atoms/generic/FlexContainer';
-
-const Divider = styled.hr`
-  margin: 0;
-  height: 1rem;
-`;
+import Divider from '../atoms/generic/Divider';
 
 const NavLinks: FC = (): ReactElement => {
   return (
     <FlexContainer
       $colGap="10px"
-      width="100vw"
+      width="fit-content"
       $alignItems="center"
-      $margin="0 0 0 30%"
+      $margin="0 0 0 12%"
     >
       <SLink href="/userguides">User Guides</SLink>
       <Divider />

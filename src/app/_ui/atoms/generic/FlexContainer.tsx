@@ -4,9 +4,10 @@ import { FAlign, FJustify, ContainerSizing, Size } from '@/lib/types';
 import styled from 'styled-components';
 
 interface Props {
-  height?: ContainerSizing;
-  width?: ContainerSizing;
-  display?: 'flex' | 'inline-flex';
+  $background?: string; // TODO Move to Container
+  height?: ContainerSizing; // TODO Move to Container
+  width?: ContainerSizing; // TODO Move to Container
+  $position?: string;
   $inline?: boolean;
   $row?: boolean;
   $column?: boolean;
@@ -16,15 +17,25 @@ interface Props {
   $rowGap?: Size;
   $colGap?: Size;
   $margin?: string;
-  $padding?: string;
+  $padding?: Size;
   $overflowHidden?: boolean;
+  $alignSelf?: string;
+  $justifySelf?: string;
+  $top?: '0' | Size;
+  $zIndex?: number;
 }
 
 const FlexContainer = styled.div<Props>`
   display: flex;
-  ${({ $inline }) => $inline && 'display: inline-flex;'};
-  ${({ $column }) => $column && 'flex-direction: column;'};
-  ${({ $row }) => $row && 'flex-direction: row;'};
+  ${({ $position }) => $position && `position: ${$position};`}
+  ${({ $top }) => $top && `top: ${$top};`}
+  ${({ $zIndex }) => $zIndex && `z-index: ${$zIndex};`}
+  ${({ $background }) => $background && `background: ${$background};`}
+  ${({ $inline }) => $inline && 'display: inline-flex;'}
+  ${({ $column }) => $column && 'flex-direction: column;'}
+  ${({ $row }) => $row && 'flex-direction: row;'}
+  align-self: ${({ $alignSelf }) => $alignSelf ?? 'initial'};
+  justify-self: ${({ $justifySelf }) => $justifySelf ?? 'initial'};
   gap: ${({ $gap: gap }) => gap ?? 'initial'};
   row-gap: ${({ $rowGap }) => $rowGap ?? 'initial'};
   column-gap: ${({ $colGap }) => $colGap ?? 'initial'};
