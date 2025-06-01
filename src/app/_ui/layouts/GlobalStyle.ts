@@ -6,10 +6,9 @@ const GlobalStyle = createGlobalStyle`
     body, html {
       background: url(/blackskies3.png);
       background-attachment: fixed;
-      background-size: cover;
+      background-size: 100%;
       background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
+      background-position: 0px 8px;
       box-sizing: border-box;
       min-height: 100vh;
       font-family: "Fira Code", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
