@@ -8,25 +8,22 @@ const Home: FC = (): ReactElement => {
   return (
     <>
       <main>
-        <FlexContainer height="100vh" $column>
+        <FlexContainer height="100vh" column>
           <FlexContainer
             height="100%"
-            $justifyContent="center"
-            $alignItems="center"
-            $row
+            justifyContent="center"
+            alignItems="center"
           >
             <Container width="36%" height="100%" />
             <FlexContainer
-              $alignItems="center"
-              $justifyContent="center"
+              alignItems="center"
+              justifyContent="center"
               height="100%"
-              $column
+              column
             >
-              <Title color="white" $fontSize="8rem">
-                Black&nbsp;Skies
-              </Title>
-              <FlexContainer $colGap="10px" height="fit-content" $row>
-                <RTButton width="150px">Play&nbsp;Now&nbsp;-&gt;</RTButton>
+              <Title>Black&nbsp;Skies</Title>
+              <FlexContainer colGap="10px" height="fit-content">
+                <RTButton>Play&nbsp;Now&nbsp;-&gt;</RTButton>
               </FlexContainer>
             </FlexContainer>
           </FlexContainer>

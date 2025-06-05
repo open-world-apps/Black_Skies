@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import FlexContainer from '../atoms/generic/FlexContainer';
 import NavLinks from '../molecules/NavLinks';
 import Container from '../atoms/generic/Container';
-import Bubble from '../molecules/Bubble';
+import Avatar from '../molecules/Avatar';
 import CharStats from '../molecules/CharStats';
 
 const Header: FC = (): ReactElement => {
@@ -10,20 +10,20 @@ const Header: FC = (): ReactElement => {
 
   return (
     <FlexContainer
-      $background="#292626"
+      background="#292626"
       height="50px"
       width="100%"
-      $alignItems="center"
-      $justifyContent="flex-end"
-      $colGap="20px"
-      $position="fixed"
-      $top="0"
-      $zIndex={1000}
+      alignItems="center"
+      justifyContent="flex-end"
+      colGap="20px"
+      position="fixed"
+      top="0"
+      zIndex={1000}
     >
       <CharStats />
       <NavLinks />
-      <Container width="40px" height="40px" $margin="0 50px 0 0">
-        <Bubble />
+      <Container height="40px" width="40px" margin="0 50px 0 0">
+        <Avatar />
       </Container>
     </FlexContainer>
   );

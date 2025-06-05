@@ -1,20 +1,23 @@
 'use client';
 
-import styled from 'styled-components';
+import { styled } from '@/lib/configs/stitches.config';
 import Link from 'next/link';
 
-interface Props {
-  $noUnderline?: boolean;
-}
-
-const SLink = styled(Link)<Props>`
-  text-decoration: none;
-
-  &:hover {
-    color: green;
-    text-decoration: ${({ $noUnderline }) =>
-      !$noUnderline ? 'underline' : 'none'};
-  }
-`;
+const SLink = styled(Link, {
+  textDecoration: 'none',
+  '&:hover': {
+    color: 'Green',
+    textDecoration: 'none',
+  },
+  variants: {
+    underline: {
+      true: {
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+      },
+    },
+  },
+});
 
 export default SLink;

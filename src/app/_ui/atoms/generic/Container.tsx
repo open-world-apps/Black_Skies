@@ -1,24 +1,38 @@
 'use client';
 
+import { css } from '@/lib/configs/stitches.config';
 import { ContainerSizing } from '@/lib/types';
-import styled from 'styled-components';
+import React, { ReactNode } from 'react';
 
 interface Props {
-  $display?: 'block' | 'inline' | 'inline block';
+  display?: 'block' | 'inline' | 'inline block';
   height?: ContainerSizing;
   width?: ContainerSizing;
-  $border?: string;
-  $margin?: string;
-  $padding?: string;
+  border?: string;
+  margin?: string;
+  padding?: string;
+  children?: ReactNode;
 }
 
-const Container = styled.div<Props>`
-  display: ${({ $display }) => $display ?? 'block'};
-  height: ${({ height }) => height ?? 'fit-content'};
-  width: ${({ width }) => width ?? 'fit-content'};
-  ${({ $margin }) => `margin: ${$margin};`}
-  ${({ $border }) => $border && `border: ${$border};`}
-  ${({ $padding }) => $padding && `padding: ${$padding};`}
-`;
+const Container = ({
+  children,
+  display = 'block',
+  height = 'fit-content',
+  width = 'fit-content',
+  margin,
+  border,
+  padding,
+}: Props) => {
+  const className = css({
+    display,
+    height,
+    width,
+    padding,
+    ...(!!margin && { margin: margin }),
+    ...(!!border && { border: border }),
+  })();
+
+  return <div className={className}>{children}</div>;
+};
 
 export default Container;

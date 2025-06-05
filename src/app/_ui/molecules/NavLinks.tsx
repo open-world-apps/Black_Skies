@@ -8,10 +8,10 @@ import Divider from '../atoms/generic/Divider';
 const NavLinks: FC = (): ReactElement => {
   return (
     <FlexContainer
-      $colGap="10px"
+      colGap="10px"
       width="fit-content"
-      $alignItems="center"
-      $margin="0 0 0 12%"
+      alignItems="center"
+      margin="0 0 0 12%"
     >
       <SLink href="/userguides">User Guides</SLink>
       <Divider />

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-import GlobalStyle from '@/app/_ui/layouts/GlobalStyle';
-import StyledComponentsRegistry from '@/lib/registry';
+import { getCssText } from '@/lib/configs/stitches.config';
 import Header from './_ui/organisms/Header';
 import { StoreProvider } from '@/lib/state/app/StoreProvider';
+import StitchesRegistry from '@/lib/stitches/registry';
 
 export const metadata: Metadata = {
   title: 'Black Skies - Text-based Sci-Fi MMORPG',
@@ -18,14 +18,19 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
+        <head>
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
+        </head>
         <body>
-          <StyledComponentsRegistry>
-            <GlobalStyle />
+          <StitchesRegistry>
             <header>
               <Header />
             </header>
             {children}
-          </StyledComponentsRegistry>
+          </StitchesRegistry>
         </body>
       </html>
     </StoreProvider>

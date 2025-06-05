@@ -1,18 +1,11 @@
 'use client';
 
-import { Color } from '@/lib/types';
-import isColor from '@/lib/validators/isColor';
-import styled from 'styled-components';
+import { styled } from '@/lib/configs/stitches.config';
 
-interface Props {
-  color: Color;
-  $fontSize: string;
-}
-
-const Title = styled.h1<Props>`
-  color: ${({ color }) => (isColor(color) ? color : 'initial')};
-  font-size: ${({ $fontSize }) => $fontSize ?? 'initial'};
-  margin: 10px;
-`;
+const Title = styled('h1', {
+  color: 'White',
+  fontSize: '8rem',
+  margin: '10px',
+});
 
 export default Title;
