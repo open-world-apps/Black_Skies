@@ -12,6 +12,9 @@ interface Props {
   margin?: string;
   padding?: string;
   children?: ReactNode;
+  background?: string;
+  alignSelf?: string;
+  justifySelf?: string;
 }
 
 const Container = ({
@@ -19,17 +22,23 @@ const Container = ({
   display = 'block',
   height = 'fit-content',
   width = 'fit-content',
+  background,
   margin,
   border,
   padding,
+  alignSelf,
+  justifySelf,
 }: Props) => {
   const className = css({
+    background,
     display,
     height,
     width,
     padding,
-    ...(!!margin && { margin: margin }),
-    ...(!!border && { border: border }),
+    margin,
+    border,
+    alignSelf,
+    justifySelf,
   })();
 
   return <div className={className}>{children}</div>;

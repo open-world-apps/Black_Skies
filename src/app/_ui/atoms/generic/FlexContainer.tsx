@@ -25,11 +25,15 @@ interface Props {
   justifySelf?: string;
   top?: '0' | Size;
   zIndex?: number;
+  border?: string;
+  borderRadius?: Size;
+  boxShadow?: string;
 }
 
 const FlexContainer = ({
   children,
   background,
+  boxShadow,
   height,
   width,
   position,
@@ -47,6 +51,8 @@ const FlexContainer = ({
   justifySelf,
   top,
   zIndex,
+  border,
+  borderRadius,
 }: Props) => {
   const className = css({
     background,
@@ -64,10 +70,13 @@ const FlexContainer = ({
     alignSelf,
     justifySelf,
     display: 'flex',
+    border,
+    position,
+    borderRadius,
+    boxShadow,
     ...(!!overflowHidden && { overflow: 'hidden' }),
     ...(!!inline && { display: 'inline-flex' }),
     ...(!!column && { flexDirection: 'column' }),
-    ...(!!position && { position: position }),
   })();
 
   return <div className={className}>{children}</div>;
