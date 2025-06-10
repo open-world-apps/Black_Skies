@@ -3,9 +3,8 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
-.yarn/install-state.gz
-.yarn/unplugged
+*.pnp.*
+.yarn
 
 # testing
 /coverage
@@ -20,6 +19,7 @@
 # misc
 .DS_Store
 *.pem
+.vscode
 
 # debug
 npm-debug.log*
