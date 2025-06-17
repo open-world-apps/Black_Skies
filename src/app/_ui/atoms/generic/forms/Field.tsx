@@ -1,8 +1,8 @@
 'use client';
 
 import { styled } from '@/lib/configs/stitches.config';
-import { Form } from 'radix-ui';
+import { Field as _Field } from '@radix-ui/react-form';
 
-const Field = styled(Form.Field, { display: 'grid', marginBottom: '10px' });
+const Field = styled(_Field, { display: 'grid', marginBottom: '10px' });
 
 export default Field;

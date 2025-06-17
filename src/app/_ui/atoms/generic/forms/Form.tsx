@@ -1,11 +1,11 @@
 'use client';
 
 import { styled } from '@/lib/configs/stitches.config';
-import { Form } from 'radix-ui';
+import { Root } from '@radix-ui/react-form';
 
-const FormRoot = styled(Form.Root, {
+const Form = styled(Root, {
   width: '100%',
   height: '100%',
 });
 
-export default FormRoot;
+export default Form;
