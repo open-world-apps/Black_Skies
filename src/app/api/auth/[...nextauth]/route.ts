@@ -1,13 +1,11 @@
-import NextAuth from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma/prisma';
-import Discord from 'next-auth/providers/discord';
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import NextAuth, { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Discord from 'next-auth/providers/discord';
 import bcrypt from 'bcrypt';
 
-import 'next-auth/jwt';
-
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: AuthOptions = {
   debug: !!process.env.AUTH_DEBUG,
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -87,4 +85,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return session;
     },
   },
-});
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
