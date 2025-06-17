@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db-push": "prisma push",
-    "db-pull": "prisma pull",
+    "db-push": "prisma db push",
+    "db-pull": "prisma db pull",
     "db-migrate-dev": "prisma migrate dev",
     "db-migrate-reset": "prisma migrate reset"
   },
