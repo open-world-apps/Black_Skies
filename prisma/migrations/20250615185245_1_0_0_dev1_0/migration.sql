@@ -1,11 +1,13 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
+    "ipAddr" VARCHAR(30),
     "username" VARCHAR(30) NOT NULL,
-    "password" VARCHAR(64),
+    "hashed_pwd" VARCHAR(100),
+    "salt" TEXT,
     "email" TEXT NOT NULL,
     "emailVerified" TIMESTAMP(3),
-    "image" BYTEA NOT NULL,
+    "image" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -66,6 +68,18 @@ CREATE TABLE "Authenticator" (
     CONSTRAINT "Authenticator_pkey" PRIMARY KEY ("userId","credentialID")
 );
 
+-- CreateTable
+CREATE TABLE "BannedIP" (
+    "id" SERIAL NOT NULL,
+    "userId" TEXT,
+    "ip" TEXT NOT NULL,
+    "reason" TEXT,
+    "bannedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "expiresAt" TIMESTAMP(3),
+
+    CONSTRAINT "BannedIP_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
@@ -77,6 +91,12 @@ CREATE UNIQUE INDEX "Session_session_token_key" ON "Session"("session_token");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Authenticator_credentialID_key" ON "Authenticator"("credentialID");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "BannedIP_ip_key" ON "BannedIP"("ip");
+
+-- AddForeignKey
+ALTER TABLE "User" ADD CONSTRAINT "User_ipAddr_fkey" FOREIGN KEY ("ipAddr") REFERENCES "BannedIP"("ip") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
