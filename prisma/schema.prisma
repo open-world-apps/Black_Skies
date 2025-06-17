@@ -19,7 +19,6 @@ model User {
   ipAddr            String?    @db.VarChar(30)
   username          String    @db.VarChar(30) @unique
   hashedPwd         String?   @db.VarChar(100) @map("hashed_pwd")
-  salt              String?
   email             String    @unique
   emailVerified     DateTime?
   image             String?
@@ -27,7 +26,7 @@ model User {
   sessions          Session[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
