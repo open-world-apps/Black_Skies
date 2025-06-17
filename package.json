@@ -33,6 +33,7 @@
     "react-hook-form": "^7.57.0",
     "react-redux": "^9.2.0",
     "server-only": "^0.0.1",
+    "validator": "^13.15.15",
     "yup": "^1.6.1"
   },
   "devDependencies": {
@@ -48,6 +49,7 @@
     "@types/node": "^22.15.20",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "@types/validator": "^13",
     "@yarnpkg/pnpify": "^4.1.5",
     "eslint": "^9.27.0",
     "eslint-config-next": "^15.3.2",

@@ -1,18 +1,61 @@
 'use client';
 
-import React, { FC, ReactElement, useState } from 'react';
-import FormRoot from '../atoms/generic/forms/FormRoot';
+import React, { FC, ReactElement, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
 import Field from '../atoms/generic/forms/Field';
 import FlexContainer from '../atoms/generic/FlexContainer';
-import Message from '../atoms/generic/forms/Message';
 import Input from '../atoms/generic/forms/Input';
-import Button from '../atoms/generic/forms/Button';
-import Container from '../atoms/generic/Container';
 import Label from '../atoms/generic/forms/Label';
-import { Control, Submit } from '@radix-ui/react-form';
+import Button from '../atoms/generic/forms/Button';
+
+import schema from '@/lib/utils/formSchema';
+import Form from '../atoms/generic/forms/Form';
+import Error from '../atoms/generic/forms/Error';
+
+type FormInput = {
+  username: string;
+  password: string;
+  confirmPassword: string;
+  email: string;
+};
 
 export const RegistrationForm: FC = (): ReactElement => {
-  const [passwordValue, setPasswordValue] = useState<string>();
+  const {
+    register,
+    watch,
+    trigger,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput>({
+    resolver: yupResolver(schema),
+    mode: 'onChange',
+  });
+
+  const router = useRouter();
+  const passwordWatch = watch('password');
+
+  useEffect(() => {
+    trigger('confirmPassword');
+  }, [passwordWatch, trigger]);
+
+  const onSubmit = handleSubmit(async (_, e) => {
+    const formData = new FormData(e?.target);
+
+    const res = await axios({
+      method: 'post',
+      url: '/auth/register',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: formData,
+    });
+
+    if (res.data.success) {
+      router.push('/');
+    }
+  });
 
   return (
     <FlexContainer
@@ -20,73 +63,75 @@ export const RegistrationForm: FC = (): ReactElement => {
       borderRadius="25px"
       padding="35px"
       boxShadow="2px 2px 5px black"
+      width="40%"
     >
-      <FormRoot>
-        <Field name="username">
-          <FlexContainer alignItems="baseline" justifyContent="space-between">
-            <Label>Username</Label>
-            <Message match="valueMissing">Please enter an email.</Message>
-            <Message match="tooShort">Username not long enough.</Message>
-            <Message match="tooLong">Username too long.</Message>
-          </FlexContainer>
-          <Control asChild>
-            <Input type="text" minLength={12} maxLength={25} required />
-          </Control>
-        </Field>
-        <Field name="email">
-          <FlexContainer alignItems="baseline" justifyContent="space-between">
-            <Label>Email</Label>
-            <Message match="typeMismatch">
-              Please provide a valid email.
-            </Message>
-          </FlexContainer>
-          <Control asChild>
-            <Input type="email" required />
-          </Control>
-        </Field>
-        <FlexContainer gap="20px">
-          <Field name="password">
-            <FlexContainer alignItems="baseline" justifyContent="space-between">
-              <Label>Password</Label>
-              <Message match="valueMissing">Please enter a password</Message>
-            </FlexContainer>
-            <Control asChild>
-              <Input type="password" autoComplete="new-password" required />
-            </Control>
+      <section style={{ width: '100%' }}>
+        <Form onSubmit={onSubmit}>
+          <Field name="Username">
+            <Label htmlFor="username">Username</Label>
+            <Input
+              autoComplete="username"
+              id="username"
+              type="text"
+              {...register('username')}
+            />
+            {errors.username && <Error>{errors.username?.message}</Error>}
           </Field>
-          <Field name="confirmPwd">
-            <FlexContainer alignItems="baseline" justifyContent="space-between">
-              <Label>Confirm Password</Label>
-              <Message match="valueMissing">Please confirm password.</Message>
-              <Message match={value => value !== passwordValue}>
-                Passwords do not match.
-              </Message>
-            </FlexContainer>
-            <Control asChild>
+          <Field name="Email">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              autoComplete="email"
+              id="email"
+              type="email"
+              {...register('email')}
+            />
+            {errors.email && <Error>{errors.email?.message}</Error>}
+          </Field>
+          <FlexContainer gap="20px">
+            <Field name="Password">
+              <Label htmlFor="password">Password</Label>
               <Input
+                id="password"
                 type="password"
-                defaultValue=""
                 autoComplete="new-password"
-                onChange={value => setPasswordValue(value.target.textContent!)}
-                required
+                {...register('password')}
               />
-            </Control>
-          </Field>
-        </FlexContainer>
-        <Container justifySelf="center">
-          <Submit asChild>
+              {errors.password && <Error>{errors.password?.message}</Error>}
+            </Field>
+            <Field name="ConfirmPassword">
+              <Label htmlFor="confirmPassword">Confirm password</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                autoComplete="new-password"
+                {...register('confirmPassword', {
+                  validate: val => {
+                    if (passwordWatch && passwordWatch.valueOf() !== val) {
+                      return 'Password should match';
+                    }
+                    return true;
+                  },
+                })}
+              />
+              {errors.confirmPassword && (
+                <Error>{errors.confirmPassword?.message}</Error>
+              )}
+            </Field>
+          </FlexContainer>
+          <FlexContainer justifyContent="center">
             <Button
               style={{
                 marginTop: 10,
                 width: '150px',
                 height: '25px',
               }}
+              type="submit"
             >
               Register
             </Button>
-          </Submit>
-        </Container>
-      </FormRoot>
+          </FlexContainer>
+        </Form>
+      </section>
     </FlexContainer>
   );
 };

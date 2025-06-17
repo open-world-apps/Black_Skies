@@ -2743,6 +2743,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/validator@npm:^13":
+  version: 13.15.2
+  resolution: "@types/validator@npm:13.15.2"
+  checksum: 10c0/2c7ce5b745e2c856d0ecd193469cf0edd5081b17208dfab4f03dd5801b8893dcf4cbcfcb662c2b6a42032940effd33e16a56a7eba9e2776b1804111118e320dc
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:8.34.0, @typescript-eslint/eslint-plugin@npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
   version: 8.34.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.34.0"
@@ -3444,6 +3451,7 @@ __metadata:
     "@types/node": "npm:^22.15.20"
     "@types/react": "npm:^19.1.4"
     "@types/react-dom": "npm:^19.1.5"
+    "@types/validator": "npm:^13"
     "@yarnpkg/pnpify": "npm:^4.1.5"
     axios: "npm:^1.10.0"
     bcrypt: "npm:^6.0.0"
@@ -3470,6 +3478,7 @@ __metadata:
     server-only: "npm:^0.0.1"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.32.1"
+    validator: "npm:^13.15.15"
     yup: "npm:^1.6.1"
   languageName: unknown
   linkType: soft
@@ -7663,6 +7672,13 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10c0/bcbb807a917d374a49f475fae2e87fdca7da5e5530820ef53f65ba1d12131bd81a92ecf259cc7ce317cbe0f289e7d79fdfebcef9bfa3087c8c8a2fa304c9be54
+  languageName: node
+  linkType: hard
+
+"validator@npm:^13.15.15":
+  version: 13.15.15
+  resolution: "validator@npm:13.15.15"
+  checksum: 10c0/f5349d1fbb9cc36f9f6c5dab1880764ddad1d0d2b084e2a71e5964f7de1635d20e406611559df9a3db24828ce775cbee5e3b6dd52f0d555a61939ed7ea5990bd
   languageName: node
   linkType: hard
 
