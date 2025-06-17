@@ -17,22 +17,22 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-      <html lang="en">
-        <head>
-          <style
-            id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssText() }}
-          />
-        </head>
-        <body>
-          <StitchesRegistry>
+      <StitchesRegistry>
+        <html lang="en">
+          <head>
+            <style
+              id="stitches"
+              dangerouslySetInnerHTML={{ __html: getCssText() }}
+            />
+          </head>
+          <body>
             <header>
               <Header />
             </header>
             {children}
-          </StitchesRegistry>
-        </body>
-      </html>
+          </body>
+        </html>
+      </StitchesRegistry>
     </StoreProvider>
   );
 }

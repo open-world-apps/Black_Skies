@@ -25,11 +25,15 @@ interface Props {
   justifySelf?: string;
   top?: '0' | Size;
   zIndex?: number;
+  border?: string;
+  borderRadius?: Size;
+  boxShadow?: string;
 }
 
 const FlexContainer = ({
   children,
   background,
+  boxShadow,
   height,
   width,
   position,
@@ -47,6 +51,8 @@ const FlexContainer = ({
   justifySelf,
   top,
   zIndex,
+  border,
+  borderRadius,
 }: Props) => {
   const className = css({
     background,
@@ -64,52 +70,16 @@ const FlexContainer = ({
     alignSelf,
     justifySelf,
     display: 'flex',
+    border,
+    position,
+    borderRadius,
+    boxShadow,
     ...(!!overflowHidden && { overflow: 'hidden' }),
     ...(!!inline && { display: 'inline-flex' }),
     ...(!!column && { flexDirection: 'column' }),
-    ...(!!position && { position: position }),
   })();
 
   return <div className={className}>{children}</div>;
 };
-
-/* const FlexContainer = styled.div<Props>`
-  display: flex;
-  ${({ $position }) => $position && `position: ${$position};`}
-  ${({ $top }) => $top && `top: ${$top};`}
-  ${({ $zIndex }) => $zIndex && `z-index: ${$zIndex};`}
-  ${({ $background }) => $background && `background: ${$background};`}
-  ${({ $inline }) => $inline && 'display: inline-flex;'}
-  ${({ $column }) => $column && 'flex-direction: column;'}
-  ${({ $row }) => $row && 'flex-direction: row;'}
-  align-self: ${({ $alignSelf }) => $alignSelf ?? 'initial'};
-  justify-self: ${({ $justifySelf }) => $justifySelf ?? 'initial'};
-  gap: ${({ $gap: gap }) => gap ?? 'initial'};
-  row-gap: ${({ $rowGap }) => $rowGap ?? 'initial'};
-  column-gap: ${({ $colGap }) => $colGap ?? 'initial'};
-  height: ${({ height }) => height ?? 'initial'};
-  width: ${({ width }) => width ?? 'initial'};
-  justify-content: ${({ $justifyContent }) => $justifyContent ?? 'initial'};
-  align-items: ${({ $alignItems }) => $alignItems ?? 'initial'};
-  padding: ${({ $padding }) => $padding ?? '0px'};
-  margin: ${({ $margin }) => $margin ?? '0px'};
-  ${({ $overflowHidden }) => $overflowHidden && 'overflow: hidden;'};
-`;
-
-interface BorderProps {
-  $border?: string;
-  $borderR?: string;
-  $borderL?: string;
-  $borderT?: string;
-  $borderB?: string;
-}
-
-export const BorderedFlex = styled(FlexContainer)<BorderProps>`
-  ${({ $border }) => $border && `border: ${$border}`};
-  ${({ $borderR }) => $borderR && `border: ${$borderR}`};
-  ${({ $borderL }) => $borderL && `border: ${$borderL}`};
-  ${({ $borderT }) => $borderT && `border: ${$borderT}`};
-  ${({ $borderB }) => $borderB && `border: ${$borderB}`};
-`; */
 
 export default FlexContainer;

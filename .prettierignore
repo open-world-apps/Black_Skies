@@ -6,3 +6,4 @@ coverage
 .vscode
 node_modules
 .pnp.*
+*.yml
