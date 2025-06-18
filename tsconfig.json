@@ -18,8 +18,8 @@
       }
     ],
     "paths": {
+      "ui/*": ["./src/app/_ui/*"],
       "@/*": ["./src/*"],
-      "auth": ["./auth"]
     },
     "target": "ES2017"
   },

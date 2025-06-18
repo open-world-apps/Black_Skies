@@ -16,11 +16,10 @@ export const authOptions: AuthOptions = {
     Credentials({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'Username' },
+        username: { label: 'Username', type: 'text' },
         password: {
           label: 'Password',
           type: 'password',
-          placeholder: '*********',
         },
       },
       async authorize(credentials, req) {
@@ -57,14 +56,19 @@ export const authOptions: AuthOptions = {
           credentials.password,
           user.hashedPwd
         );
+
         if (!isValid) return null;
 
-        return user;
+        return {
+          id: user.id,
+          name: user.username,
+          email: user.email,
+        };
       },
     }),
   ],
   session: { strategy: 'jwt' },
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user, account }) {
       if (user) {
@@ -77,12 +81,13 @@ export const authOptions: AuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      session.user = {
-        ...session.user!,
-        accessToken: token.accessToken as string | undefined,
-      };
+      session.user.id = token.id;
 
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url;
+      return baseUrl;
     },
   },
 };
