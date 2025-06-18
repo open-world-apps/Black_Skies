@@ -6,15 +6,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-import Field from '../atoms/generic/forms/Field';
-import FlexContainer from '../atoms/generic/FlexContainer';
-import Input from '../atoms/generic/forms/Input';
-import Label from '../atoms/generic/forms/Label';
-import Button from '../atoms/generic/forms/Button';
+import Field from 'ui/atoms/generic/forms/Field';
+import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import Input from 'ui/atoms/generic/forms/Input';
+import Label from 'ui/atoms/generic/forms/Label';
+import Button from 'ui/atoms/generic/forms/Button';
 
-import schema from '@/lib/utils/formSchema';
-import Form from '../atoms/generic/forms/Form';
-import Error from '../atoms/generic/forms/Error';
+import userRegSchema from '@/lib/schemas/yup/userRegSchema';
+import Form from 'ui/atoms/generic/forms/Form';
+import Error from 'ui/atoms/generic/forms/Error';
 
 type FormInput = {
   username: string;
@@ -31,7 +31,7 @@ export const RegistrationForm: FC = (): ReactElement => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInput>({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(userRegSchema),
     mode: 'onChange',
   });
 
@@ -47,13 +47,13 @@ export const RegistrationForm: FC = (): ReactElement => {
 
     const res = await axios({
       method: 'post',
-      url: '/auth/register',
+      url: '/profile/create',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       data: formData,
     });
 
     if (res.data.success) {
-      router.push('/');
+      router.push('/auth/login');
     }
   });
 

@@ -1,13 +1,11 @@
-import NextAuth from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma/prisma';
-import Discord from 'next-auth/providers/discord';
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import NextAuth, { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Discord from 'next-auth/providers/discord';
 import bcrypt from 'bcrypt';
 
-import 'next-auth/jwt';
-
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: AuthOptions = {
   debug: !!process.env.AUTH_DEBUG,
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -18,11 +16,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Credentials({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'Username' },
+        username: { label: 'Username', type: 'text' },
         password: {
           label: 'Password',
           type: 'password',
-          placeholder: '*********',
         },
       },
       async authorize(credentials, req) {
@@ -59,14 +56,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           credentials.password,
           user.hashedPwd
         );
+
         if (!isValid) return null;
 
-        return user;
+        return {
+          id: user.id,
+          name: user.username,
+          email: user.email,
+        };
       },
     }),
   ],
   session: { strategy: 'jwt' },
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user, account }) {
       if (user) {
@@ -79,12 +81,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user = {
-        ...session.user!,
-        accessToken: token.accessToken as string | undefined,
-      };
+      session.user.id = token.id;
 
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url;
+      return baseUrl;
+    },
   },
-});
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

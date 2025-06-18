@@ -1,7 +1,7 @@
 import { object, string, ref } from 'yup';
 import isEmail from 'validator/lib/isEmail';
 
-const schema = object().shape({
+const userRegSchema = object().shape({
   username: string()
     .test(
       'not-an-email',
@@ -34,4 +34,4 @@ const schema = object().shape({
     .required('Email is required.'),
 });
 
-export default schema;
+export default userRegSchema;
