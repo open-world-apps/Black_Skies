@@ -8,6 +8,7 @@ const AvatarImage = styled(Avatar.Image, {
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit',
+  zIndex: '2000'
 });
 
 export default AvatarImage;

@@ -44,7 +44,6 @@ const LoginForm: FC = (): ReactElement => {
       password,
       redirect: false,
     });
-    console.log(res);
 
     if (res?.error) console.log('You have failed me for the last time.');
     else if (res?.ok) {

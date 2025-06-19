@@ -2,10 +2,12 @@
 
 import { css } from '@/lib/configs/stitches.config';
 import { ContainerSizing } from '@/lib/types';
+import isColor from '@/lib/validators/isColor';
 import React, { ReactNode } from 'react';
 
 interface Props {
   display?: 'block' | 'inline' | 'inline block';
+  color?: string;
   height?: ContainerSizing;
   width?: ContainerSizing;
   border?: string;
@@ -23,6 +25,7 @@ const Container = ({
   height = 'fit-content',
   width = 'fit-content',
   background,
+  color,
   margin,
   border,
   padding,
@@ -39,6 +42,7 @@ const Container = ({
     border,
     alignSelf,
     justifySelf,
+    color: (isColor(color) && color) || 'initial',
   })();
 
   return <div className={className}>{children}</div>;
