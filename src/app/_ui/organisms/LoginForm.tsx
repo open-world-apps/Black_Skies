@@ -6,15 +6,12 @@ import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Error from 'ui/atoms/generic/forms/Error';
-import Field from 'ui/atoms/generic/forms/Field';
-import Form from 'ui/atoms/generic/forms/Form';
-import Label from 'ui/atoms/generic/forms/Label';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import Form from 'ui/primitives/form/Form';
+import FlexContainer from 'ui/primitives/FlexContainer';
 import Button from 'ui/atoms/generic/forms/Button';
-import Input from 'ui/atoms/generic/forms/Input';
 
 import signInSchema from '@/lib/schemas/yup/signInSchema';
+import Field from 'ui/molecules/form/Field';
 
 type FormInput = {
   username: string;
@@ -44,13 +41,13 @@ const LoginForm: FC = (): ReactElement => {
       password,
       redirect: false,
     });
-    console.log(res);
 
     if (res?.error) console.log('You have failed me for the last time.');
     else if (res?.ok) {
       router.push('/');
     }
   });
+
   return (
     <FlexContainer
       border="1px solid gray"
@@ -61,26 +58,22 @@ const LoginForm: FC = (): ReactElement => {
     >
       <section style={{ width: '100%' }}>
         <Form onSubmit={onSubmit}>
-          <Field name="Username">
-            <Label htmlFor="username">Username</Label>
-            <Input
-              autoComplete="username"
-              id="username"
-              type="text"
-              {...register('username')}
-            />
-            {errors.username && <Error>{errors.username?.message}</Error>}
-          </Field>
-          <Field name="password">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              autoComplete="current-password"
-              id="password"
-              type="password"
-              {...register('password')}
-            />
-            {errors.password && <Error>{errors.password?.message}</Error>}
-          </Field>
+          <Field
+            name="Username"
+            label="username"
+            autoComplete="username"
+            type="text"
+            register={register('username')}
+            errors={errors.username}
+          />
+          <Field
+            name="Password"
+            label="password"
+            autoComplete="password"
+            type="password"
+            register={register('password')}
+            errors={errors.password}
+          />
           <FlexContainer justifyContent="center">
             <Button
               style={{

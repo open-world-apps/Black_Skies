@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import FlexContainer from 'ui/primitives/FlexContainer';
 import LoginForm from 'ui/organisms/LoginForm';
 
 const Login: FC = (): ReactElement => {

@@ -6,15 +6,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-import Field from 'ui/atoms/generic/forms/Field';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
-import Input from 'ui/atoms/generic/forms/Input';
-import Label from 'ui/atoms/generic/forms/Label';
+import FlexContainer from 'ui/primitives/FlexContainer';
 import Button from 'ui/atoms/generic/forms/Button';
+import Form from 'ui/primitives/form/Form';
+import Field from 'ui/molecules/form/Field';
 
 import userRegSchema from '@/lib/schemas/yup/userRegSchema';
-import Form from 'ui/atoms/generic/forms/Form';
-import Error from 'ui/atoms/generic/forms/Error';
 
 type FormInput = {
   username: string;
@@ -67,56 +64,46 @@ export const RegistrationForm: FC = (): ReactElement => {
     >
       <section style={{ width: '100%' }}>
         <Form onSubmit={onSubmit}>
-          <Field name="Username">
-            <Label htmlFor="username">Username</Label>
-            <Input
-              autoComplete="username"
-              id="username"
-              type="text"
-              {...register('username')}
-            />
-            {errors.username && <Error>{errors.username?.message}</Error>}
-          </Field>
-          <Field name="Email">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              autoComplete="email"
-              id="email"
-              type="email"
-              {...register('email')}
-            />
-            {errors.email && <Error>{errors.email?.message}</Error>}
-          </Field>
+          <Field
+            name="Username"
+            label="username"
+            autoComplete="username"
+            type="text"
+            register={register('username')}
+            errors={errors.username}
+          />
+          <Field
+            name="Email"
+            label="email"
+            autoComplete="email"
+            type="text"
+            register={register('email')}
+            errors={errors.email}
+          />
           <FlexContainer gap="20px">
-            <Field name="Password">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                autoComplete="new-password"
-                {...register('password')}
-              />
-              {errors.password && <Error>{errors.password?.message}</Error>}
-            </Field>
-            <Field name="ConfirmPassword">
-              <Label htmlFor="confirmPassword">Confirm password</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                autoComplete="new-password"
-                {...register('confirmPassword', {
-                  validate: val => {
-                    if (passwordWatch && passwordWatch.valueOf() !== val) {
-                      return 'Password should match';
-                    }
-                    return true;
-                  },
-                })}
-              />
-              {errors.confirmPassword && (
-                <Error>{errors.confirmPassword?.message}</Error>
-              )}
-            </Field>
+            <Field
+              name="Password"
+              label="password"
+              autoComplete="new-password"
+              type="password"
+              register={register('password')}
+              errors={errors.password}
+            />
+            <Field
+              name="ConfirmPassword"
+              label="confirm password"
+              autoComplete="off"
+              type="password"
+              register={register('confirmPassword', {
+                validate: val => {
+                  if (passwordWatch && passwordWatch.valueOf() !== val) {
+                    return 'Password should match';
+                  }
+                  return true;
+                },
+              })}
+              errors={errors.confirmPassword}
+            />
           </FlexContainer>
           <FlexContainer justifyContent="center">
             <Button
