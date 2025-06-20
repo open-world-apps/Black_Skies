@@ -2,7 +2,7 @@
 
 import React, { FC, ReactElement } from 'react';
 import SLink from '../atoms/generic/SLink';
-import FlexContainer from '../atoms/generic/FlexContainer';
+import FlexContainer from '../primitives/FlexContainer';
 import Divider from '../atoms/generic/Divider';
 
 const NavLinks: FC = (): ReactElement => {

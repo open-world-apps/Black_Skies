@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { RegistrationForm as Form } from '../organisms/RegistrationForm';
-import FlexContainer from '../atoms/generic/FlexContainer';
+import FlexContainer from '../primitives/FlexContainer';
 
 const RegistrationForm: FC = (): ReactElement => {
   return (
