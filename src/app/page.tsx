@@ -3,11 +3,14 @@ import FlexContainer from 'ui/primitives/FlexContainer';
 import Container from 'ui/primitives/Container';
 import Title from '@/app/_ui/atoms/generic/Title';
 import RTButton from '@/app/_ui/atoms/generic/RTButton';
+import Dialog from 'ui/organisms/Dialog';
 
 const Home: FC = (): ReactElement => {
+
   return (
     <>
       <main>
+        <Dialog />
         <FlexContainer height="100vh" column>
           <FlexContainer
             height="100%"

@@ -1,5 +1,5 @@
 import { styled } from '@/lib/configs/stitches.config';
-import { green, violet } from '@radix-ui/colors';
+import { gray, green, violet } from '@radix-ui/colors';
 
 const Button = styled('button', {
   display: 'inline-flex',
@@ -12,6 +12,8 @@ const Button = styled('button', {
   fontWeight: 500,
   height: '35px',
   userSelect: 'none',
+  border: 'none',
+  outline: 'none',
 
   '&:focus:not(:focus-visible)': {
     outline: 0,
@@ -27,6 +29,27 @@ const Button = styled('button', {
   },
   '&.green:hover': {
     background: green.green5,
+  },
+  '&.icon': {
+    all: 'unset',
+    fontFamily: 'inherit',
+    borderRadius: '100%',
+    height: '25px',
+    width: '25px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: violet.violet11,
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    backgroundColor: gray.gray3,
+  },
+  '&.icon:hover': {
+    backgroundColor: violet.violet4,
+  },
+  '&.icon:focus': {
+    boxShadow: `0 0 0 2px ${violet.violet7}`,
   },
 });
 

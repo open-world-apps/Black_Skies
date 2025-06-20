@@ -4,7 +4,9 @@ import { styled } from '@/lib/configs/stitches.config';
 import { violet } from '@radix-ui/colors';
 
 const Input = styled('input', {
+  all: 'unset',
   width: '100%',
+  flex: '1',
   height: '35px',
   display: 'inline-flex',
   alignItems: 'center',
@@ -18,6 +20,9 @@ const Input = styled('input', {
 
   '&.flex': {
     flex: 1,
+  },
+  '&:focus': {
+    boxShadow: `0 0 0 2px ${violet.violet8}`
   }
 });
 

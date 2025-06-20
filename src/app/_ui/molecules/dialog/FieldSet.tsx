@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import Label from 'ui/atoms/generic/forms/Label';
+import Label from 'ui/atoms/generic/dialog/Label';
 import Input from 'ui/atoms/generic/Input';
 import { FieldSet as FSet } from 'ui/primitives/dialog/FieldSet';
 

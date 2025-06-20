@@ -2,7 +2,7 @@ type CSSDefaults = 'initial' | 'inherit';
 
 export type CSSUnit = 'px' | '%' | 'vw' | 'vh' | 'pt' | 'pc';
 
-export type Size = `${number}${CSSUnit}` | CSSDefaults;
+export type Size = `${number}${CSSUnit}` | `${number}` | CSSDefaults;
 
 export type ContainerSizing =
   | `${number}${CSSUnit}`

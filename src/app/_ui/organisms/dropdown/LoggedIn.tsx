@@ -10,6 +10,7 @@ const LoggedIn: FC<LoggedInProps> = ({ router }): ReactElement => (
   <>
     <Item onClick={() => router.push('/auth/login')}>Profile</Item>
     <Item onClick={() => router.push('/auth/register')}>Settings</Item>
+    <Item onClick={() => router.push('/auth/logout')}>Logout</Item>
     <Item>Player Support</Item>
   </>
 );
