@@ -66,7 +66,7 @@ export const RegistrationForm: FC = (): ReactElement => {
         <Form onSubmit={onSubmit}>
           <Field
             name="Username"
-            label="username"
+            label="Username"
             autoComplete="username"
             type="text"
             register={register('username')}
@@ -74,7 +74,7 @@ export const RegistrationForm: FC = (): ReactElement => {
           />
           <Field
             name="Email"
-            label="email"
+            label="Email"
             autoComplete="email"
             type="text"
             register={register('email')}
@@ -83,7 +83,7 @@ export const RegistrationForm: FC = (): ReactElement => {
           <FlexContainer gap="20px">
             <Field
               name="Password"
-              label="password"
+              label="Password"
               autoComplete="new-password"
               type="password"
               register={register('password')}
@@ -91,7 +91,7 @@ export const RegistrationForm: FC = (): ReactElement => {
             />
             <Field
               name="ConfirmPassword"
-              label="confirm password"
+              label="Confirm password"
               autoComplete="off"
               type="password"
               register={register('confirmPassword', {

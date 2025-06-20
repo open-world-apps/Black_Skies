@@ -18,8 +18,15 @@ interface Props {
   gap?: Size;
   rowGap?: Size;
   colGap?: Size;
-  margin?: string;
-  padding?: Size;
+  margin?:
+    | Size
+    | `${Size} ${Size}`
+    | `${Size} ${Size} ${Size}`
+    | `${Size} ${Size} ${Size} ${Size}`
+    | number;
+  marginTop?: Size | number;
+  marginBottom?: Size | number;
+  padding?: Size | number;
   overflowHidden?: boolean;
   alignSelf?: string;
   justifySelf?: string;
@@ -45,6 +52,8 @@ const FlexContainer = ({
   rowGap,
   colGap,
   margin = '0px',
+  marginBottom,
+  marginTop,
   padding = '0px',
   overflowHidden,
   alignSelf,
@@ -58,6 +67,8 @@ const FlexContainer = ({
     background,
     padding,
     margin,
+    marginTop,
+    marginBottom,
     height,
     width,
     top,
