@@ -1,18 +1,22 @@
 import React, { ComponentProps, FC, ReactElement } from 'react';
-import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import Error from 'ui/atoms/generic/forms/Error';
 import Input from 'ui/atoms/generic/Input';
 import Label from 'ui/atoms/generic/forms/Label';
-import StyledField from 'ui/primitives/form/StyledField';
+import StyledField from 'ui/atoms/generic/forms/StyledField';
+
+import { type FieldInputs } from '@/lib/types';
+import fieldSchema from '@/lib/schemas/yup/userRegSchema';
 
 type FieldProps = {
   label: string;
   type?: React.HTMLInputTypeAttribute;
   autoComplete?: React.HTMLInputAutoCompleteAttribute;
   inputStyle?: string;
-  errors?: FieldError;
-  register: UseFormRegisterReturn<string>;
+  registerType: 'username' | 'email';
 } & ComponentProps<typeof StyledField>;
 
 const Field: FC<FieldProps> = ({
@@ -20,10 +24,17 @@ const Field: FC<FieldProps> = ({
   type,
   autoComplete,
   inputStyle,
-  register,
-  errors,
+  registerType,
   ...props
 }): ReactElement => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm<FieldInputs>({
+    resolver: yupResolver(fieldSchema),
+    mode: 'onChange',
+  });
+
   const id = label
     .toLowerCase()
     .replace(/[^a-zA-Z0-9 ]/g, '')
@@ -40,9 +51,9 @@ const Field: FC<FieldProps> = ({
         autoComplete={autoComplete}
         id={id}
         type={type}
-        {...register}
+        {...register(registerType)}
       />
-      {errors && <Error>{errors?.message}</Error>}
+      {errors && <Error>{errors[registerType]?.message}</Error>}
     </StyledField>
   );
 };

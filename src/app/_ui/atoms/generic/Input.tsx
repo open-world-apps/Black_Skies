@@ -6,7 +6,6 @@ import { violet } from '@radix-ui/colors';
 const Input = styled('input', {
   all: 'unset',
   width: '100%',
-  flex: '1',
   height: '35px',
   display: 'inline-flex',
   alignItems: 'center',

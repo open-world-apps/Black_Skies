@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
-import FlexContainer from '../primitives/FlexContainer';
+import FlexContainer from '../atoms/generic/FlexContainer';
 import NavLinks from '../molecules/NavLinks';
-import Container from '../primitives/Container';
+import Container from '../atoms/generic/Container';
 import CharStats from '../molecules/CharStats';
 import DropDown from './Dropdown';
 

@@ -1,7 +1,12 @@
-import React, { FC, ReactElement } from 'react';
+import { LoginInputs } from '@/lib/types';
+import React, {
+  FC,
+  ReactElement,
+} from 'react';
+import { FieldError, UseFormRegister } from 'react-hook-form';
 import Label from 'ui/atoms/generic/dialog/Label';
 import Input from 'ui/atoms/generic/Input';
-import { FieldSet as FSet } from 'ui/primitives/dialog/FieldSet';
+import { FieldSet as FSet } from 'ui/atoms/generic/dialog/FieldSet';
 
 type FieldSetProps = {
   label: string;
@@ -9,6 +14,10 @@ type FieldSetProps = {
   type?: React.HTMLInputTypeAttribute;
   variant?: 'flex1';
   defaultValue?: string;
+  registerValue: 'username' | 'password';
+  errors?: FieldError;
+  register: UseFormRegister<LoginInputs>;
+  setState: React.Dispatch<React.SetStateAction<string>>;
 } & React.ComponentProps<typeof FSet>;
 
 const FieldSet: FC<FieldSetProps> = ({
@@ -17,6 +26,9 @@ const FieldSet: FC<FieldSetProps> = ({
   autoComplete,
   variant,
   type,
+  setState,
+  register,
+  registerValue,
   ...props
 }): ReactElement => {
   const id = label
@@ -37,6 +49,11 @@ const FieldSet: FC<FieldSetProps> = ({
         autoComplete={autoComplete}
         defaultValue={defaultValue}
         placeholder={label}
+        {...register(registerValue, {
+          onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+            setState(e.target.value);
+          },
+        })}
         required
       />
     </FSet>

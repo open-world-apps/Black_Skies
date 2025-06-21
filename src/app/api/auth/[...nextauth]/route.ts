@@ -4,6 +4,7 @@ import NextAuth, { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Discord from 'next-auth/providers/discord';
 import bcrypt from 'bcrypt';
+import 'dotenv/config';
 
 export const authOptions: AuthOptions = {
   debug: !!process.env.AUTH_DEBUG,
@@ -89,7 +90,7 @@ export const authOptions: AuthOptions = {
       if (url.startsWith(baseUrl)) return url;
       return baseUrl;
     },
-  },
+  }
 };
 
 const handler = NextAuth(authOptions);

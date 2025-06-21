@@ -3,7 +3,7 @@
 import React, { FC, ReactElement } from 'react';
 import CharStat from '../atoms/game/CharStat';
 import Divider from '../atoms/generic/Divider';
-import FlexContainer from '../primitives/FlexContainer';
+import FlexContainer from '../atoms/generic/FlexContainer';
 import Span from '../atoms/generic/Span';
 import SLink from '../atoms/generic/SLink';
 import { formatCurrency } from '@/lib/convertors/money';

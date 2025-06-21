@@ -1,7 +1,7 @@
 import { object, string, ref } from 'yup';
 import isEmail from 'validator/lib/isEmail';
 
-const userRegSchema = object().shape({
+export const fieldSchema = object().shape({
   username: string()
     .test(
       'not-an-email',
@@ -15,6 +15,16 @@ const userRegSchema = object().shape({
     .min(5, 'Must be at least 5 characters.')
     .max(30, 'Cannot contain more than 30 characters.')
     .required('A username is required.'),
+  email: string()
+    .test(
+      'is-valid',
+      msg => `${msg.path} is invalid.`,
+      val => isEmail(val!)
+    )
+    .required('Email is required.'),
+});
+
+export const passwordFieldSchema = object().shape({
   password: string()
     .matches(
       /^(?!.*(?:012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210|(\d)\1{2}))(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^&])[A-Za-z\d@$#^!&]{8,}$/,
@@ -25,13 +35,6 @@ const userRegSchema = object().shape({
   confirmPassword: string()
     .oneOf([ref('password')], 'Passwords must match.')
     .required('Password needs to be confirmed.'),
-  email: string()
-    .test(
-      'is-valid',
-      msg => `${msg.path} is invalid.`,
-      val => isEmail(val!)
-    )
-    .required('Email is required.'),
 });
 
-export default userRegSchema;
+export default fieldSchema;

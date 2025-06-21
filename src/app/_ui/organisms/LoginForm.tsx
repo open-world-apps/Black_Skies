@@ -6,12 +6,13 @@ import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Form from 'ui/primitives/form/Form';
-import FlexContainer from 'ui/primitives/FlexContainer';
+import Form from 'ui/atoms/generic/forms/Form';
+import FlexContainer from 'ui/atoms/generic/FlexContainer';
 import Button from 'ui/atoms/generic/forms/Button';
 
 import signInSchema from '@/lib/schemas/yup/signInSchema';
 import Field from 'ui/molecules/form/Field';
+import PasswordField from 'ui/molecules/form/PasswordField';
 
 type FormInput = {
   username: string;
@@ -19,11 +20,7 @@ type FormInput = {
 };
 
 const LoginForm: FC = (): ReactElement => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormInput>({
+  const { handleSubmit } = useForm<FormInput>({
     resolver: yupResolver(signInSchema),
     mode: 'onChange',
   });
@@ -42,8 +39,7 @@ const LoginForm: FC = (): ReactElement => {
       redirect: false,
     });
 
-    if (res?.error) console.log('You have failed me for the last time.');
-    else if (res?.ok) {
+    if (res?.ok) {
       router.push('/');
     }
   });
@@ -63,16 +59,14 @@ const LoginForm: FC = (): ReactElement => {
             label="username"
             autoComplete="username"
             type="text"
-            register={register('username')}
-            errors={errors.username}
+            registerType="username"
           />
-          <Field
+          <PasswordField
             name="Password"
             label="password"
             autoComplete="password"
             type="password"
-            register={register('password')}
-            errors={errors.password}
+            registerType="password"
           />
           <FlexContainer justifyContent="center">
             <Button

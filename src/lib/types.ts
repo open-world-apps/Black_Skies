@@ -4,6 +4,21 @@ export type CSSUnit = 'px' | '%' | 'vw' | 'vh' | 'pt' | 'pc';
 
 export type Size = `${number}${CSSUnit}` | `${number}` | CSSDefaults;
 
+export type LoginInputs = {
+  username: string;
+  password: string;
+};
+
+export type FieldInputs = {
+  username: string;
+  email: string;
+};
+
+export type PasswordFieldInputs = {
+  password: string;
+  confirmPassword: string;
+};
+
 export type ContainerSizing =
   | `${number}${CSSUnit}`
   | 'fit-content'

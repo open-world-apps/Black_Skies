@@ -1,43 +1,20 @@
 'use client';
 
-import React, { FC, ReactElement, useEffect } from 'react';
+import React, { FC, ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-import FlexContainer from 'ui/primitives/FlexContainer';
+import FlexContainer from 'ui/atoms/generic/FlexContainer';
 import Button from 'ui/atoms/generic/forms/Button';
-import Form from 'ui/primitives/form/Form';
+import Form from 'ui/atoms/generic/forms/Form';
 import Field from 'ui/molecules/form/Field';
-
-import userRegSchema from '@/lib/schemas/yup/userRegSchema';
-
-type FormInput = {
-  username: string;
-  password: string;
-  confirmPassword: string;
-  email: string;
-};
+import PasswordField from 'ui/molecules/form/PasswordField';
 
 export const RegistrationForm: FC = (): ReactElement => {
-  const {
-    register,
-    watch,
-    trigger,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormInput>({
-    resolver: yupResolver(userRegSchema),
-    mode: 'onChange',
-  });
+  const { handleSubmit } = useForm();
 
   const router = useRouter();
-  const passwordWatch = watch('password');
-
-  useEffect(() => {
-    trigger('confirmPassword');
-  }, [passwordWatch, trigger]);
 
   const onSubmit = handleSubmit(async (_, e) => {
     const formData = new FormData(e?.target);
@@ -56,69 +33,67 @@ export const RegistrationForm: FC = (): ReactElement => {
 
   return (
     <FlexContainer
-      border="1px solid gray"
-      borderRadius="25px"
-      padding="35px"
-      boxShadow="2px 2px 5px black"
-      width="40%"
+      position="fixed"
+      height="100vh"
+      width="100vw"
+      background="rgba(44, 42, 42, 0.9)"
+      justifyContent="center"
+      alignItems="center"
     >
-      <section style={{ width: '100%' }}>
-        <Form onSubmit={onSubmit}>
-          <Field
-            name="Username"
-            label="Username"
-            autoComplete="username"
-            type="text"
-            register={register('username')}
-            errors={errors.username}
-          />
-          <Field
-            name="Email"
-            label="Email"
-            autoComplete="email"
-            type="text"
-            register={register('email')}
-            errors={errors.email}
-          />
-          <FlexContainer gap="20px">
+      <FlexContainer
+        border="1px solid gray"
+        borderRadius="25px"
+        padding="35px"
+        boxShadow="2px 2px 5px black"
+        width="40%"
+      >
+        <section style={{ width: '100%' }}>
+          <Form onSubmit={onSubmit}>
             <Field
-              name="Password"
-              label="Password"
-              autoComplete="new-password"
-              type="password"
-              register={register('password')}
-              errors={errors.password}
+              name="Username"
+              label="Username"
+              autoComplete="username"
+              type="text"
+              registerType="username"
             />
             <Field
-              name="ConfirmPassword"
-              label="Confirm password"
-              autoComplete="off"
-              type="password"
-              register={register('confirmPassword', {
-                validate: val => {
-                  if (passwordWatch && passwordWatch.valueOf() !== val) {
-                    return 'Password should match';
-                  }
-                  return true;
-                },
-              })}
-              errors={errors.confirmPassword}
+              name="Email"
+              label="Email"
+              autoComplete="email"
+              type="text"
+              registerType="email"
             />
-          </FlexContainer>
-          <FlexContainer justifyContent="center">
-            <Button
-              style={{
-                marginTop: 10,
-                width: '150px',
-                height: '25px',
-              }}
-              type="submit"
-            >
-              Register
-            </Button>
-          </FlexContainer>
-        </Form>
-      </section>
+            <FlexContainer gap="20px">
+              <PasswordField
+                name="Password"
+                label="Password"
+                autoComplete="new-password"
+                type="password"
+                registerType="password"
+              />
+              <PasswordField
+                name="ConfirmPassword"
+                label="Confirm password"
+                autoComplete="off"
+                type="password"
+                registerType="confirmPassword"
+              />
+            </FlexContainer>
+            <FlexContainer justifyContent="center">
+              <Button
+                style={{
+                  marginTop: 10,
+                  width: '150px',
+                  height: '25px',
+                }}
+                type="submit"
+              >
+                Register
+              </Button>
+            </FlexContainer>
+          </Form>
+        </section>
+      </FlexContainer>
     </FlexContainer>
   );
 };

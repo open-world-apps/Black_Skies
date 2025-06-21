@@ -1,18 +1,55 @@
-import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+'use client';
+
+import { useAppDispatch } from '@/lib/state/app/hooks';
+import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
+import { signOut } from 'next-auth/react';
 import React, { FC, ReactElement } from 'react';
 import Item from 'ui/atoms/generic/dropdown/Item';
 
 interface LoggedInProps {
-  router: AppRouterInstance;
+  closeMenu: ActionCreatorWithoutPayload<'menu/close'>;
 }
 
-const LoggedIn: FC<LoggedInProps> = ({ router }): ReactElement => (
-  <>
-    <Item onClick={() => router.push('/auth/login')}>Profile</Item>
-    <Item onClick={() => router.push('/auth/register')}>Settings</Item>
-    <Item onClick={() => router.push('/auth/logout')}>Logout</Item>
-    <Item>Player Support</Item>
-  </>
-);
+const LoggedIn: FC<LoggedInProps> = ({ closeMenu }): ReactElement => {
+  const dispatch = useAppDispatch();
+
+  return (
+    <>
+      <Item
+        onSelect={e => {
+          e.preventDefault();
+          dispatch(closeMenu());
+        }}
+      >
+        Profile
+      </Item>
+      <Item
+        onSelect={e => {
+          e.preventDefault();
+          dispatch(closeMenu());
+        }}
+      >
+        Settings
+      </Item>
+      <Item
+        onSelect={e => {
+          e.preventDefault();
+          dispatch(closeMenu());
+          signOut()
+        }}
+      >
+        Logout
+      </Item>
+      <Item
+        onSelect={e => {
+          e.preventDefault();
+          dispatch(closeMenu());
+        }}
+      >
+        Support
+      </Item>
+    </>
+  );
+};
 
 export default LoggedIn;
