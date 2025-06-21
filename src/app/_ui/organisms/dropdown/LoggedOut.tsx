@@ -3,6 +3,7 @@
 import { useAppDispatch } from '@/lib/state/app/hooks';
 import { open } from '@/lib/state/reducers/menus/dialogSlice';
 import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
+import { useRouter } from 'next/navigation';
 import React, { FC, ReactElement } from 'react';
 import Item from 'ui/atoms/generic/dropdown/Item';
 
@@ -12,6 +13,7 @@ interface LoggedOutProps {
 
 const LoggedOut: FC<LoggedOutProps> = ({ closeMenu }): ReactElement => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   return (
     <>
@@ -27,8 +29,8 @@ const LoggedOut: FC<LoggedOutProps> = ({ closeMenu }): ReactElement => {
       <Item
         onSelect={e => {
           e.preventDefault();
-          dispatch(open());
           dispatch(closeMenu());
+          router.push('/auth/register');
         }}
       >
         Register

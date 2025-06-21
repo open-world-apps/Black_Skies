@@ -11,7 +11,6 @@ const Input = styled('input', {
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '4px',
-  padding: '0 10px',
   fontSize: '15px',
   lineHeight: 1,
   color: violet.violet11,
@@ -21,8 +20,8 @@ const Input = styled('input', {
     flex: 1,
   },
   '&:focus': {
-    boxShadow: `0 0 0 2px ${violet.violet8}`
-  }
+    boxShadow: `0 0 0 2px ${violet.violet8}`,
+  },
 });
 
 export default Input;
