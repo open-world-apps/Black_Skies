@@ -16,7 +16,7 @@ datasource db {
 
 model User {
   id                String    @id @default(cuid())
-  ipAddr            String?    @db.VarChar(30)
+  ipAddr            String?   @db.VarChar(30)
   username          String    @db.VarChar(30) @unique
   hashedPwd         String?   @db.VarChar(100) @map("hashed_pwd")
   email             String    @unique
