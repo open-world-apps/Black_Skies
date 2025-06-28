@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn } from 'next-auth/react';
@@ -25,8 +25,6 @@ type FormInput = {
 };
 
 const Login: FC = (): ReactElement => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
 
   const {
@@ -38,11 +36,17 @@ const Login: FC = (): ReactElement => {
     mode: 'onChange',
   });
 
-  const onClick = handleSubmit(async (_, e) => {
+  const onEnter = (e?: React.KeyboardEvent) => {
+    if (e?.key === 'Enter') {
+      submitForm();
+    }
+  };
+
+  const submitForm = handleSubmit(async (data, e) => {
     e?.preventDefault();
     const res = await signIn('credentials', {
-      username,
-      password,
+      username: data.username,
+      password: data.password,
       redirect: false,
     });
     if (res?.ok) dispatch(close());
@@ -61,21 +65,21 @@ const Login: FC = (): ReactElement => {
             label="Username"
             register={register}
             registerValue="username"
-            setState={setUsername}
             errors={errors.username}
           />
           <FieldSet
             label="Password"
             register={register}
             registerValue="password"
-            setState={setPassword}
+            autoComplete="none"
             type="password"
+            action={onEnter}
             errors={errors.password}
           />
         </form>
         <FlexContainer marginTop={25} justifyContent="flex-end">
           <Close asChild>
-            <Button className="green" onClick={onClick}>
+            <Button className="green" onClick={submitForm}>
               Login
             </Button>
           </Close>

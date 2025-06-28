@@ -17,27 +17,29 @@ datasource db {
 model User {
   id                String    @id @default(cuid())
   ipAddr            String?   @db.VarChar(30)
-  username          String    @db.VarChar(30) @unique
+  name              String    @db.VarChar(30) @unique
+  nickname          String?   @db.VarChar(90)
   hashedPwd         String?   @db.VarChar(100) @map("hashed_pwd")
-  email             String    @unique
-  emailVerified     DateTime?
+  email             String?   @unique
+  emailVerified     DateTime? @map("email_verified")
   image             String?
   accounts          Account[]
   sessions          Session[]
-  // Optional for WebAuthn support
-  Authenticator Authenticator[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   bannedIP BannedIP? @relation(fields: [ipAddr], references: [ip], onDelete: Restrict, onUpdate: Cascade)
+
+  @@map("users")
 }
 
 model Account {
+  id                String    @id @default(cuid())
   userId            String    @map("user_id")
   type              String
   provider          String
-  providerAccountId String    @map("provider_account_id")
+  providerAccountId String    @map("provider_account_id") @default(cuid())
   refresh_token     String?
   access_token      String?
   expires_at        Int?
@@ -51,7 +53,8 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@id([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
 model Session {
@@ -63,6 +66,8 @@ model Session {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("sessions")
 }
 
 model VerificationToken {
@@ -70,23 +75,8 @@ model VerificationToken {
   token      String
   expires    DateTime
 
-  @@id([identifier, token])
-}
-
-// Optional for WebAuthn support
-model Authenticator {
-  credentialID         String  @unique
-  userId               String
-  providerAccountId    String
-  credentialPublicKey  String
-  counter              Int
-  credentialDeviceType String
-  credentialBackedUp   Boolean
-  transports           String?
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
-  @@id([userId, credentialID])
+  @@unique([identifier, token])
+  @@map("verification_tokens")
 }
 
 model BannedIP {

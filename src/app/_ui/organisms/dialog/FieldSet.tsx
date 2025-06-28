@@ -16,8 +16,8 @@ type FieldSetProps = {
   defaultValue?: string;
   registerValue: 'username' | 'password';
   errors?: FieldError;
+  action?: (e?: React.KeyboardEvent) => void
   register: UseFormRegister<LoginInputs>;
-  setState: React.Dispatch<React.SetStateAction<string>>;
 } & React.ComponentProps<typeof FSet>;
 
 const FieldSet: FC<FieldSetProps> = ({
@@ -26,7 +26,7 @@ const FieldSet: FC<FieldSetProps> = ({
   autoComplete,
   variant,
   type,
-  setState,
+  action,
   register,
   registerValue,
   ...props
@@ -49,11 +49,8 @@ const FieldSet: FC<FieldSetProps> = ({
         autoComplete={autoComplete}
         defaultValue={defaultValue}
         placeholder={label}
-        {...register(registerValue, {
-          onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-            setState(e.target.value);
-          },
-        })}
+        onKeyDown={action}
+        {...register(registerValue)}
         required
       />
     </FSet>

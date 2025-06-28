@@ -22,9 +22,6 @@ export const fieldSchema = object().shape({
       val => isEmail(val!)
     )
     .required('Email is required.'),
-});
-
-export const passwordFieldSchema = object().shape({
   password: string()
     .matches(
       /^(?!.*(?:012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210|(\d)\1{2}))(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#^&])[A-Za-z\d@$#^!&]{8,}$/,

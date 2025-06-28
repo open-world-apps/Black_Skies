@@ -1,7 +1,11 @@
 import React, { ComponentProps, FC, ReactElement } from 'react';
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  FieldErrors,
+  UseFormRegister,
+  UseFormTrigger,
+  UseFormWatch,
+} from 'react-hook-form';
 
 import Error from 'ui/atoms/generic/forms/Error';
 import Input from 'ui/atoms/generic/Input';
@@ -9,9 +13,12 @@ import Label from 'ui/atoms/generic/forms/Label';
 import StyledField from 'ui/atoms/generic/forms/StyledField';
 
 import { type FieldInputs } from '@/lib/types';
-import fieldSchema from '@/lib/schemas/yup/userRegSchema';
 
 type FieldProps = {
+  register: UseFormRegister<FieldInputs>;
+  watchFn?: UseFormWatch<FieldInputs>;
+  triggerFn?: UseFormTrigger<FieldInputs>;
+  errors?: FieldErrors<FieldInputs>;
   label: string;
   type?: React.HTMLInputTypeAttribute;
   autoComplete?: React.HTMLInputAutoCompleteAttribute;
@@ -20,6 +27,10 @@ type FieldProps = {
 } & ComponentProps<typeof StyledField>;
 
 const Field: FC<FieldProps> = ({
+  register,
+  watchFn,
+  triggerFn,
+  errors,
   label,
   type,
   autoComplete,
@@ -27,13 +38,6 @@ const Field: FC<FieldProps> = ({
   registerType,
   ...props
 }): ReactElement => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm<FieldInputs>({
-    resolver: yupResolver(fieldSchema),
-    mode: 'onChange',
-  });
 
   const id = label
     .toLowerCase()

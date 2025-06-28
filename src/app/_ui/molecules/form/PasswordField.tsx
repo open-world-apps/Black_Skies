@@ -2,48 +2,57 @@
 
 import React, { ComponentProps, FC, ReactElement, useEffect } from 'react';
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  FieldErrors,
+  UseFormClearErrors,
+  UseFormRegister,
+  UseFormTrigger,
+  UseFormWatch,
+} from 'react-hook-form';
 
 import Error from 'ui/atoms/generic/forms/Error';
 import Input from 'ui/atoms/generic/Input';
 import Label from 'ui/atoms/generic/forms/Label';
 import StyledField from 'ui/atoms/generic/forms/StyledField';
 
-import { type PasswordFieldInputs } from '@/lib/types';
-import { passwordFieldSchema } from '@/lib/schemas/yup/userRegSchema';
+import { type FieldInputs } from '@/lib/types';
 
 type FieldProps = {
+  register: UseFormRegister<FieldInputs>;
+  watchFn?: UseFormWatch<FieldInputs>;
+  triggerFn?: UseFormTrigger<FieldInputs>;
+  errors?: FieldErrors<FieldInputs>;
+  clearErrors?: UseFormClearErrors<FieldInputs>;
   label: string;
   type?: React.HTMLInputTypeAttribute;
   autoComplete?: React.HTMLInputAutoCompleteAttribute;
   inputStyle?: string;
-  registerType: 'password' | 'confirmPassword';
+  confirmPwd?: boolean;
 } & ComponentProps<typeof StyledField>;
 
 const PasswordField: FC<FieldProps> = ({
+  register,
+  watchFn,
+  triggerFn,
+  errors,
+  clearErrors,
   label,
   type,
   autoComplete,
   inputStyle,
-  registerType,
+  confirmPwd = false,
   ...props
 }): ReactElement => {
-  const {
-    register,
-    watch,
-    trigger,
-    formState: { errors },
-  } = useForm<PasswordFieldInputs>({
-    resolver: yupResolver(passwordFieldSchema),
-    mode: 'onChange',
-  });
-
-  const passwordValue = watch('password');
+  const passwordValue = watchFn && watchFn('password');
 
   useEffect(() => {
-    trigger('confirmPassword');
-  }, [passwordValue, trigger]);
+    if (triggerFn && passwordValue) {
+      triggerFn('confirmPassword');
+    } else if (!passwordValue && clearErrors) {
+      clearErrors('password');
+      clearErrors('confirmPassword');
+    }
+  }, [passwordValue]);
 
   const id = label
     .toLowerCase()
@@ -56,16 +65,16 @@ const PasswordField: FC<FieldProps> = ({
   return (
     <StyledField {...props}>
       <Label htmlFor={id}>{label}</Label>
-      {registerType === 'confirmPassword' ? (
+      {confirmPwd ? (
         <Input
           className={(inputStyle && inputStyle) || 'defaultInput'}
           autoComplete={autoComplete}
           id={id}
           type={type}
-          {...register(registerType, {
+          {...register('confirmPassword', {
             validate: val => {
               if (passwordValue && passwordValue.valueOf() !== val) {
-                return 'Password should match';
+                return 'Password must match';
               }
               return true;
             },
@@ -77,10 +86,14 @@ const PasswordField: FC<FieldProps> = ({
           autoComplete={autoComplete}
           id={id}
           type={type}
-          {...register(registerType)}
+          {...register('password')}
         />
       )}
-      {errors && <Error>{errors[registerType]?.message}</Error>}
+      {!confirmPwd ? (
+        <Error>{errors?.password?.message}</Error>
+      ) : (
+        <Error>{errors?.confirmPassword?.message}</Error>
+      )}
     </StyledField>
   );
 };

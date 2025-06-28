@@ -10,9 +10,22 @@ import Button from 'ui/atoms/generic/forms/Button';
 import Form from 'ui/atoms/generic/forms/Form';
 import Field from 'ui/molecules/form/Field';
 import PasswordField from 'ui/molecules/form/PasswordField';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { FieldInputs } from '@/lib/types';
+import fieldSchema from '@/lib/schemas/yup/userRegSchema';
 
 export const RegistrationForm: FC = (): ReactElement => {
-  const { handleSubmit } = useForm();
+  const {
+    register,
+    watch,
+    trigger,
+    handleSubmit,
+    formState: { errors },
+    clearErrors,
+  } = useForm<FieldInputs>({
+    resolver: yupResolver(fieldSchema),
+    mode: 'onChange',
+  });
 
   const router = useRouter();
 
@@ -27,7 +40,7 @@ export const RegistrationForm: FC = (): ReactElement => {
     });
 
     if (res.data.success) {
-      router.push('/auth/login');
+      router.push('/');
     }
   });
 
@@ -44,6 +57,7 @@ export const RegistrationForm: FC = (): ReactElement => {
         border="1px solid gray"
         borderRadius="25px"
         padding="35px"
+        background="rgb(44, 42, 42)"
         boxShadow="2px 2px 5px black"
         width="40%"
       >
@@ -54,6 +68,8 @@ export const RegistrationForm: FC = (): ReactElement => {
               label="Username"
               autoComplete="username"
               type="text"
+              register={register}
+              errors={errors}
               registerType="username"
             />
             <Field
@@ -61,6 +77,8 @@ export const RegistrationForm: FC = (): ReactElement => {
               label="Email"
               autoComplete="email"
               type="text"
+              register={register}
+              errors={errors}
               registerType="email"
             />
             <FlexContainer gap="20px">
@@ -69,14 +87,23 @@ export const RegistrationForm: FC = (): ReactElement => {
                 label="Password"
                 autoComplete="new-password"
                 type="password"
-                registerType="password"
+                register={register}
+                watchFn={watch}
+                triggerFn={trigger}
+                errors={errors}
+                clearErrors={clearErrors}
               />
               <PasswordField
                 name="ConfirmPassword"
                 label="Confirm password"
                 autoComplete="off"
                 type="password"
-                registerType="confirmPassword"
+                register={register}
+                watchFn={watch}
+                triggerFn={trigger}
+                errors={errors}
+                clearErrors={clearErrors}
+                confirmPwd
               />
             </FlexContainer>
             <FlexContainer justifyContent="center">
