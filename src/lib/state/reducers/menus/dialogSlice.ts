@@ -18,13 +18,13 @@ export const dialogSlice = createSlice({
   name: 'dialog',
   initialState,
   reducers: {
-    open: state => {
+    openDlg: state => {
       state.open = true;
     },
-    close: state => {
+    closeDlg: state => {
       state.open = false;
     },
-    gateKeeper: (state, action: PayloadAction<boolean>) => {
+    dlgGateKeeper: (state, action: PayloadAction<boolean>) => {
       state.open = action.payload;
     },
   },
@@ -32,6 +32,6 @@ export const dialogSlice = createSlice({
 
 export const selectMenuState = (state: RootState) => state.menu.open;
 
-export const { open, close, gateKeeper } = dialogSlice.actions;
+export const { openDlg, closeDlg, dlgGateKeeper } = dialogSlice.actions;
 
 export default dialogSlice.reducer;

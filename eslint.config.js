@@ -94,7 +94,7 @@ export default tseslint.config([
       'eol-last': ['error'],
       '@typescript-eslint/no-non-null-assertion': 0,
       '@typescript-eslint/no-var-requires': 0,
-      '@typescript-eslint/no-explicit-any': 0,
+      '@typescript-eslint/no-explicit-any': ['off'],
       'lines-between-class-members': 0,
       'max-classes-per-file': 0,
       'no-bitwise': 0,

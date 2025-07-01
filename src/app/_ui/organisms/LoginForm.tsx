@@ -13,14 +13,10 @@ import Button from 'ui/atoms/generic/forms/Button';
 import signInSchema from '@/lib/schemas/yup/signInSchema';
 import Field from 'ui/molecules/form/Field';
 import PasswordField from 'ui/molecules/form/PasswordField';
-
-type FormInput = {
-  username: string;
-  password: string;
-};
+import { type FieldInputs } from '@/lib/types';
 
 const LoginForm: FC = (): ReactElement => {
-  const { handleSubmit } = useForm<FormInput>({
+  const { handleSubmit, register } = useForm<FieldInputs>({
     resolver: yupResolver(signInSchema),
     mode: 'onChange',
   });
@@ -59,6 +55,7 @@ const LoginForm: FC = (): ReactElement => {
             label="username"
             autoComplete="username"
             type="text"
+            register={register}
             registerType="username"
           />
           <PasswordField

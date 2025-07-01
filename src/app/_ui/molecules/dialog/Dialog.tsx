@@ -3,11 +3,11 @@
 import React, { FC, ReactElement } from 'react';
 import { Root } from '@radix-ui/react-dialog';
 
-import { close } from '@/lib/state/reducers/menus/dialogSlice';
+import { closeDlg } from '@/lib/state/reducers/menus/dialogSlice';
 import { useAppDispatch, useAppSelector } from '@/lib/state/app/hooks';
 
 interface DialogProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Dialog: FC<DialogProps> = ({ children }): ReactElement => {
@@ -15,7 +15,7 @@ const Dialog: FC<DialogProps> = ({ children }): ReactElement => {
   const dispatch = useAppDispatch();
 
   return (
-    <Root open={isOpen} onOpenChange={() => dispatch(close())}>
+    <Root open={isOpen} onOpenChange={() => dispatch(closeDlg())}>
       {children}
     </Root>
   );

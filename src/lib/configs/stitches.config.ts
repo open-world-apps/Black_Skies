@@ -11,6 +11,14 @@ export const {
   config,
 } = createStitches({
   theme: {
+    fonts: {
+      Discord: '"ABC Ginto Discord"',
+      DiscordNord: '"ABC Ginto Discord Nord"'
+    },
+    fontWeights: {
+      normal: '400',
+      bold: '700'
+    },
     colors: {
       primary: 'blue',
       background: '#111',

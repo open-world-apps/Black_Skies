@@ -8,16 +8,17 @@ import { getCssText } from '@/lib/configs/stitches.config';
 import { StoreProvider } from '@/lib/state/app/StoreProvider';
 import StitchesRegistry from '@/lib/stitches/registry';
 import AuthProvider from '@/lib/providers/AuthProvider';
+import fonts from '@/lib/stitches/fonts';
 
 export const metadata: Metadata = {
   title: 'Black Skies - Text-based Sci-Fi MMORPG',
 };
 
+fonts();
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <StoreProvider>
       <StitchesRegistry>

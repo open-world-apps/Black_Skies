@@ -6,6 +6,9 @@ import React, { FC, ReactElement, ReactNode } from 'react';
 
 interface Props {
   children?: ReactNode;
+  background?: string;
+  border?: string;
+  borderRadius?: Size;
   height?: Size;
   width?: Size;
   margin?: string;
@@ -15,6 +18,9 @@ interface Props {
 
 const Span: FC<Props> = ({
   children,
+  background,
+  border,
+  borderRadius,
   height,
   width,
   margin,
@@ -22,10 +28,13 @@ const Span: FC<Props> = ({
   overflowHidden = false,
 }): ReactElement => {
   const style = css({
+    background,
     height,
     width,
     margin,
     padding,
+    border,
+    borderRadius,
     ...(!!overflowHidden && { overflow: 'hidden' }),
   })();
 

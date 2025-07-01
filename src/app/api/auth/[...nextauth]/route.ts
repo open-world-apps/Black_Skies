@@ -4,7 +4,6 @@ import NextAuth, { AuthOptions, SessionStrategy } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Discord from 'next-auth/providers/discord';
 import Google from 'next-auth/providers/google';
-import Auth0Provider from 'next-auth/providers/auth0';
 import { prisma } from '@/lib/prisma/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { isBanned } from '@/lib/auth';
@@ -57,11 +56,6 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    Auth0Provider({
-      clientId: process.env.AUTH0_ID!,
-      clientSecret: process.env.AUTH0_SECRET!,
-      issuer: process.env.AUTH0_ISSUER
-    })
   ],
   session: { strategy: strategy },
   secret: process.env.NEXTAUTH_SECRET,
