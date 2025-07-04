@@ -1,9 +1,9 @@
-import { styled } from '@/lib/configs/stitches.config';
+import styled from 'styled-components';
 
-const Error = styled('p', {
-  margin: 3,
-  color: 'Orange',
-  width: '100%',
-});
+const Error = styled.p`
+  margin: 3;
+  color: orange;
+  width: 100%;
+`;
 
 export default Error;

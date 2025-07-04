@@ -1,15 +1,15 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { DropdownMenu } from 'radix-ui';
+import styled from 'styled-components';
+import { ItemIndicator as II } from '@radix-ui/react-dropdown-menu';
 
-const ItemIndicator = styled(DropdownMenu.ItemIndicator, {
-  position: 'absolute',
-  left: '0',
-  width: '25px',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
+const ItemIndicator = styled(II)`
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default ItemIndicator;

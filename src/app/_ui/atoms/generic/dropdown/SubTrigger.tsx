@@ -1,16 +1,16 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { DropdownMenu } from 'radix-ui';
+import styled from 'styled-components';
+import { SubTrigger as ST } from '@radix-ui/react-dropdown-menu';
 import { item } from './sharedStyles';
 
-const SubTrigger = styled(DropdownMenu.SubTrigger, {
-  ...item,
+const SubTrigger = styled(ST)`
+  ${item}
 
-  '&[data-state="open"]': {
-    backgroundColor: 'Violet',
-    color: 'Violet',
-  },
-});
+  &[data-state="open"] {
+    background-color: violet;
+    color: violet;
+  }
+`;
 
 export default SubTrigger;

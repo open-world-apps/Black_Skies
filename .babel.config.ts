@@ -1,6 +1,8 @@
 module.exports = (api: { cache: (arg0: boolean) => void }) => {
   api.cache(false);
 
+  const plugins = ["babel-plugin-styled-components", "styled-components"]
+
   const presets = [
     '@babel/preset-react',
     '@babel/preset-env',
@@ -8,5 +10,5 @@ module.exports = (api: { cache: (arg0: boolean) => void }) => {
     'next/babel',
   ];
 
-  return { presets };
+  return { presets, plugins };
 };

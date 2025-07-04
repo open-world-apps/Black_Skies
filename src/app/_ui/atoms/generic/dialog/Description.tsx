@@ -1,12 +1,12 @@
-import { styled } from '@/lib/configs/stitches.config';
+import styled from 'styled-components';
 import { mauve } from '@radix-ui/colors';
-import { Dialog } from 'radix-ui';
+import { Description as D } from '@radix-ui/react-dialog';
 
-const Description = styled(Dialog.Description, {
-  margin: '10px 0 20px',
-  color: mauve.mauve12,
-  fontSize: '15px',
-  lineHeight: 1.5,
-});
+const Description = styled(D)`
+  margin: 10px 0 20px;
+  color: ${mauve.mauve12};
+  font-size: 15px;
+  line-height: 1.5;
+`
 
 export default Description;

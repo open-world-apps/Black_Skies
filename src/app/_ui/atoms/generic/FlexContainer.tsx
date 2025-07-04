@@ -1,96 +1,100 @@
 'use client';
 
-import { css } from '@/lib/configs/stitches.config';
-import { FAlign, FJustify, ContainerSizing, Size } from '@/lib/types';
-import React, { ReactNode } from 'react';
+import {
+  CSSSize,
+  CSSFlexJustify,
+  CSSFlexAlign,
+  CSSContainerSizing,
+} from '@/lib/types/css';
+import styled from 'styled-components';
 
-interface Props {
-  children: ReactNode;
-  background?: string; // TODO Move to Container
-  height?: ContainerSizing; // TODO Move to Container
-  width?: ContainerSizing; // TODO Move to Container
-  position?: string;
-  inline?: boolean;
-  row?: boolean;
-  column?: boolean;
-  justifyContent?: FJustify;
-  alignItems?: FAlign;
-  gap?: Size;
-  rowGap?: Size;
-  colGap?: Size;
-  margin?:
-    | Size
-    | `${Size} ${Size}`
-    | `${Size} ${Size} ${Size}`
-    | `${Size} ${Size} ${Size} ${Size}`
-    | number;
-  marginTop?: Size | number;
-  marginBottom?: Size | number;
-  padding?: Size | number;
-  overflowHidden?: boolean;
-  alignSelf?: string;
-  justifySelf?: string;
-  top?: '0' | Size;
-  zIndex?: number;
-  border?: string;
-  borderRadius?: Size;
-  boxShadow?: string;
+interface FlexContainerProps {
+  $background?: string;
+  $height?: CSSContainerSizing;
+  $width?: CSSContainerSizing;
+  $position?: string;
+  $inline?: boolean;
+  $row?: boolean;
+  $column?: boolean;
+  $justifyContent?: CSSFlexJustify;
+  $justifyItems?: CSSFlexJustify;
+  $justifySelf?: CSSFlexJustify;
+  $alignContent?: CSSFlexAlign;
+  $alignItems?: CSSFlexAlign;
+  $alignSelf?: CSSFlexAlign;
+  $gap?: CSSSize;
+  $rowGap?: CSSSize;
+  $colGap?: CSSSize;
+  $margin?: number | string;
+  $marginTop?: CSSSize | number;
+  $marginBottom?: CSSSize;
+  $marginLeft?: CSSSize;
+  $marginRight?: CSSSize;
+  $padding?: string | number;
+  $overflowHidden?: boolean;
+  $top?: '0' | CSSSize;
+  $zIndex?: number;
+  $border?: string;
+  $borderRadius?: CSSSize;
+  $boxShadow?: string;
 }
 
-const FlexContainer = ({
-  children,
-  background,
-  boxShadow,
-  height,
-  width,
-  position,
-  inline,
-  column,
-  justifyContent,
-  alignItems,
-  gap,
-  rowGap,
-  colGap,
-  margin = '0px',
-  marginBottom,
-  marginTop,
-  padding = '0px',
-  overflowHidden,
-  alignSelf,
-  justifySelf,
-  top,
-  zIndex,
-  border,
-  borderRadius,
-}: Props) => {
-  const className = css({
-    background,
-    padding,
-    margin,
-    marginTop,
-    marginBottom,
-    height,
-    width,
-    top,
-    zIndex,
-    justifyContent,
-    alignItems,
-    gap,
-    rowGap,
-    columnGap: colGap,
-    alignSelf,
-    justifySelf,
-    display: 'flex',
-    border,
-    position,
-    borderRadius,
-    boxShadow,
-    ...(!!overflowHidden && { overflow: 'hidden' }),
-    ...(!!inline && { display: 'inline-flex' }),
-    ...(!!column && { flexDirection: 'column' }),
-  })();
-
-  return <div className={className}>{children}</div>;
-};
+const FlexContainer = styled.div.attrs<FlexContainerProps>(props => ({
+  $background: props.$background,
+  $height: props.$height,
+  $width: props.$width,
+  $position: props.$position,
+  $alignSelf: props.$alignSelf,
+  $alignItems: props.$alignItems,
+  $alignContent: props.$alignContent,
+  $border: props.$border,
+  $borderRadius: props.$borderRadius,
+  $boxShadow: props.$boxShadow,
+  $inline: props.$inline,
+  $justifySelf: props.$justifySelf,
+  $justifyContent: props.$justifyContent,
+  $justifyItems: props.$justifyItems,
+  $margin: props.$margin,
+  $marginBottom: props.$marginBottom,
+  $marginTop: props.$marginTop,
+  $marginLeft: props.$marginLeft,
+  $marginRight: props.$marginRight,
+  $overflowHidden: props.$overflowHidden || false,
+  $padding: props.$padding,
+  $row: props.$row || false,
+  $rowGap: props.$rowGap,
+  $colGap: props.$colGap,
+  $top: props.$top,
+  $zIndex: props.$zIndex,
+  $column: props.$column,
+}))`
+  display: flex;
+  background: ${({ $background }) => $background};
+  height: ${({ $height }) => $height};
+  width: ${({ $width }) => $width};
+  padding: ${({ $padding }) => $padding || 0};
+  box-shadow: ${({ $boxShadow }) => $boxShadow};
+  border: ${({ $border }) => $border};
+  border-radius: ${({ $borderRadius }) => $borderRadius};
+  margin: ${({ $margin }) => $margin || 0};
+  margin-top: ${({ $marginTop }) => $marginTop || 0};
+  margin-right: ${({ $marginRight }) => $marginRight || 0};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom || 0};
+  margin-left: ${({ $marginLeft }) => $marginLeft || 0};
+  justify-items: ${({ $justifyItems }) => $justifyItems};
+  justify-content: ${({ $justifyContent }) => $justifyContent};
+  align-items: ${({ $alignItems }) => $alignItems};
+  justify-self: ${({ $justifySelf }) => $justifySelf};
+  gap: ${({ $gap }) => $gap};
+  row-gap: ${({ $rowGap }) => $rowGap};
+  column-gap: ${({ $colGap }) => $colGap};
+  position: ${({ $position }) => $position};
+  top: ${({ $top }) => $top};
+  z-index: ${({ $zIndex }) => $zIndex};
+  ${({ $row }) => $row && 'flex-direction: row;'}
+  ${({ $column }) => $column && 'flex-direction: column;'}
+  ${({ $inline }) => $inline && 'flex-direction: inline-flex;'}
+  ${({ $overflowHidden }) => $overflowHidden && 'overflow: hidden;'}
+`;
 
 export default FlexContainer;

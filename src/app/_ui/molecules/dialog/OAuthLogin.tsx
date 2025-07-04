@@ -38,11 +38,11 @@ const OAuthLogin: FC = (): ReactElement => {
 
   return (
     <FlexContainer
-      background="white"
-      gap="15px"
-      width="fit-content"
-      justifyContent="center"
-      alignItems="center"
+      $background="white"
+      $gap="15px"
+      $width="fit-content"
+      $justifyContent="center"
+      $alignItems="center"
     >
       {providers &&
         Object.values(providers).map((provider, idx) =>

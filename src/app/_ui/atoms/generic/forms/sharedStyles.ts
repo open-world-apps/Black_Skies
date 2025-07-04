@@ -1,37 +1,37 @@
-import { css } from '@/lib/configs/stitches.config';
+import { css } from 'styled-components';
 
-export const reset = css({
-  all: 'unset',
-  boxSizing: 'border-box',
-});
+export const reset = css`
+  all: unset;
+  box-sizing: border-box;
+`;
 
-export const inputs = css({
-  width: '100%',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderRadius: '4px',
-  fontSize: '15px',
-  color: 'White',
-  backgroundColor: 'Black',
-  boxShadow: '0 0 0 1px black',
-});
+export const inputs = css`
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 15px;
+  color: White;
+  background-color: Black;
+  box-shadow: 0 0 0 1px black;
+`;
 
-export const inputTextAreaHover = css({
-  '&:hover': {
-    boxShadow: '0 0 0 1px black',
-  },
-});
+export const inputTextAreaHover = css`
+  &:hover {
+    box-shadow: 0 0 0 1px black;
+  }
+`;
 
-export const inputTextAreaFocus = css({
-  '&:hover': {
-    boxShadow: '0 0 0 2px black',
-  },
-});
+export const inputTextAreaFocus = css`
+  &:hover {
+    box-shadow: 0 0 0 2px black;
+  }
+`;
 
-export const inputTextAreaSelection = css({
-  '&::selection': {
-    backgroundColor: 'Black',
-    color: 'White',
-  },
-});
+export const inputTextAreaSelection = css`
+  &::selection {
+    background-color: black;
+    color: white;
+  }
+`;

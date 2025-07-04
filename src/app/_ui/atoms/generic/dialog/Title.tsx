@@ -1,12 +1,12 @@
-import { styled } from "@/lib/configs/stitches.config";
-import { Dialog } from "radix-ui";
+import styled from 'styled-components';
+import { Title as T} from '@radix-ui/react-dialog';
 import { mauve } from "@radix-ui/colors";
 
-const Title = styled(Dialog.Title, {
-  margin: 0,
-  fontWeight: 500,
-  color: mauve.mauve12,
-  fontSize: '17px'
-});
+const Title = styled(T)`
+  margin: 0;
+  font-weight: 500;
+  color: ${mauve.mauve12};
+  font-size: 17px;
+`
 
 export default Title;

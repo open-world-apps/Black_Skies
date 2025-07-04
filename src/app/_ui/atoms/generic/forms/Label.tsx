@@ -1,13 +1,13 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { Label as _Label } from '@radix-ui/react-form';
+import styled from 'styled-components';
+import { Label as L } from '@radix-ui/react-form';
 
-const Label = styled(_Label, {
-  fontSize: '15px',
-  fontWeight: '500',
-  lineHeight: '35px',
-  color: 'White',
-});
+const Label = styled(L)`
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 35px;
+  color: white;
+`;
 
 export default Label;

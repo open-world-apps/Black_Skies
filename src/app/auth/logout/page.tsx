@@ -1,9 +1,9 @@
 'use client';
 
-import React, { FC, ReactElement, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 
-const Logout: FC = (): ReactElement => {
+const Logout: FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession();
 
@@ -11,7 +11,7 @@ const Logout: FC = (): ReactElement => {
     if (status === 'authenticated') signOut();
   }, []);
 
-  return <></>;
+  return null;
 };
 
 export default Logout;

@@ -12,14 +12,14 @@ interface Props {
 
 const ProviderLogo: FC<Props> = ({ svg, name }): ReactElement => (
   <Span
-    background="white"
-    padding="0"
-    borderRadius="20px"
-    border="1px solid black"
-    height="40px"
-    width="40px"
+    $background="white"
+    $padding="0"
+    $borderRadius="20px"
+    $border="1px solid black"
+    $height="40px"
+    $width="40px"
   >
-    <FlexContainer justifyContent="center" alignItems="center" height="100%" column>
+    <FlexContainer $justifyContent="center" $alignItems="center" $height="100%" $column>
       <Image src={svg} alt={name} />
     </FlexContainer>
   </Span>

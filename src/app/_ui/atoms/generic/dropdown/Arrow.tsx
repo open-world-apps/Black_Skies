@@ -1,10 +1,10 @@
 'use client';
 
-import { DropdownMenu } from 'radix-ui';
-import { styled } from '@/lib/configs/stitches.config';
+import styled from 'styled-components';
+import { Arrow as A } from '@radix-ui/react-dropdown-menu';
 
-const Arrow = styled(DropdownMenu.Arrow, {
-  fill: 'White',
-});
+const Arrow = styled(A)`
+  fill: white;
+`
 
 export default Arrow;

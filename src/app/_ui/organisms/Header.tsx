@@ -10,18 +10,18 @@ const Header: FC = (): ReactElement => {
 
   return (
     <FlexContainer
-      background="#292626"
-      height="50px"
-      width="100%"
-      alignItems="center"
-      justifyContent="flex-end"
-      colGap="20px"
-      position="fixed"
-      top="0"
+      $background="#292626"
+      $height="50px"
+      $width="100%"
+      $alignItems="center"
+      $justifyContent="flex-end"
+      $colGap="20px"
+      $position="fixed"
+      $top="0"
     >
       <CharStats />
       <NavLinks />
-      <Container height="40px" width="40px" margin="0 50px 0 0">
+      <Container $height="40px" $width="40px" $margin="0 50px 0 0">
         <DropDown />
       </Container>
     </FlexContainer>

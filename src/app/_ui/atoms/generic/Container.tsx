@@ -1,51 +1,44 @@
 'use client';
 
-import { css } from '@/lib/configs/stitches.config';
-import { ContainerSizing } from '@/lib/types';
-import isColor from '@/lib/validators/isColor';
-import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import { CSSContainerSizing, CSSColor, CSSBoxSizing } from '@/lib/types/css';
 
-interface Props {
-  display?: 'block' | 'inline' | 'inline block';
-  color?: string;
-  height?: ContainerSizing;
-  width?: ContainerSizing;
-  border?: string;
-  margin?: string;
-  padding?: string;
-  children?: ReactNode;
-  background?: string;
-  alignSelf?: string;
-  justifySelf?: string;
+interface ContainerProps {
+  $display?: 'block' | 'inline' | 'inline block';
+  $color?: CSSColor;
+  $height?: CSSContainerSizing;
+  $width?: CSSContainerSizing;
+  $border?: CSSBoxSizing;
+  $margin?: CSSBoxSizing;
+  $padding?: CSSBoxSizing;
+  $background?: string;
+  $alignSelf?: string;
+  $justifySelf?: string;
 }
 
-const Container = ({
-  children,
-  display = 'block',
-  height = 'fit-content',
-  width = 'fit-content',
-  background,
-  color,
-  margin,
-  border,
-  padding,
-  alignSelf,
-  justifySelf,
-}: Props) => {
-  const className = css({
-    background,
-    display,
-    height,
-    width,
-    padding,
-    margin,
-    border,
-    alignSelf,
-    justifySelf,
-    color: (isColor(color) && color) || 'initial',
-  })();
+const Container = styled.div.attrs<ContainerProps>(props => ({
+  $display: props.$display || 'block',
+  $color: props.$color,
+  $height: props.$height || 'fit-content',
+  $width: props.$width || 'fit-content',
+  $border: props.$border,
+  $margin: props.$margin,
+  $padding: props.$padding,
+  $background: props.$background,
+  $alignSelf: props.$alignSelf,
+  $justifySelf: props.$justifySelf
+}))`
+  display: ${props => props.$display};
+  color: ${props => props.$color};
+  height: ${props => props.$height};
+  width: ${props => props.$width};
+  border: ${props => props.$border};
+  margin: ${props => props.$margin};
+  padding: ${props => props.$padding};
+  background: ${props => props.$background};
+  align-self: ${props => props.$alignSelf};
+  justify-self: ${props => props.$justifySelf};
+`;
 
-  return <div className={className}>{children}</div>;
-};
 
 export default Container;

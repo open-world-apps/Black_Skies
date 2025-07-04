@@ -1,11 +1,11 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { DropdownMenu } from 'radix-ui';
+import styled from 'styled-components';
+import { Item as I } from '@radix-ui/react-dropdown-menu';
 import { item } from './sharedStyles';
 
-const Item = styled(DropdownMenu.Item, {
-  ...item
-});
+const Item = styled(I)`
+  ${item}
+`;
 
 export default Item;

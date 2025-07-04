@@ -4,41 +4,32 @@ import type { Metadata } from 'next';
 
 import Header from './_ui/organisms/Header';
 
-import { getCssText } from '@/lib/configs/stitches.config';
 import { StoreProvider } from '@/lib/state/app/StoreProvider';
-import StitchesRegistry from '@/lib/stitches/registry';
 import AuthProvider from '@/lib/providers/AuthProvider';
-import fonts from '@/lib/stitches/fonts';
+import { GlobalFonts } from '@/lib/styled/GlobalFonts';
+import GlobalStyles from '@/lib/styled/GlobalStyles';
 
 export const metadata: Metadata = {
   title: 'Black Skies - Text-based Sci-Fi MMORPG',
 };
-
-fonts();
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <StoreProvider>
-      <StitchesRegistry>
-        <html lang="en">
-          <head>
-            <style
-              id="stitches"
-              dangerouslySetInnerHTML={{ __html: getCssText() }}
-            />
-          </head>
-          <body>
-            <AuthProvider>
-              <header>
-                <Header />
-              </header>
-              {children}
-            </AuthProvider>
-          </body>
-        </html>
-      </StitchesRegistry>
+      <html lang="en">
+        <body>
+          <GlobalFonts />
+          <GlobalStyles />
+          <AuthProvider>
+            <header>
+              <Header />
+            </header>
+            {children}
+          </AuthProvider>
+        </body>
+      </html>
     </StoreProvider>
   );
 }

@@ -46,20 +46,20 @@ export const RegistrationForm: FC = (): ReactElement => {
 
   return (
     <FlexContainer
-      position="fixed"
-      height="100vh"
-      width="100vw"
-      background="rgba(44, 42, 42, 0.9)"
-      justifyContent="center"
-      alignItems="center"
+      $position="fixed"
+      $height="100vh"
+      $width="100vw"
+      $background="rgba(44, 42, 42, 0.9)"
+      $justifyContent="center"
+      $alignItems="center"
     >
       <FlexContainer
-        border="1px solid gray"
-        borderRadius="25px"
-        padding="35px"
-        background="rgb(44, 42, 42)"
-        boxShadow="2px 2px 5px black"
-        width="40%"
+        $border="1px solid gray"
+        $borderRadius="25px"
+        $padding="35px"
+        $background="rgb(44, 42, 42)"
+        $boxShadow="2px 2px 5px black"
+        $width="40%"
       >
         <section style={{ width: '100%' }}>
           <Form onSubmit={onSubmit}>
@@ -81,7 +81,7 @@ export const RegistrationForm: FC = (): ReactElement => {
               errors={errors}
               registerType="email"
             />
-            <FlexContainer gap="20px">
+            <FlexContainer $gap="20px">
               <PasswordField
                 name="Password"
                 label="Password"
@@ -106,7 +106,7 @@ export const RegistrationForm: FC = (): ReactElement => {
                 confirmPwd
               />
             </FlexContainer>
-            <FlexContainer justifyContent="center">
+            <FlexContainer $justifyContent="center">
               <Button
                 style={{
                   marginTop: 10,

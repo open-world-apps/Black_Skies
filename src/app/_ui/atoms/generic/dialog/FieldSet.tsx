@@ -1,12 +1,12 @@
-import { styled } from "@/lib/configs/stitches.config";
+import styled from 'styled-components';
 
-export const FieldSet = styled('fieldset', {
-  all: 'unset',
-  border: 'none',
-  display: 'flex',
-  gap: '20px',
-  alignItems: 'center',
-  marginBottom: '15px'
-});
+export const FieldSet = styled.fieldset`
+  all: unset;
+  border: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+`;
 
 export default FieldSet;

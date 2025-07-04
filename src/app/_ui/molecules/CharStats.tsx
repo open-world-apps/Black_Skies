@@ -14,7 +14,7 @@ const CharStats: FC = (): ReactElement => {
   const isLoggedIn = useAppSelector(selectAuthState);
   if (isLoggedIn) {
     return (
-      <FlexContainer colGap="10px" width="fit-content">
+      <FlexContainer $colGap="10px" $width="fit-content">
         <Span>
           Health:&nbsp;
           <SLink href="/character/1/health">

@@ -1,11 +1,11 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
+import styled from 'styled-components';
 
-const RightSlot = styled('div', {
-  marginLeft: 'auto',
-  paddingLeft: '20px',
-  color: 'Violet',
-});
+const RightSlot = styled.div`
+  margin-left: auto;
+  padding-left: 20px;
+  color: violet;
+`
 
 export default RightSlot;

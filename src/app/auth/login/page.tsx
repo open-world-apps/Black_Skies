@@ -8,10 +8,10 @@ const Login: FC = (): ReactElement => {
     <>
       <main>
         <FlexContainer
-          height="100vh"
-          justifyContent="center"
-          alignItems="center"
-          column
+          $height="100vh"
+          $justifyContent="center"
+          $alignItems="center"
+          $column
         >
           <LoginForm />
         </FlexContainer>

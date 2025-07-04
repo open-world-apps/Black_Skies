@@ -23,7 +23,7 @@ const Login: FC = (): ReactElement => {
     <Portal>
       <Overlay />
       <Content>
-        <FlexContainer justifyContent="center" alignItems="center" column>
+        <FlexContainer $justifyContent="center" $alignItems="center" $column>
           <Title>Login</Title>
           <Description>Signin with</Description>
           <OAuthLogin />

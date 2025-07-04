@@ -19,7 +19,14 @@ export default tseslint.config([
       },
     },
   },
-  globalIgnores(['.yarn', 'node_modules', '.vscode', '.next', '.pnp.*']),
+  globalIgnores([
+    '.yarn',
+    'node_modules',
+    '.vscode',
+    '.next',
+    '.pnp.*',
+    'dist',
+  ]),
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: {

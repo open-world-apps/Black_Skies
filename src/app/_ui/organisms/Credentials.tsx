@@ -67,7 +67,7 @@ const Credentials: FC = (): ReactElement => {
           errors={errors.password}
         />
       </form>
-      <FlexContainer justifyContent="flex-end">
+      <FlexContainer $justifyContent="flex-end">
         <Close asChild>
           <Button className="green" onClick={submitForm}>
             Login

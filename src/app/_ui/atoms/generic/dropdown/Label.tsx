@@ -1,12 +1,12 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { DropdownMenu } from 'radix-ui';
+import styled from 'styled-components';
+import { Label as L } from '@radix-ui/react-dropdown-menu';
 
-const Label = styled(DropdownMenu.Label, {
-  padding: '25px',
-  fontSize: '12px',
-  lineHeight: '25px',
-});
+const Label = styled(L)`
+  padding: 25px;
+  font-size: 12px;
+  line-height: 25px;
+`;
 
 export default Label;

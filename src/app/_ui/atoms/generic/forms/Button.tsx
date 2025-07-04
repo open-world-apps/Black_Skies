@@ -1,29 +1,26 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
+import styled from 'styled-components';
 
-const Button = styled(
-  'button',
-  {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '13px',
-    border: 'none',
-    fontSize: '15px',
-    fontWeight: '500',
-    width: '100%',
-    backgroundColor: 'rgba(91, 110, 20)',
-    color: 'Black',
-  },
-  {
-    '&:hover': {
-      cursor: 'pointer',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 2px black',
-    },
+const Button = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  background-color: rgba(91, 110, 20);
+  color: black;
+
+  &:hover {
+    cursor: pointer;
   }
-);
+
+  &:focus {
+    box-shadow: 0 0 0 2px black;
+  }
+`;
 
 export default Button;

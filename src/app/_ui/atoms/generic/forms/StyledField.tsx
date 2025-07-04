@@ -1,13 +1,12 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { Field as _Field } from '@radix-ui/react-form';
+import styled from 'styled-components';
+import { Field as F } from '@radix-ui/react-form';
 
-const StyledField = styled(_Field, {
-  display: 'flex',
-  flexDirection: 'column',
-  height: '97px',
-  width: '100%',
-});
-
+const StyledField = styled(F)`
+  display: flex;
+  flex-direction: column;
+  height: 97px;
+  width: 100%;
+`
 export default StyledField;

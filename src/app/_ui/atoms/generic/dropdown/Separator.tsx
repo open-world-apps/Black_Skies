@@ -1,12 +1,12 @@
 'use client';
 
-import { styled } from '@/lib/configs/stitches.config';
-import { DropdownMenu } from 'radix-ui';
+import styled from 'styled-components';
+import { Separator as S } from '@radix-ui/react-dropdown-menu';
 
-const Separator = styled(DropdownMenu.Separator, {
-  height: '1px',
-  backgroundColor: 'Violet',
-  margin: '5px',
-});
+const Separator = styled(S)`
+  height: 1px;
+  background-color: violet;
+  margin: 5px;
+`;
 
 export default Separator;
