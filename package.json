@@ -8,11 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky",
+    "postinstall": "husky",
     "db-push": "prisma db push",
     "db-pull": "prisma db pull",
     "db-migrate-dev": "prisma migrate dev",
-    "db-migrate-reset": "prisma migrate reset"
+    "db-migrate-reset": "prisma migrate reset",
+    "prepare": "husky"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
@@ -68,6 +69,7 @@
     "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "prettier": "3.5.3",
+    "prettier-eslint": "^16.4.2",
     "pretty-quick": "^4.2.2",
     "prisma": "6.9.0",
     "typescript": "^5.8.3",
