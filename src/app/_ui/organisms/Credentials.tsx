@@ -4,8 +4,8 @@ import React, { FC, ReactElement } from 'react';
 
 import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
-import Button from 'ui/atoms/generic/dialog/Button';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import Button from 'ui/atoms/dialog/Button';
+import FlexContainer from 'ui/atoms/FlexContainer';
 
 import signInSchema from '@/lib/schemas/yup/signInSchema';
 import { useAppDispatch } from '@/lib/state/app/hooks';
@@ -74,7 +74,8 @@ const Credentials: FC = (): ReactElement => {
           </Button>
         </Close>
       </FlexContainer>
-    </>)
+    </>
+  );
 };
 
 export default Credentials;

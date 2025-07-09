@@ -13,7 +13,7 @@ const IconButton = styled.button`
   box-shadow: 0 2px 10px black;
 
   &:hover {
-    background-color: violet,
+    background-color: violet;
   }
 
   &:focus {

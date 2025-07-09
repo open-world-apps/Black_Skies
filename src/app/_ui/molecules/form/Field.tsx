@@ -7,12 +7,12 @@ import {
   UseFormWatch,
 } from 'react-hook-form';
 
-import Error from 'ui/atoms/generic/forms/Error';
-import Input from 'ui/atoms/generic/Input';
-import Label from 'ui/atoms/generic/forms/Label';
-import StyledField from 'ui/atoms/generic/forms/StyledField';
+import Error from 'ui/atoms/forms/Error';
+import Input from 'ui/atoms/Input';
+import Label from 'ui/atoms/forms/Label';
+import StyledField from 'ui/atoms/forms/StyledField';
 
-import { type FieldInputs } from '@/lib/types';
+import { type FieldInputs } from '@/lib/types/types';
 
 type FieldProps = {
   register: UseFormRegister<FieldInputs>;
@@ -38,7 +38,6 @@ const Field: FC<FieldProps> = ({
   registerType,
   ...props
 }): ReactElement => {
-
   const id = label
     .toLowerCase()
     .replace(/[^a-zA-Z0-9 ]/g, '')

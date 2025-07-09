@@ -8,7 +8,6 @@ const AuthProvider = styled.div`
   border: 1px solid grey;
   border-radius: 25px;
   color: white;
-`
-
+`;
 
 export default AuthProvider;

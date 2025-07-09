@@ -3,7 +3,9 @@
 import {
   CSSSize,
   CSSFlexJustify,
-  CSSFlexAlign,
+  CSSFlexAlignContent,
+  CSSFlexAlignItems,
+  CSSFlexAlignSelf,
   CSSContainerSizing,
 } from '@/lib/types/css';
 import styled from 'styled-components';
@@ -19,9 +21,9 @@ interface FlexContainerProps {
   $justifyContent?: CSSFlexJustify;
   $justifyItems?: CSSFlexJustify;
   $justifySelf?: CSSFlexJustify;
-  $alignContent?: CSSFlexAlign;
-  $alignItems?: CSSFlexAlign;
-  $alignSelf?: CSSFlexAlign;
+  $alignContent?: CSSFlexAlignContent;
+  $alignItems?: CSSFlexAlignItems;
+  $alignSelf?: CSSFlexAlignSelf;
   $gap?: CSSSize;
   $rowGap?: CSSSize;
   $colGap?: CSSSize;

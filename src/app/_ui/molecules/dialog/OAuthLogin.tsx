@@ -9,8 +9,8 @@ import {
   LiteralUnion,
   signIn,
 } from 'next-auth/react';
-import ProviderBtn from 'ui/atoms/generic/dialog/ProviderBtn';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import ProviderBtn from 'ui/atoms/dialog/ProviderBtn';
+import FlexContainer from 'ui/atoms/FlexContainer';
 
 import { closeDlg } from '@/lib/state/reducers/menus/dialogSlice';
 import ProviderLogo from '../ProviderLogo';

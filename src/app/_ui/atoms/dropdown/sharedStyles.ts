@@ -81,7 +81,7 @@ export const content = css`
 export const item = css`
   font-size: 13px;
   line-height: 1;
-  color: ${violet.violet1};
+  color: ${violet.violet9};
   border-radius: 3px;
   display: flex;
   align-items: center;

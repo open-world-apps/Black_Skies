@@ -8,7 +8,7 @@ const AvatarImage = styled(Image)`
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
-  z-index: 2000
-`
+  z-index: 2000;
+`;
 
 export default AvatarImage;

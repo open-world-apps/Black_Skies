@@ -48,7 +48,7 @@ const Button = styled.button`
     top: '10px';
     right: '10px';
     background-color: ${gray.gray3};
-  };
+  }
 
   &.icon:hover {
     background-color: ${violet.violet4};
@@ -57,6 +57,6 @@ const Button = styled.button`
   &.icon:focus {
     box-shadow: 0 0 0 2px ${violet.violet7};
   }
-`
+`;
 
 export default Button;

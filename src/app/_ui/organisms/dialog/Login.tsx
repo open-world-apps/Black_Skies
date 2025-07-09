@@ -2,12 +2,12 @@
 
 import React, { FC, ReactElement } from 'react';
 
-import Button from 'ui/atoms/generic/dialog/Button';
-import Content from 'ui/atoms/generic/dialog/Content';
-import Description from 'ui/atoms/generic/dialog/Description';
-import Overlay from 'ui/atoms/generic/dialog/Overlay';
-import Title from 'ui/atoms/generic/dialog/Title';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
+import Button from 'ui/atoms/dialog/Button';
+import Content from 'ui/atoms/dialog/Content';
+import Description from 'ui/atoms/dialog/Description';
+import Overlay from 'ui/atoms/dialog/Overlay';
+import Title from 'ui/atoms/dialog/Title';
+import FlexContainer from 'ui/atoms/FlexContainer';
 import OAuthLogin from 'ui/molecules/dialog/OAuthLogin';
 
 import { closeDlg } from '@/lib/state/reducers/menus/dialogSlice';
@@ -29,7 +29,9 @@ const Login: FC = (): ReactElement => {
           <OAuthLogin />
           <br />
           or
-          <br /><br /><br />
+          <br />
+          <br />
+          <br />
           <Credentials />
         </FlexContainer>
         <Close onClick={() => dispatch(closeDlg())} asChild>

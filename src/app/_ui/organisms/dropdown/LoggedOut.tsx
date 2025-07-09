@@ -1,11 +1,13 @@
 'use client';
 
+import React, { FC, ReactElement } from 'react';
+
+import { useRouter } from 'next/navigation';
+import Item from 'ui/atoms/dropdown/Item';
+
 import { useAppDispatch } from '@/lib/state/app/hooks';
 import { openDlg } from '@/lib/state/reducers/menus/dialogSlice';
 import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
-import { useRouter } from 'next/navigation';
-import React, { FC, ReactElement } from 'react';
-import Item from 'ui/atoms/generic/dropdown/Item';
 
 interface LoggedOutProps {
   closeMenu: ActionCreatorWithoutPayload<'menu/close'>;
