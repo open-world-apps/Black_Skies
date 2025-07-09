@@ -19,6 +19,6 @@ const AvatarRoot = styled(Root)`
   hover: {
     cursor: pointer;
   }
-`
+`;
 
 export default AvatarRoot;

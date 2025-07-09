@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
-import Button from 'ui/atoms/generic/forms/Button';
-import Form from 'ui/atoms/generic/forms/Form';
+import FlexContainer from 'ui/atoms/FlexContainer';
+import Button from 'ui/atoms/forms/Button';
+import Form from 'ui/atoms/forms/Form';
 import Field from 'ui/molecules/form/Field';
 import PasswordField from 'ui/molecules/form/PasswordField';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FieldInputs } from '@/lib/types';
+import { FieldInputs } from '@/lib/types/types';
 import fieldSchema from '@/lib/schemas/yup/userRegSchema';
 
 export const RegistrationForm: FC = (): ReactElement => {

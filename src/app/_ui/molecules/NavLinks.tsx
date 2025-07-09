@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC, ReactElement } from 'react';
-import SLink from '../atoms/generic/SLink';
-import FlexContainer from '../atoms/generic/FlexContainer';
-import Divider from '../atoms/generic/Divider';
+import SLink from '../atoms/SLink';
+import FlexContainer from '../atoms/FlexContainer';
+import Divider from '../atoms/Divider';
 
 const NavLinks: FC = (): ReactElement => {
   return (

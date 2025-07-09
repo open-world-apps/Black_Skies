@@ -7,6 +7,6 @@ const Description = styled(D)`
   color: ${mauve.mauve12};
   font-size: 15px;
   line-height: 1.5;
-`
+`;
 
 export default Description;

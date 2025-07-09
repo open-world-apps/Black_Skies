@@ -1,7 +1,7 @@
 import React, { ReactElement, FC } from 'react';
-import AvatarRoot from '../atoms/generic/avatar/AvatarRoot';
-import AvatarImage from '../atoms/generic/avatar/AvatarImage';
-import AvatarFallback from '../atoms/generic/avatar/AvatarFallback';
+import AvatarRoot from '../atoms/avatar/AvatarRoot';
+import AvatarImage from '../atoms/avatar/AvatarImage';
+import AvatarFallback from '../atoms/avatar/AvatarFallback';
 
 interface AvatarProps {
   src?: string;
@@ -9,14 +9,16 @@ interface AvatarProps {
   fallback?: string;
 }
 
-const Avatar: FC<AvatarProps> = ({src, alt, fallback, ...props}): ReactElement => (
+const Avatar: FC<AvatarProps> = ({
+  src,
+  alt,
+  fallback,
+  ...props
+}): ReactElement => (
   <AvatarRoot {...props}>
-      <AvatarImage
-        src={src}
-        alt={alt}
-      />
-      <AvatarFallback delayMs={600}>{fallback}</AvatarFallback>
-    </AvatarRoot>
-  );
+    <AvatarImage src={src} alt={alt} />
+    <AvatarFallback delayMs={600}>{fallback}</AvatarFallback>
+  </AvatarRoot>
+);
 
 export default Avatar;

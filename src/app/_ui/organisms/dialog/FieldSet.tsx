@@ -1,12 +1,9 @@
-import { LoginInputs } from '@/lib/types';
-import React, {
-  FC,
-  ReactElement,
-} from 'react';
+import { LoginInputs } from '@/lib/types/auth';
+import React, { FC, ReactElement } from 'react';
 import { FieldError, UseFormRegister } from 'react-hook-form';
-import Label from 'ui/atoms/generic/dialog/Label';
-import Input from 'ui/atoms/generic/Input';
-import { FieldSet as FSet } from 'ui/atoms/generic/dialog/FieldSet';
+import Label from 'ui/atoms/dialog/Label';
+import Input from 'ui/atoms/Input';
+import { FieldSet as FSet } from 'ui/atoms/dialog/FieldSet';
 
 type FieldSetProps = {
   label: string;
@@ -16,7 +13,7 @@ type FieldSetProps = {
   defaultValue?: string;
   registerValue: 'username' | 'password';
   errors?: FieldError;
-  action?: (e?: React.KeyboardEvent) => void
+  action?: (e?: React.KeyboardEvent) => void;
   register: UseFormRegister<LoginInputs>;
 } & React.ComponentProps<typeof FSet>;
 

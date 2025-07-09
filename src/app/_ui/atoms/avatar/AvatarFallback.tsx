@@ -14,6 +14,6 @@ const AvatarFallback = styled(Fallback)`
   font-size: 15px;
   line-height: 1;
   font-weight: 500;
-`
+`;
 
 export default AvatarFallback;

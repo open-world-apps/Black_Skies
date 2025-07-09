@@ -6,14 +6,14 @@ import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import Form from 'ui/atoms/generic/forms/Form';
-import FlexContainer from 'ui/atoms/generic/FlexContainer';
-import Button from 'ui/atoms/generic/forms/Button';
+import Form from 'ui/atoms/forms/Form';
+import FlexContainer from 'ui/atoms/FlexContainer';
+import Button from 'ui/atoms/forms/Button';
 
 import signInSchema from '@/lib/schemas/yup/signInSchema';
 import Field from 'ui/molecules/form/Field';
 import PasswordField from 'ui/molecules/form/PasswordField';
-import { type FieldInputs } from '@/lib/types';
+import { type FieldInputs } from '@/lib/types/types';
 
 const LoginForm: FC = (): ReactElement => {
   const { handleSubmit, register } = useForm<FieldInputs>({

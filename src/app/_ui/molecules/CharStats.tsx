@@ -1,11 +1,11 @@
 'use client';
 
 import React, { FC, ReactElement } from 'react';
-import CharStat from '../atoms/game/CharStat';
-import Divider from '../atoms/generic/Divider';
-import FlexContainer from '../atoms/generic/FlexContainer';
-import Span from '../atoms/generic/Span';
-import SLink from '../atoms/generic/SLink';
+import CharStat from '../atoms/CharStat';
+import Divider from '../atoms/Divider';
+import FlexContainer from '../atoms/FlexContainer';
+import Span from '../atoms/Span';
+import SLink from '../atoms/SLink';
 import { formatCurrency } from '@/lib/convertors/money';
 import { selectAuthState } from '@/lib/state/reducers/auth/authSlice';
 import { useAppSelector } from '@/lib/state/app/hooks';

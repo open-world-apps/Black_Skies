@@ -6,6 +6,6 @@ const Label = styled.label`
   color: ${violet.violet11};
   width: 90px;
   text-align: right;
-`
+`;
 
 export default Label;

@@ -8,5 +8,5 @@ const StyledField = styled(F)`
   flex-direction: column;
   height: 97px;
   width: 100%;
-`
+`;
 export default StyledField;
