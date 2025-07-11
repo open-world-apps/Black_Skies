@@ -1,31 +1,35 @@
-type CSSDefaults = 'initial' | 'inherit' | 'auto' | 'normal' | 'legacy';
-type CSSFlexDefaults =
-  | 'safe'
-  | 'unsafe'
-  | 'start'
-  | 'end'
-  | 'center'
-  | 'normal';
-type CSSFlexSpacing = 'space-around' | 'space-between' | 'space-evenly';
-type CSSFlexBaseline = 'baseline' | 'first baseline' | 'last baseline';
+type CSSDefaults = 'initial' | 'inherit';
+type FlexDefaults = 'safe' | 'unsafe' | 'start' | 'end' | 'center' | 'normal';
+type FlexSpacing = 'space-around' | 'space-between' | 'space-evenly';
+type FlexBaseline = 'baseline' | 'first baseline' | 'last baseline';
+export type Unit =
+  | 'px'
+  | '%'
+  | 'vw'
+  | 'vh'
+  | 'pt'
+  | 'pc'
+  | 'em'
+  | 'rem'
+  | 'vmax'
+  | 'vmin';
+export type Size = `${number}${Unit}` | 0 | CSSDefaults;
+export type BoxSizing =
+  | `${Size}`
+  | `${Size} ${Size}`
+  | `${Size} ${Size} ${Size}`
+  | `${Size} ${Size} ${Size} ${Size}`;
 
-export type CSSUnit = 'px' | '%' | 'vw' | 'vh' | 'pt' | 'pc';
+export type ContainerSizing = `${number}${Unit}` | 'fit-content' | CSSDefaults;
 
-export type CSSSize = `${number}${CSSUnit}` | number | CSSDefaults;
-
-export type CSSContainerSizing =
-  | `${number}${CSSUnit}`
-  | 'fit-content'
-  | CSSDefaults;
-
-export type CSSDirection =
+export type Direction =
   | 'column'
   | 'column-reverse'
   | 'row'
   | 'row-reverse'
   | CSSDefaults;
 
-export type CSSFlexJustify =
+export type FlexJustify =
   | 'flex-start'
   | 'flex-end'
   | 'center'
@@ -38,38 +42,41 @@ export type CSSFlexJustify =
   | 'right'
   | CSSDefaults;
 
-export type CSSFlexAlignItems =
-  | CSSFlexDefaults
+export type FlexAlignItems =
+  | FlexDefaults
   | CSSDefaults
-  | CSSFlexBaseline
+  | FlexBaseline
   | 'self-start'
   | 'self-end'
   | 'anchor-center'
   | 'flex-start'
   | 'flex-end';
 
-export type CSSFlexAlignSelf =
+export type FlexAlignSelf =
   | 'auto'
   | 'self-start'
   | 'self-end'
   | 'flex-start'
   | 'flex-end'
+  | 'center'
   | 'stretch'
   | 'anchor-center'
   | 'safe'
   | 'unsafe'
-  | CSSFlexBaseline
+  | 'normal'
+  | 'auto'
+  | FlexBaseline
   | CSSDefaults;
 
-export type CSSFlexAlignContent =
+export type FlexAlignContent =
   | 'stretch'
   | 'flex-start'
   | 'flex-end'
   | 'self-start'
   | 'self-end'
-  | CSSFlexBaseline
-  | CSSFlexSpacing
-  | CSSFlexDefaults
+  | FlexBaseline
+  | FlexSpacing
+  | FlexDefaults
   | CSSDefaults;
 
 export type BorderStyle =
@@ -88,6 +95,6 @@ export type BorderStyle =
 export type RGB = `rgb(${number},${number},${number})`;
 export type RGBA = `rgba(${number},${number},${number},${number})`;
 export type HEX = `#${string}${number}`;
-export type CSSColor = RGB | RGBA | HEX;
+export type Color = RGB | RGBA | HEX;
 
-export type CSSBorder = `${CSSSize} ${BorderStyle} ${CSSColor | string}`;
+export type Border = `${Size} ${BorderStyle} ${Color | string}`;

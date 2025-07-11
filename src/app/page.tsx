@@ -4,7 +4,6 @@ import Container from 'ui/atoms/Container';
 import FlexContainer from 'ui/atoms/FlexContainer';
 import RTButton from 'ui/atoms/RTButton';
 import Title from 'ui/atoms/Title';
-import BlankPortrait from 'ui/molecules/BlankPortrait';
 import Dialog from 'ui/molecules/dialog/Dialog';
 import Login from 'ui/organisms/dialog/Login';
 
@@ -28,9 +27,6 @@ const Home: FC = (): ReactElement => (
             $column
           >
             <Title>Black&nbsp;Skies</Title>
-            <Container $height="100px" $width="100px" $background="gray">
-              <BlankPortrait />
-            </Container>
             <FlexContainer $colGap="10px" $height="fit-content">
               <RTButton>Play&nbsp;Now&nbsp;-&gt;</RTButton>
             </FlexContainer>

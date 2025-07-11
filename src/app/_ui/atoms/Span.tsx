@@ -2,14 +2,14 @@
 
 import styled from 'styled-components';
 
-import { CSSSize } from '@/lib/types/css';
+import { Size } from '@/lib/types/css';
 
 interface SpanProps {
   $background?: string;
   $border?: string;
-  $borderRadius?: CSSSize;
-  $height?: CSSSize;
-  $width?: CSSSize;
+  $borderRadius?: Size;
+  $height?: Size;
+  $width?: Size;
   $margin?: string;
   $padding?: string;
   $overflowHidden?: boolean;
