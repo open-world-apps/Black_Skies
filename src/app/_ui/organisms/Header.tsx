@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from 'react';
 import FlexContainer from '../atoms/FlexContainer';
 import NavLinks from '../molecules/NavLinks';
 import Container from '../atoms/Container';
-import CharStats from '../molecules/CharStats';
 import DropDown from './Dropdown';
 
 const Header: FC = (): ReactElement => {
@@ -19,7 +18,6 @@ const Header: FC = (): ReactElement => {
       $position="fixed"
       $top="0"
     >
-      <CharStats />
       <NavLinks />
       <Container $height="40px" $width="40px" $margin="0 50px 0 0">
         <DropDown />

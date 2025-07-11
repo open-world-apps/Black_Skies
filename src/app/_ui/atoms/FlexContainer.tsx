@@ -1,43 +1,43 @@
 'use client';
 
 import {
-  CSSSize,
-  CSSFlexJustify,
-  CSSFlexAlignContent,
-  CSSFlexAlignItems,
-  CSSFlexAlignSelf,
-  CSSContainerSizing,
+  Size,
+  FlexJustify,
+  FlexAlignContent,
+  FlexAlignItems,
+  FlexAlignSelf,
+  ContainerSizing,
 } from '@/lib/types/css';
 import styled from 'styled-components';
 
 interface FlexContainerProps {
   $background?: string;
-  $height?: CSSContainerSizing;
-  $width?: CSSContainerSizing;
+  $height?: ContainerSizing;
+  $width?: ContainerSizing;
   $position?: string;
   $inline?: boolean;
   $row?: boolean;
   $column?: boolean;
-  $justifyContent?: CSSFlexJustify;
-  $justifyItems?: CSSFlexJustify;
-  $justifySelf?: CSSFlexJustify;
-  $alignContent?: CSSFlexAlignContent;
-  $alignItems?: CSSFlexAlignItems;
-  $alignSelf?: CSSFlexAlignSelf;
-  $gap?: CSSSize;
-  $rowGap?: CSSSize;
-  $colGap?: CSSSize;
+  $justifyContent?: FlexJustify;
+  $justifyItems?: FlexJustify;
+  $justifySelf?: FlexJustify;
+  $alignContent?: FlexAlignContent;
+  $alignItems?: FlexAlignItems;
+  $alignSelf?: FlexAlignSelf;
+  $gap?: Size;
+  $rowGap?: Size;
+  $colGap?: Size;
   $margin?: number | string;
-  $marginTop?: CSSSize | number;
-  $marginBottom?: CSSSize;
-  $marginLeft?: CSSSize;
-  $marginRight?: CSSSize;
+  $marginTop?: Size | number;
+  $marginBottom?: Size;
+  $marginLeft?: Size;
+  $marginRight?: Size;
   $padding?: string | number;
   $overflowHidden?: boolean;
-  $top?: '0' | CSSSize;
+  $top?: '0' | Size;
   $zIndex?: number;
   $border?: string;
-  $borderRadius?: CSSSize;
+  $borderRadius?: Size;
   $boxShadow?: string;
 }
 

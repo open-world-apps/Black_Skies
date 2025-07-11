@@ -1,9 +1,12 @@
 import React, { FC, ReactElement } from 'react';
+import Dashboard from 'ui/organisms/Dashboard';
 
-const Dashboard: FC = (): ReactElement => (
+const Page: FC = (): ReactElement => (
   <>
-    <main></main>
+    <main>
+      <Dashboard />
+    </main>
   </>
 );
 
-export default Dashboard;
+export default Page;

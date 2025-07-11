@@ -4,37 +4,35 @@ import { Dispatch, FC, SetStateAction, useEffect } from 'react';
 
 import { ApolloError, gql, useQuery } from '@apollo/client';
 
-import { CharacterMeta, CharsReqData } from '../types/types';
+import { CharacterShort, CharsReqData } from '../types/graphql';
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
     characterQueries {
       characters {
-        id
-        archetype
-        bio
-        birthdate
         charId
-        charType
-        description
-        eyeColor
-        hairColor
-        height
         name
-        online
-        weight
+        rank
+        money
+        portrait
+        lastLocation
+        stats {
+          health {
+            meta
+          }
+        }
       }
     }
   }
 `;
 
 interface ProviderProps {
-  setChars: Dispatch<SetStateAction<CharacterMeta[]>>;
+  setChars: Dispatch<SetStateAction<Array<CharacterShort>>>;
   setError: Dispatch<SetStateAction<ApolloError | undefined>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const CharProvider: FC<ProviderProps> = ({
+const DashProvider: FC<ProviderProps> = ({
   setChars,
   setError,
   setLoading,
@@ -50,4 +48,4 @@ const CharProvider: FC<ProviderProps> = ({
   return null;
 };
 
-export default CharProvider;
+export default DashProvider;
