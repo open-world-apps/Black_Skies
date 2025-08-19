@@ -16,7 +16,7 @@ datasource db {
 
 model User {
   id                String    @id @default(cuid())
-  ipAddr            String?   @db.VarChar(30)
+  ipId              Int?
   name              String    @db.VarChar(30) @unique
   nickname          String?   @db.VarChar(90)
   hashedPwd         String?   @db.VarChar(100) @map("hashed_pwd")
@@ -29,7 +29,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  bannedIP BannedIP? @relation(fields: [ipAddr], references: [ip], onDelete: Restrict, onUpdate: Cascade)
+  banned Banned? @relation(fields: [ipId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
   @@map("users")
 }
@@ -79,10 +79,9 @@ model VerificationToken {
   @@map("verification_tokens")
 }
 
-model BannedIP {
-  id        Int    @id @default(autoincrement())
-  userId    String?
-  ip        String    @unique
+model Banned {
+  id        Int    @id @default(autoincrement()) @unique
+  ip        String?    @unique
   reason    String?
   bannedAt  DateTime  @default(now())
   expiresAt DateTime? // null = permanent
