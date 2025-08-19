@@ -1,13 +1,13 @@
 import 'dotenv/config';
 
+import bcrypt from 'bcrypt';
 import NextAuth, { AuthOptions, SessionStrategy } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Discord from 'next-auth/providers/discord';
 import Google from 'next-auth/providers/google';
+
 import { prisma } from '@/lib/prisma/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { isBanned } from '@/lib/auth';
-import bcrypt from 'bcrypt';
 
 const eStrategy = process.env.NEXTAUTH_STRATEGY!;
 const isValidStrategy = (val: unknown): val is SessionStrategy =>
@@ -32,12 +32,16 @@ export const authOptions: AuthOptions = {
       async authorize(credentials, req) {
         if (!credentials?.username || !credentials?.password) return null;
 
-        const banned = isBanned(req);
         const user = await prisma.user.findUnique({
           where: { name: credentials.username },
+          include: {
+            banned: true,
+          },
         });
 
-        if (banned) return null;
+        const ipBanned = user?.banned?.ip;
+
+        if (ipBanned) return null;
 
         if (!user || !user.hashedPwd) return null;
 
@@ -80,6 +84,18 @@ export const authOptions: AuthOptions = {
       }
 
       return session;
+    },
+    async signIn({ user, account, profile }) {
+      if (
+        (user.banned &&
+          user.banned.expiresAt &&
+          user.banned.expiresAt.getTime() <= Date.now()) ||
+        !user.banned
+      ) {
+        return true;
+      }
+
+      return false;
     },
   },
 };

@@ -4,14 +4,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_ENV=development next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start",
     "lint": "next lint",
-    "db-push": "pnpify prisma db push",
-    "db-pull": "pnpify prisma db pull",
-    "db-migrate-dev": "pnpify prisma migrate dev",
-    "db-migrate-reset": "pnpify prisma migrate reset",
+    "db-push": "prisma db push",
+    "db-pull": "prisma db pull",
+    "db-migrate-dev": "prisma migrate dev",
+    "db-migrate-reset": "prisma migrate reset",
+    "db-generate": "prisma generate",
     "prepare": "husky"
   },
   "dependencies": {

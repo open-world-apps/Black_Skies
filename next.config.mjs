@@ -4,8 +4,8 @@ const nextConfig = {
   compiler: {
     styledComponents: {
       displayName: true,
-    }
-  }
+    },
+  },
 };
 
 export default nextConfig;
