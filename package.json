@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.3.2",
+    "next": "15.4.7",
     "next-seo": "^6.8.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
