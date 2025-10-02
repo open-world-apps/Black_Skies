@@ -40,7 +40,7 @@ export const RegistrationForm: FC = (): ReactElement => {
     });
 
     if (res.data.success) {
-      router.push('/');
+      router.push(`/profile/${res.data.userId}/dashboard`);
     }
   });
 

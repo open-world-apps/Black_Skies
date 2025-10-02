@@ -18,7 +18,7 @@ export enum VitalsCondition {
 export type Character = {
   charId: string;
   archetype: Archetype;
-  money: number;
+  balance: number;
   bio?: string;
   birthdate: Date;
   charType: CharType;
@@ -102,10 +102,14 @@ export type CharsReqData = {
   };
 };
 
+export enum LocationType {
+  UNKNOWN,
+}
+
 export type Location = {
-  x: number | 'Unknown';
-  y: number | 'Unknown';
-  z: number | 'Unknown';
+  x: number | LocationType;
+  y: number | LocationType;
+  z: number | LocationType;
   name?: string;
 };
 
