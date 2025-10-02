@@ -11,7 +11,9 @@ import { ApolloError } from '@apollo/client';
 import CreateCharacter from 'ui/molecules/character/CreateCharacter';
 
 const Dashboard: FC = (): ReactElement => {
-  const [characters, setCharacters] = useState<Array<CharacterShort>>([]);
+  const [characters, setCharacters] = useState<
+    Array<CharacterShort> | undefined
+  >();
   const [error, setError] = useState<ApolloError | undefined>();
   const [loading, setLoading] = useState(true);
 

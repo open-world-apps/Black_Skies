@@ -1,9 +1,11 @@
-import { LoginInputs } from '@/lib/types/auth';
 import React, { FC, ReactElement } from 'react';
+
 import { FieldError, UseFormRegister } from 'react-hook-form';
+import { FieldSet as FSet } from 'ui/atoms/dialog/FieldSet';
 import Label from 'ui/atoms/dialog/Label';
 import Input from 'ui/atoms/Input';
-import { FieldSet as FSet } from 'ui/atoms/dialog/FieldSet';
+
+import { LoginInputs } from '@/lib/types/types';
 
 type FieldSetProps = {
   label: string;

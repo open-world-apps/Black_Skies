@@ -10,6 +10,7 @@ const GET_CHARACTERS = gql`
   query GetCharacters {
     characterQueries {
       characters {
+        id
         charId
         name
         rank
@@ -27,7 +28,7 @@ const GET_CHARACTERS = gql`
 `;
 
 interface ProviderProps {
-  setChars: Dispatch<SetStateAction<Array<CharacterShort>>>;
+  setChars: Dispatch<SetStateAction<Array<CharacterShort> | undefined>>;
   setError: Dispatch<SetStateAction<ApolloError | undefined>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
@@ -40,7 +41,7 @@ const DashProvider: FC<ProviderProps> = ({
   const { loading, error, data } = useQuery<CharsReqData>(GET_CHARACTERS);
 
   useEffect(() => {
-    setChars(data!.characterQueries.characters);
+    if (data) setChars(data.characterQueries.characters);
     setError(error);
     setLoading(loading);
   }, []);

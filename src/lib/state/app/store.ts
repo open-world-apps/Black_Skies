@@ -3,8 +3,9 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { authSlice } from '../reducers/auth/authSlice';
 import { menuSlice } from '../reducers/menus/menuSlice';
 import { dialogSlice } from '../reducers/menus/dialogSlice';
+import { charSlice } from '../reducers/game/charSlice';
 
-const rootReducer = combineSlices(authSlice, menuSlice, dialogSlice);
+const rootReducer = combineSlices(authSlice, menuSlice, dialogSlice, charSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
