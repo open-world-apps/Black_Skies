@@ -2,11 +2,16 @@
 
 import { Dispatch, FC, SetStateAction, useEffect } from 'react';
 
-import { ApolloError, gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client/react';
+import { GraphQLError } from 'graphql';
 
 import { CharacterShort, CharsReqData } from '../types/graphql';
+import { gql, TypedDocumentNode } from '@apollo/client';
 
-const GET_CHARACTERS = gql`
+const GET_CHARACTERS: TypedDocumentNode<
+  CharsReqData,
+  Record<string, never>
+> = gql`
   query GetCharacters {
     characterQueries {
       characters {
@@ -29,7 +34,7 @@ const GET_CHARACTERS = gql`
 
 interface ProviderProps {
   setChars: Dispatch<SetStateAction<Array<CharacterShort> | undefined>>;
-  setError: Dispatch<SetStateAction<ApolloError | undefined>>;
+  setError: Dispatch<SetStateAction<GraphQLError | undefined>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -38,11 +43,11 @@ const DashProvider: FC<ProviderProps> = ({
   setError,
   setLoading,
 }) => {
-  const { loading, error, data } = useQuery<CharsReqData>(GET_CHARACTERS);
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
 
   useEffect(() => {
     if (data) setChars(data.characterQueries.characters);
-    setError(error);
+    setError(error as GraphQLError | undefined);
     setLoading(loading);
   }, []);
 
