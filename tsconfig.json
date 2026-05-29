@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -18,9 +22,15 @@
       }
     ],
     "paths": {
-      "ui/*": ["./src/app/_ui/*"],
-      "@/*": ["./src/*"],
-      "@@/*": ["./*"]
+      "ui/*": [
+        "./src/app/_ui/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@@/*": [
+        "./*"
+      ]
     },
     "target": "ES2017"
   },
@@ -29,7 +39,12 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "styled.d.ts"
+    "styled.d.ts",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", ".yarn", ".vscode"]
+  "exclude": [
+    "node_modules",
+    ".yarn",
+    ".vscode"
+  ]
 }

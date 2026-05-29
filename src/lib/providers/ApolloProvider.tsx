@@ -1,11 +1,11 @@
 'use client';
 
-import { ApolloProvider as Apollo } from '@apollo/client';
+import { ApolloProvider as ApolloClientProvider } from '@apollo/client/react';
 import React, { ReactNode } from 'react';
 import apolloClient from '../apollo/apolloClient';
 
 const ApolloProvider = ({ children }: { children: ReactNode }) => (
-  <Apollo client={apolloClient}>{children}</Apollo>
+  <ApolloClientProvider client={apolloClient}>{children}</ApolloClientProvider>
 );
 
 export default ApolloProvider;
