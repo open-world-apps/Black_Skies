@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import Glyph from 'ui/atoms/intake/Glyph';
+import Glyph from 'ui/atoms/icons/Glyph';
 import { Faction } from '@/lib/intake/types';
 
 interface FactionCardProps {

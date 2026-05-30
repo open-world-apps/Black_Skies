@@ -3,11 +3,11 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
-import Glyph from 'ui/atoms/intake/Glyph';
-import ModChip from 'ui/atoms/intake/ModChip';
+import StepHead from 'ui/atoms/text/StepHead';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
+import Glyph from 'ui/atoms/icons/Glyph';
+import ModChip from 'ui/atoms/display/ModChip';
 import { ARCHETYPES } from '@/lib/intake/genesis';
 
 interface ArchetypeStepProps {

@@ -3,8 +3,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import CornerFrame from 'ui/atoms/intake/CornerFrame';
-import Glyph from 'ui/atoms/intake/Glyph';
+import CornerFrame from 'ui/atoms/layout/CornerFrame';
+import Glyph from 'ui/atoms/icons/Glyph';
 import { useOverlayLock } from '@/lib/intake/overlayState';
 
 interface AbortDialogProps {

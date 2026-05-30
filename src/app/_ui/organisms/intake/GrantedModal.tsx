@@ -3,9 +3,9 @@
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import CornerFrame from 'ui/atoms/intake/CornerFrame';
-import Glyph from 'ui/atoms/intake/Glyph';
-import GlowButton from 'ui/atoms/intake/GlowButton';
+import CornerFrame from 'ui/atoms/layout/CornerFrame';
+import Glyph from 'ui/atoms/icons/Glyph';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
 import { WORLD } from '@/lib/intake/data';
 import { useOverlayLock } from '@/lib/intake/overlayState';
 

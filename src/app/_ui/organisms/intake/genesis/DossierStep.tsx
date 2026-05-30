@@ -3,11 +3,11 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import ValField from 'ui/atoms/intake/ValField';
-import TextArea from 'ui/atoms/intake/TextArea';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
+import StepHead from 'ui/atoms/text/StepHead';
+import ValField from 'ui/atoms/forms/ValField';
+import TextArea from 'ui/atoms/forms/TextArea';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
 import { GenesisData } from '@/lib/intake/types';
 
 interface DossierStepProps {

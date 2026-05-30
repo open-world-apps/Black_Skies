@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development next dev",
+    "dev": "NODE_ENV=development next dev --turbopack",
     "build": "next build",
     "start": "NODE_ENV=production next start",
     "db-push": "prisma db push",

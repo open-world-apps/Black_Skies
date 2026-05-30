@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import CornerFrame from 'ui/atoms/intake/CornerFrame';
+import CornerFrame from 'ui/atoms/layout/CornerFrame';
 import { useOverlayLock } from '@/lib/intake/overlayState';
 
 interface BioAnalyzingModalProps {

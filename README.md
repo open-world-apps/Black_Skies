@@ -52,6 +52,16 @@ A full-stack Next.js web application for a space combat game, featuring characte
 ### Component Architecture
 
 - **Atomic Design Pattern**: Components organized as Atoms → Molecules → Organisms
+- **Atoms**: Primitive, reusable UI components categorized by functional type (not domain):
+  - `buttons/` — Interactive button-like elements
+  - `display/` — Visual display components (stats, badges, indicators)
+  - `effects/` — Visual effects & animations
+  - `forms/` — Form inputs & controls
+  - `icons/` — Icon components
+  - `layout/` — Layout & structural components
+  - `text/` — Typography & text display elements
+- **Molecules**: Composed atoms with specific purposes (organized by domain: `intake/`, `landing/`)
+- **Organisms**: Complex features with business logic (organized by domain: `intake/`, `landing/`)
 - **Location**: All UI components live in `src/app/_ui/`
 - **Path aliases**:
   - `ui/*` → `src/app/_ui/*`
@@ -114,46 +124,24 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 📁 Project Structure
 
 ```text
-Black_Skies/
-├── prisma/
-│   ├── schema.prisma              # Database schema
-│   └── migrations/                # Migration history (do NOT edit existing)
-├── public/                        # Static assets
-│   ├── Discord/                   # Discord fonts
-│   └── Google/                    # Google fonts
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx             # Root layout
-│   │   ├── page.tsx               # Home page
-│   │   ├── _ui/                   # UI components (atomic design)
-│   │   │   ├── atoms/             # Smallest components
-│   │   │   ├── molecules/         # Compound components
-│   │   │   └── organisms/         # Complex feature components
-│   │   ├── api/
-│   │   │   └── auth/              # NextAuth API routes (SENSITIVE)
-│   │   ├── auth/                  # Auth pages (login, register, logout)
-│   │   └── profile/               # User profile pages
-│   └── lib/
-│       ├── apollo/                # Apollo GraphQL client setup
-│       │   ├── apolloClient.ts
-│       │   └── schema.graphql
-│       ├── prisma/
-│       │   └── prisma.ts          # Prisma client instance (SERVER ONLY)
-│       ├── providers/             # React context providers
-│       │   ├── ApolloProvider.tsx
-│       │   ├── AuthProvider.tsx   # (SENSITIVE)
-│       │   └── DashProvider.tsx
-│       ├── state/                 # Redux store setup
-│       │   ├── app/
-│       │   └── reducers/
-│       ├── schemas/               # Validation schemas
-│       │   └── yup/
-│       ├── styled/                # styled-components global config
-│       ├── types/                 # TypeScript type definitions
-│       └── validators/            # Custom validators
-├── prisma.config.ts               # Prisma 7 CLI configuration
-├── CLAUDE.md                      # AI assistant project rules
-└── package.json
+src/app/_ui/               # UI components (Atomic Design)
+├── atoms/                 # Primitives organized by TYPE (not domain)
+│   ├── buttons/           # Interactive button components
+│   ├── display/           # Visual indicators and badges
+│   ├── effects/           # Animation and visual effects
+│   ├── forms/             # Input fields and form controls
+│   ├── icons/             # Icon components
+│   ├── layout/            # Structural and container components
+│   └── text/              # Typography and text elements
+├── molecules/             # Composed atoms by DOMAIN
+│   ├── intake/            # Character creation
+│   └── landing/           # Landing page
+└── organisms/             # Business logic by DOMAIN
+    ├── intake/            # Character creation
+    └── landing/           # Landing page
+
+src/lib/prisma/            # ⚠️ SERVER ONLY - never import in Client Components
+src/app/api/auth/          # ⚠️ CRITICAL - no edits without approval
 ```
 
 ## 🔄 Development Workflow
@@ -248,8 +236,14 @@ The application connects to a separate Apollo GraphQL server for game-specific o
 ### Import Paths
 
 ```typescript
-// UI components
-import { Button } from 'ui/atoms/Button';
+// UI atoms (organized by type, not domain)
+import GlowButton from 'ui/atoms/buttons/GlowButton';
+import Field from 'ui/atoms/forms/Field';
+import Starfield from 'ui/atoms/effects/Starfield';
+
+// UI molecules (organized by domain)
+import AuthForm from 'ui/molecules/landing/AuthForm';
+import FactionCard from 'ui/molecules/intake/FactionCard';
 
 // Lib utilities
 import { prisma } from '@/lib/prisma/prisma';
@@ -304,7 +298,10 @@ pnpm db-migrate-deploy
 ## 🤝 Contributing
 
 1. Branch from `dev`
-2. Follow existing code structure (atomic design, path aliases)
+2. Follow existing code structure:
+   - **Atoms**: Organized by functional type (buttons, forms, effects, etc.) — keep domain-agnostic
+   - **Molecules/Organisms**: Organized by domain (intake, landing, etc.)
+   - Use path aliases (`ui/*`, `@/*`, `@@/*`)
 3. Never edit existing migration files
 4. Test authentication flows before committing
 5. Use TypeScript strictly (no `any` types)

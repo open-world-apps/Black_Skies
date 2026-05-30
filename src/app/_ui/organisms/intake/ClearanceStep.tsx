@@ -3,14 +3,14 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import ValField from 'ui/atoms/intake/ValField';
-import DOBField from 'ui/atoms/intake/DOBField';
-import CheckRow from 'ui/atoms/intake/CheckRow';
-import StrengthMeter from 'ui/atoms/intake/StrengthMeter';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
-import Glyph from 'ui/atoms/intake/Glyph';
+import StepHead from 'ui/atoms/text/StepHead';
+import ValField from 'ui/atoms/forms/ValField';
+import DOBField from 'ui/atoms/forms/DOBField';
+import CheckRow from 'ui/atoms/forms/CheckRow';
+import StrengthMeter from 'ui/atoms/display/StrengthMeter';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
+import Glyph from 'ui/atoms/icons/Glyph';
 import { validators } from '@/lib/intake/validators';
 import { IntakeForm } from '@/lib/intake/types';
 

@@ -3,9 +3,9 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
+import StepHead from 'ui/atoms/text/StepHead';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
 import TraitCard from 'ui/molecules/intake/TraitCard';
 import { TRAIT_PAIRS } from '@/lib/intake/genesis';
 

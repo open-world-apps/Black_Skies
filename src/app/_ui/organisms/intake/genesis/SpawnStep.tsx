@@ -3,11 +3,11 @@
 import { FC, Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
+import StepHead from 'ui/atoms/text/StepHead';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
 import StarMap from 'ui/molecules/intake/StarMap';
-import RiskPips from 'ui/atoms/intake/RiskPips';
+import RiskPips from 'ui/atoms/display/RiskPips';
 import { SPAWN_NODES, factionHomeNode } from '@/lib/intake/genesis';
 
 interface SpawnStepProps {

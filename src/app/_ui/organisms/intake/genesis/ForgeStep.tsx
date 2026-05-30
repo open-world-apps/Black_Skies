@@ -3,10 +3,10 @@
 import { FC, Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
-import Glyph from 'ui/atoms/intake/Glyph';
+import StepHead from 'ui/atoms/text/StepHead';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
+import Glyph from 'ui/atoms/icons/Glyph';
 import SkillBar from 'ui/molecules/intake/SkillBar';
 import { ARCHETYPES } from '@/lib/intake/genesis';
 import { SkillRow } from '@/lib/intake/types';

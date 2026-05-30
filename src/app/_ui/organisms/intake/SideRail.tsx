@@ -3,7 +3,7 @@
 import { FC, Fragment, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import Glyph from 'ui/atoms/intake/Glyph';
+import Glyph from 'ui/atoms/icons/Glyph';
 import RailStep, { RailStatus } from 'ui/molecules/intake/RailStep';
 import { STEPS } from '@/lib/intake/steps';
 import { WORLD, fmt } from '@/lib/intake/data';

@@ -4,8 +4,8 @@ import { FC, useCallback, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
-import Starfield from 'ui/atoms/intake/Starfield';
-import Scanlines from 'ui/atoms/intake/Scanlines';
+import Starfield from 'ui/atoms/effects/Starfield';
+import Scanlines from 'ui/atoms/effects/Scanlines';
 import SideRail from 'ui/organisms/intake/SideRail';
 import IdentityStep from 'ui/organisms/intake/IdentityStep';
 import ClearanceStep from 'ui/organisms/intake/ClearanceStep';

@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import Glyph from 'ui/atoms/intake/Glyph';
+import Glyph from 'ui/atoms/icons/Glyph';
 
 export type RailStatus = 'done' | 'active' | 'upcoming' | 'locked';
 

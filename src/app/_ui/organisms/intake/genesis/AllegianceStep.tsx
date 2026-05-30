@@ -3,10 +3,10 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/intake/StepHead';
-import NavRow from 'ui/atoms/intake/NavRow';
-import GlowButton from 'ui/atoms/intake/GlowButton';
-import Glyph from 'ui/atoms/intake/Glyph';
+import StepHead from 'ui/atoms/text/StepHead';
+import NavRow from 'ui/atoms/layout/NavRow';
+import GlowButton from 'ui/atoms/buttons/GlowButton';
+import Glyph from 'ui/atoms/icons/Glyph';
 import FactionCard from 'ui/molecules/intake/FactionCard';
 import { FACTIONS } from '@/lib/intake/genesis';
 
