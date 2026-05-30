@@ -14,16 +14,19 @@ datasource db {
 }
 
 model User {
-  id                String    @id @default(cuid())
-  ipId              Int?
-  name              String    @db.VarChar(30) @unique
-  nickname          String?   @db.VarChar(90)
-  hashedPwd         String?   @db.VarChar(100) @map("hashed_pwd")
-  email             String?   @unique
-  emailVerified     DateTime? @map("email_verified")
-  image             String?
-  accounts          Account[]
-  sessions          Session[]
+  id            String        @id @default(cuid())
+  ipId          Int?
+  name          String        @unique @db.VarChar(30)
+  nickname      String?       @db.VarChar(90)
+  hashedPwd     String?       @map("hashed_pwd") @db.VarChar(100)
+  email         String?       @unique
+  emailVerified DateTime?     @map("email_verified")
+  image         String?
+  country       String?
+  birthdate     DateTime?
+  accounts      Account[]
+  sessions      Session[]
+  dossier       PilotDossier?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -34,11 +37,11 @@ model User {
 }
 
 model Account {
-  id                String    @id @default(cuid())
-  userId            String    @map("user_id")
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
   type              String
   provider          String
-  providerAccountId String    @map("provider_account_id") @default(cuid())
+  providerAccountId String  @default(cuid()) @map("provider_account_id")
   refresh_token     String?
   access_token      String?
   expires_at        Int?
@@ -58,7 +61,7 @@ model Account {
 
 model Session {
   id           String   @id @default(cuid())
-  sessionToken String   @map("session_token")   @unique
+  sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -78,11 +81,38 @@ model VerificationToken {
   @@map("verification_tokens")
 }
 
+model PilotDossier {
+  id     String @id @default(cuid())
+  userId String @unique @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  archetype String
+  pilotName String  @map("pilot_name") @db.VarChar(40)
+  age       Int
+  heightCm  Int     @map("height_cm")
+  weightKg  Int     @map("weight_kg")
+  physical  String? @db.VarChar(240)
+  bio       String  @db.VarChar(1400)
+
+  skillSheet   Json     @map("skill_sheet")
+  lockedTraits String[] @map("locked_traits")
+  pickedTraits String[] @map("picked_traits")
+
+  allegiance String?
+  spawn      String
+  registryId String  @map("registry_id")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pilot_dossiers")
+}
+
 model Banned {
-  id        Int    @id @default(autoincrement()) @unique
-  ip        String?    @unique
+  id        Int       @id @unique @default(autoincrement())
+  ip        String?   @unique
   reason    String?
   bannedAt  DateTime  @default(now())
   expiresAt DateTime? // null = permanent
-  users User[]
+  users     User[]
 }

@@ -1,23 +1,8 @@
-import React, { FC, ReactElement } from 'react';
+import { redirect } from 'next/navigation';
 
-import FlexContainer from 'ui/atoms/FlexContainer';
-import LoginForm from 'ui/organisms/LoginForm';
-
-const Login: FC = (): ReactElement => {
-  return (
-    <>
-      <main>
-        <FlexContainer
-          $height="100vh"
-          $justifyContent="center"
-          $alignItems="center"
-          $column
-        >
-          <LoginForm />
-        </FlexContainer>
-      </main>
-    </>
-  );
+// Login now lives on the landing console (JACK IN tab).
+const Login = (): never => {
+  redirect('/');
 };
 
 export default Login;

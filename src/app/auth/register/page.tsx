@@ -1,23 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 
-import FlexContainer from 'ui/atoms/FlexContainer';
-import RegistrationForm from 'ui/organisms/RegistrationForm';
+import PilotIntake from 'ui/organisms/intake/PilotIntake';
 
-const Register: FC = (): ReactElement => {
-  return (
-    <>
-      <main>
-        <FlexContainer
-          $height="100vh"
-          $justifyContent="center"
-          $alignItems="center"
-          $column
-        >
-          <RegistrationForm />
-        </FlexContainer>
-      </main>
-    </>
-  );
-};
+const Register: FC = (): ReactElement => <PilotIntake />;
 
 export default Register;
