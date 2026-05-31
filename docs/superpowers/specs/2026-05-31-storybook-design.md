@@ -70,8 +70,8 @@ import React from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { MockedProvider } from '@apollo/client/testing';
 import { makeStore } from '@/lib/state/app/store';
-import { GlobalFonts } from '@/lib/styled/GlobalFonts';
-import { GlobalStyles } from '@/lib/styled/GlobalStyles';
+import { GlobalFonts } from '@/lib/styled/GlobalFonts'; // named export
+import GlobalStyles from '@/lib/styled/GlobalStyles';   // default export
 
 const store = makeStore();
 
