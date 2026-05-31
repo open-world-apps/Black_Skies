@@ -1,4 +1,6 @@
 allowBuilds:
-  '@prisma/engines': set this to true or false
-  bcrypt: set this to true or false
-  prisma: set this to true or false
+  '@prisma/engines': true
+  bcrypt: true
+  core-js-pure: true
+  esbuild: true
+  prisma: true
