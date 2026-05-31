@@ -3,10 +3,10 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/text/StepHead';
-import ValField from 'ui/atoms/forms/ValField';
-import TextArea from 'ui/atoms/forms/TextArea';
-import NavRow from 'ui/atoms/layout/NavRow';
+import StepHead from 'ui/molecules/intake/StepHead';
+import ValField from 'ui/molecules/forms/ValField';
+import TextArea from 'ui/molecules/forms/TextArea';
+import NavRow from 'ui/molecules/layout/NavRow';
 import GlowButton from 'ui/atoms/buttons/GlowButton';
 import { GenesisData } from '@/lib/intake/types';
 

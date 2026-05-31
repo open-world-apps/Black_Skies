@@ -4,7 +4,7 @@ import { FC, Fragment, useState } from 'react';
 import styled from 'styled-components';
 
 import { DOB, DobResult } from '@/lib/intake/types';
-import Hint from './Hint';
+import Hint from 'ui/atoms/text/Hint';
 
 interface DOBFieldProps {
   value: DOB;

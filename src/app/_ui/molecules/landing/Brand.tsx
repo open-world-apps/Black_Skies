@@ -21,7 +21,7 @@ interface BrandProps {
 }
 
 /**
- * Brand atom — displays logo glyph with brand name
+ * Brand molecule — displays logo glyph with brand name
  */
 const Brand: FC<BrandProps> = ({ className }) => (
   <Root className={className}>

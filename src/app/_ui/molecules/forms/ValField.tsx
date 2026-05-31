@@ -3,8 +3,8 @@
 import { FC, ReactNode, useState } from 'react';
 import styled from 'styled-components';
 
-import Glyph from './Glyph';
-import Hint from './Hint';
+import Glyph from 'ui/atoms/icons/Glyph';
+import Hint from 'ui/atoms/text/Hint';
 
 interface ValFieldProps {
   label: string;

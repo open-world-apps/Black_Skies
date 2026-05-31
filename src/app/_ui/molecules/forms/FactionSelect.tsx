@@ -41,7 +41,7 @@ interface FactionSelectProps {
 }
 
 /**
- * FactionSelect atom — dropdown for selecting starting faction/allegiance
+ * FactionSelect molecule — dropdown for selecting starting faction/allegiance
  */
 const FactionSelect: FC<FactionSelectProps> = ({
   value,

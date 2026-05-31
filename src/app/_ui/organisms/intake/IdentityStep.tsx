@@ -3,10 +3,10 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/text/StepHead';
-import ValField from 'ui/atoms/forms/ValField';
-import SelectField from 'ui/atoms/forms/SelectField';
-import NavRow from 'ui/atoms/layout/NavRow';
+import StepHead from 'ui/molecules/intake/StepHead';
+import ValField from 'ui/molecules/forms/ValField';
+import SelectField from 'ui/molecules/forms/SelectField';
+import NavRow from 'ui/molecules/layout/NavRow';
 import GlowButton from 'ui/atoms/buttons/GlowButton';
 import { validators } from '@/lib/intake/validators';
 import { COUNTRIES } from '@/lib/intake/data';

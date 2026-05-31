@@ -1,7 +1,7 @@
 import { FC, FormEvent } from 'react';
 import styled from 'styled-components';
 import Field from 'ui/atoms/forms/Field';
-import FactionSelect from 'ui/atoms/forms/FactionSelect';
+import FactionSelect from 'ui/molecules/forms/FactionSelect';
 import StatusMessage from 'ui/atoms/text/StatusMessage';
 import FootNote from 'ui/atoms/text/FootNote';
 import GlowButton from 'ui/atoms/buttons/GlowButton';

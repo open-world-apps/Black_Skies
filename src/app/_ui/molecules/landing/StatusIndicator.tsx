@@ -1,11 +1,8 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
+import LiveDot from 'ui/atoms/icons/LiveDot';
 
 const Root = styled.span``;
-
-const Live = styled.span`
-  color: var(--bs-accent2);
-`;
 
 interface StatusIndicatorProps {
   /** Status text to display */
@@ -17,7 +14,7 @@ interface StatusIndicatorProps {
 }
 
 /**
- * StatusIndicator atom — displays status text with optional live indicator
+ * StatusIndicator molecule — displays status text with optional live indicator
  */
 const StatusIndicator: FC<StatusIndicatorProps> = ({
   children,
@@ -27,7 +24,8 @@ const StatusIndicator: FC<StatusIndicatorProps> = ({
   <Root className={className}>
     {live && (
       <>
-        <Live>●</Live>&nbsp;
+        <LiveDot />
+        &nbsp;
       </>
     )}
     {children}

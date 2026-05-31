@@ -3,11 +3,11 @@
 import { FC, Fragment, useMemo } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/text/StepHead';
+import StepHead from 'ui/molecules/intake/StepHead';
 import GlowButton from 'ui/atoms/buttons/GlowButton';
 import Glyph from 'ui/atoms/icons/Glyph';
 import CornerFrame from 'ui/atoms/layout/CornerFrame';
-import { TextButton } from 'ui/atoms/layout/NavRow';
+import { TextButton } from 'ui/molecules/layout/NavRow';
 import DossierRow from 'ui/molecules/intake/DossierRow';
 import { validators, scoreKey } from '@/lib/intake/validators';
 import {

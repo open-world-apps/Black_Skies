@@ -3,7 +3,7 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import Hint from './Hint';
+import Hint from 'ui/atoms/text/Hint';
 
 interface CheckRowProps {
   checked: boolean;

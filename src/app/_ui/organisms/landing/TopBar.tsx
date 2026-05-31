@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Brand from 'ui/atoms/display/Brand';
-import StatusIndicator from 'ui/atoms/display/StatusIndicator';
+import Brand from 'ui/molecules/landing/Brand';
+import StatusIndicator from 'ui/molecules/landing/StatusIndicator';
 
 const Root = styled.div`
   position: absolute;

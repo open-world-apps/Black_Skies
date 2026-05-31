@@ -3,7 +3,8 @@
 import { FC, Fragment, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import Glyph from 'ui/atoms/icons/Glyph';
+import EyebrowBase from 'ui/atoms/text/Eyebrow';
+import Brand from 'ui/molecules/landing/Brand';
 import RailStep, { RailStatus } from 'ui/molecules/intake/RailStep';
 import { STEPS } from '@/lib/intake/steps';
 import { WORLD, fmt } from '@/lib/intake/data';
@@ -27,25 +28,9 @@ const Aside = styled.aside`
   overflow-y: auto;
 `;
 
-const Brand = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-`;
-
-const BrandName = styled.span`
-  font-family: var(--bs-display);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  color: #f3f5f8;
-`;
-
-const Eyebrow = styled.div`
-  font-family: var(--bs-mono);
+const Eyebrow = styled(EyebrowBase)`
   font-size: 10px;
   letter-spacing: 0.26em;
-  color: var(--bs-accent);
   margin-top: 30px;
   margin-bottom: 6px;
 `;
@@ -88,10 +73,7 @@ const Live = styled.span`
 
 const SideRail: FC<SideRailProps> = ({ stepIndex, online, genesisSlot }) => (
   <Aside>
-    <Brand>
-      <Glyph type="node" size={22} c="var(--bs-accent)" />
-      <BrandName>BLACK&nbsp;SKIES</BrandName>
-    </Brand>
+    <Brand />
     <Eyebrow>NEW PILOT</Eyebrow>
     <Heading>INTAKE SEQUENCE</Heading>
 

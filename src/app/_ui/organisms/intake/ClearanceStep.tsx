@@ -3,12 +3,12 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import StepHead from 'ui/atoms/text/StepHead';
-import ValField from 'ui/atoms/forms/ValField';
-import DOBField from 'ui/atoms/forms/DOBField';
-import CheckRow from 'ui/atoms/forms/CheckRow';
+import StepHead from 'ui/molecules/intake/StepHead';
+import ValField from 'ui/molecules/forms/ValField';
+import DOBField from 'ui/molecules/forms/DOBField';
+import CheckRow from 'ui/molecules/forms/CheckRow';
 import StrengthMeter from 'ui/atoms/display/StrengthMeter';
-import NavRow from 'ui/atoms/layout/NavRow';
+import NavRow from 'ui/molecules/layout/NavRow';
 import GlowButton from 'ui/atoms/buttons/GlowButton';
 import Glyph from 'ui/atoms/icons/Glyph';
 import { validators } from '@/lib/intake/validators';
