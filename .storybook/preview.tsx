@@ -11,7 +11,7 @@ const store = makeStore();
 
 const withProviders = (Story: React.ComponentType) => (
   <ReduxProvider store={store}>
-    <MockedProvider mocks={[]} addTypename={false}>
+    <MockedProvider mocks={[]}>
       <GlobalFonts />
       <GlobalStyles />
       <Story />
@@ -23,15 +23,13 @@ const preview: Preview = {
   decorators: [withProviders],
   parameters: {
     backgrounds: {
-      values: [
-        { name: 'bs-dark', value: '#06080d' },
-        { name: 'light', value: '#ffffff' },
-      ],
+      default: 'bs-dark',
+      options: {
+        'bs-dark': { name: 'bs-dark', value: '#06080d' },
+        light: { name: 'light', value: '#ffffff' },
+      },
     },
     layout: 'centered',
-  },
-  initialGlobals: {
-    backgrounds: { value: '#06080d' },
   },
 };
 
