@@ -14,7 +14,7 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
-  webpackFinal: async (config: any) => {
+  webpackFinal: async (config) => {
     config.resolve!.alias = {
       ...config.resolve!.alias,
       ui: path.resolve(__dirname, '../src/app/_ui'),
