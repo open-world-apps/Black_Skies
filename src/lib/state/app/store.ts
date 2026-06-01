@@ -2,10 +2,17 @@ import type { Action, ThunkAction } from '@reduxjs/toolkit';
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { authSlice } from '../reducers/auth/authSlice';
 import { menuSlice } from '../reducers/menus/menuSlice';
-import { dialogSlice } from '../reducers/menus/dialogSlice';
 import { charSlice } from '../reducers/game/charSlice';
+import { gameSlice } from '../reducers/game/gameSlice';
+import { uiSlice } from '../reducers/game/uiSlice';
 
-const rootReducer = combineSlices(authSlice, menuSlice, dialogSlice, charSlice);
+const rootReducer = combineSlices(
+  authSlice,
+  menuSlice,
+  charSlice,
+  gameSlice,
+  uiSlice
+);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

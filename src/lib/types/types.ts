@@ -61,3 +61,19 @@ export type BannedIP = {
   expiresAt: Date | null;
   users?: Array<User> | [];
 };
+
+export type ModalKind =
+  | 'confirm-logout'
+  | 'character-select'
+  | 'settings'
+  | 'inventory'
+  | 'mission-brief';
+
+export type ToastKind = 'info' | 'success' | 'warning' | 'error';
+
+export interface Toast {
+  id: string; // unique key, e.g. crypto.randomUUID()
+  message: string;
+  kind: ToastKind;
+  duration?: number; // ms before auto-dismiss, optional
+}
