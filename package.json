@@ -12,7 +12,9 @@
     "db-migrate-dev": "prisma migrate dev",
     "db-migrate-reset": "prisma migrate reset",
     "db-generate": "prisma generate",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static"
   },
   "dependencies": {
     "@apollo/client": "^4.2.0",
