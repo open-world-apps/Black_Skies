@@ -128,7 +128,7 @@ const Empty = styled.div`
   letter-spacing: 0.08em;
 `;
 
-const SpawnStep: FC<SpawnStepProps> = ({ allegiance, value, onChange, onNext, onBack }) => {
+const SpawnStep = ({ allegiance, value, onChange, onNext, onBack }: SpawnStepProps) => {
   const home = allegiance ? factionHomeNode(allegiance) : null;
   const nodes = home ? [home, ...SPAWN_NODES] : SPAWN_NODES;
   const sel = nodes.find(n => n.key === value) || null;

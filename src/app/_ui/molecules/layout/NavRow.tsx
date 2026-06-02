@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface NavRowProps {
@@ -40,12 +40,12 @@ export const TextButton = styled.button`
   padding: 8px 0;
 `;
 
-const NavRow: FC<NavRowProps> = ({
+const NavRow = ({
   onBack,
   backLabel = '← BACK',
   children,
   leftExtra,
-}) => (
+}: NavRowProps) => (
   <Wrap>
     <Left>
       {onBack ? (

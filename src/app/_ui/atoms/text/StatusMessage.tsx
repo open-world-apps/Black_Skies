@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Accent = styled.div`
@@ -29,12 +29,12 @@ interface StatusMessageProps {
 /**
  * StatusMessage atom — displays error or working status messages
  */
-const StatusMessage: FC<StatusMessageProps> = ({
+const StatusMessage = ({
   type,
   children,
   showCursor,
   className,
-}) => {
+}: StatusMessageProps) => {
   if (type === 'working') {
     return (
       <Working className={className}>

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 const Hero = styled.div`
@@ -39,7 +39,7 @@ interface HeroBackgroundProps {
 /**
  * HeroBackground molecule — hero image with horizontal and vertical gradient scrims
  */
-const HeroBackground: FC<HeroBackgroundProps> = ({ className }) => (
+const HeroBackground = ({ className }: HeroBackgroundProps) => (
   <>
     <Hero className={className} />
     <ScrimX />

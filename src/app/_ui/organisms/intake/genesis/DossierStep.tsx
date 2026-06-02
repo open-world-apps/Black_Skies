@@ -43,7 +43,7 @@ const Unit = styled.span`
   padding-right: 2px;
 `;
 
-const DossierStep: FC<DossierStepProps> = ({ form, set, onNext, onBack }) => {
+const DossierStep = ({ form, set, onNext, onBack }: DossierStepProps) => {
   const h = +form.height;
   const w = +form.weight;
   const heightOk = h >= 120 && h <= 240;

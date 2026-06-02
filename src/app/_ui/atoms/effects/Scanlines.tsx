@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface ScanlinesProps {
@@ -23,7 +23,7 @@ const Overlay = styled.div<{ $factor: number }>`
   mix-blend-mode: multiply;
 `;
 
-const Scanlines: FC<ScanlinesProps> = ({ factor = 1 }) => (
+const Scanlines = ({ factor = 1 }: ScanlinesProps) => (
   <Overlay $factor={factor} />
 );
 

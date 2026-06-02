@@ -63,14 +63,14 @@ const Mark = styled.span`
   color: var(--bs-accent);
 `;
 
-const TraitsStep: FC<TraitsStepProps> = ({
+const TraitsStep = ({
   lockedKeys,
   picked,
   onTogglePick,
   pickTarget = 2,
   onNext,
   onBack,
-}) => {
+}: TraitsStepProps) => {
   const lockedPairs = TRAIT_PAIRS.filter(p => lockedKeys.includes(p.key));
   const pickablePairs = TRAIT_PAIRS.filter(p => !lockedKeys.includes(p.key));
   const remaining = pickTarget - picked.length;

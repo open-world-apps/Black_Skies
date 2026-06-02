@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -21,7 +21,7 @@ const Root = styled.div`
   color: var(--bs-ink);
 `;
 
-const FullscreenPage: FC<FullscreenPageProps> = ({ children }) => {
+const FullscreenPage = ({ children }: FullscreenPageProps) => {
   return <Root>{children}</Root>;
 };
 

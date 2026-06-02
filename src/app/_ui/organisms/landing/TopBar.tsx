@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 import Brand from 'ui/molecules/landing/Brand';
+import FeedHeader from 'ui/organisms/landing/FeedHeader';
 import StatusIndicator from 'ui/molecules/landing/StatusIndicator';
 
 const Root = styled.div`
@@ -37,7 +38,7 @@ interface TopBarProps {
 /**
  * TopBar molecule — navigation bar with brand and status indicators
  */
-const TopBar: FC<TopBarProps> = ({ online, node, build, className }) => (
+const TopBar = ({ online, node, build, className }: TopBarProps) => (
   <Root className={className}>
     <Brand />
     <StatusGroup>

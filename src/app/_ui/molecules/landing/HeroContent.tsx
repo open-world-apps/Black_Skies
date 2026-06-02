@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 import Eyebrow from 'ui/atoms/text/Eyebrow';
 import Wordmark from 'ui/atoms/text/Wordmark';
@@ -35,13 +35,13 @@ interface HeroContentProps {
 /**
  * HeroContent molecule — left hero section with branding, tagline, and stats
  */
-const HeroContent: FC<HeroContentProps> = ({
+const HeroContent = ({
   eyebrow,
   tagline,
   taglineDone,
   stats,
   className,
-}) => (
+}: HeroContentProps) => (
   <Root className={className}>
     <Eyebrow>{eyebrow}</Eyebrow>
     <Wordmark />

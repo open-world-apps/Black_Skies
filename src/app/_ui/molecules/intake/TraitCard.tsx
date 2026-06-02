@@ -100,13 +100,13 @@ const Accent2 = styled.span`
   color: var(--bs-accent2);
 `;
 
-const TraitCard: FC<TraitCardProps> = ({
+const TraitCard = ({
   pair,
   locked = false,
   selected = false,
   disabled = false,
   onToggle,
-}) => {
+}: TraitCardProps) => {
   const active = locked || selected;
   return (
     <Card

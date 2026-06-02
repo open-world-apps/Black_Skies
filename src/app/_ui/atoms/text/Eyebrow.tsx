@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div`
@@ -18,7 +18,7 @@ interface EyebrowProps {
 /**
  * Eyebrow atom — small category label displayed above main heading
  */
-const Eyebrow: FC<EyebrowProps> = ({ children, className }) => (
+const Eyebrow = ({ children, className }: EyebrowProps) => (
   <Root className={className}>{children}</Root>
 );
 

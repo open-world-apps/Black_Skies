@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface ModChipProps {
@@ -27,7 +27,7 @@ const Value = styled.strong<{ $pos: boolean }>`
   font-weight: 700;
 `;
 
-const ModChip: FC<ModChipProps> = ({ label, v }) => {
+const ModChip = ({ label, v }: ModChipProps) => {
   const pos = v > 0;
   return (
     <Chip $pos={pos}>

@@ -74,7 +74,7 @@ const Count = styled.span`
   text-align: right;
 `;
 
-const TextArea: FC<TextAreaProps> = ({
+const TextArea = ({
   label,
   value,
   onChange,
@@ -83,7 +83,7 @@ const TextArea: FC<TextAreaProps> = ({
   rows = 4,
   maxLen,
   autoFocus,
-}) => {
+}: TextAreaProps) => {
   const [focused, setFocused] = useState(false);
   const line = focused ? 'var(--bs-accent)' : 'var(--bs-line)';
   return (

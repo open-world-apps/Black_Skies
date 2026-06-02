@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -20,7 +20,7 @@ const Grid = styled.div`
   z-index: 10;
 `;
 
-const HeroGrid: FC<HeroGridProps> = ({ children }) => {
+const HeroGrid = ({ children }: HeroGridProps) => {
   return <Grid>{children}</Grid>;
 };
 

@@ -103,7 +103,7 @@ const Cleared = styled.span`
   letter-spacing: 0.1em;
 `;
 
-const DOBField: FC<DOBFieldProps> = ({ value, onChange, result, touched, onBlur }) => {
+const DOBField = ({ value, onChange, result, touched, onBlur }: DOBFieldProps) => {
   const [focused, setFocused] = useState(false);
   const show = !!touched && !focused;
   const err = show && result && result.err ? result.err : false;

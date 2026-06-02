@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 interface FieldProps {
@@ -54,7 +54,7 @@ const Inp = styled.input<{ $mono: boolean }>`
   letter-spacing: 0.04em;
 `;
 
-const Field: FC<FieldProps> = ({
+const Field = ({
   label,
   value,
   onChange,
@@ -62,7 +62,7 @@ const Field: FC<FieldProps> = ({
   placeholder,
   mono = true,
   autoFocus,
-}) => {
+}: FieldProps) => {
   const [focused, setFocused] = useState(false);
   return (
     <Label>

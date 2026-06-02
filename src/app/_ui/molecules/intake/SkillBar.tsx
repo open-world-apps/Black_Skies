@@ -65,7 +65,7 @@ const Total = styled.span<{ $col: string }>`
   text-align: right;
 `;
 
-const SkillBar: FC<SkillBarProps> = ({ sk, idx, reveal }) => {
+const SkillBar = ({ sk, idx, reveal }: SkillBarProps) => {
   const col =
     sk.total >= 12 ? 'var(--bs-accent2)' : sk.total >= 9 ? 'var(--bs-accent)' : 'var(--bs-ink)';
   const pct = (sk.total / 15) * 100;

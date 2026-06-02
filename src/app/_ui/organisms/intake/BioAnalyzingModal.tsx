@@ -93,7 +93,7 @@ const LINES = [
   'sealing skill sheet — agent disclaimer pinned',
 ];
 
-const BioAnalyzingModal: FC<BioAnalyzingModalProps> = ({ onDone, durationMs = 2200 }) => {
+const BioAnalyzingModal = ({ onDone, durationMs = 2200 }: BioAnalyzingModalProps) => {
   const [n, setN] = useState(0);
   useOverlayLock();
 

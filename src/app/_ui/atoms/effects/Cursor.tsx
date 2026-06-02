@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 const Span = styled.span<{ $visible: boolean }>`
@@ -16,7 +16,7 @@ interface CursorProps {
 /**
  * Cursor atom — animated typing cursor
  */
-const Cursor: FC<CursorProps> = ({ visible, className }) => (
+const Cursor = ({ visible, className }: CursorProps) => (
   <Span $visible={visible} className={className}>
     ▋
   </Span>

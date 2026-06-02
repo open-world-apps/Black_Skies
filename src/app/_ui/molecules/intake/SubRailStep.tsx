@@ -56,7 +56,7 @@ const Tick = styled.span`
   margin-left: auto;
 `;
 
-const SubRailStep: FC<SubRailStepProps> = ({ label, status, onClick }) => {
+const SubRailStep = ({ label, status, onClick }: SubRailStepProps) => {
   const clickable = status === 'done' && !!onClick;
   return (
     <Btn type="button" onClick={clickable ? onClick : undefined} $clickable={clickable}>

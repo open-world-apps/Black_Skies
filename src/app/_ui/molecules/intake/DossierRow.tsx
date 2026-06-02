@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface DossierRowProps {
@@ -36,12 +36,12 @@ const Value = styled.span<{ $mono: boolean; $accent: string }>`
   white-space: nowrap;
 `;
 
-const DossierRow: FC<DossierRowProps> = ({
+const DossierRow = ({
   label,
   value,
   mono = true,
   accent = 'var(--bs-ink)',
-}) => (
+}: DossierRowProps) => (
   <Row>
     <Label>{label}</Label>
     <Value $mono={mono} $accent={accent}>

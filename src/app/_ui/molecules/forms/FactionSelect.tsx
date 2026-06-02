@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -43,13 +43,13 @@ interface FactionSelectProps {
 /**
  * FactionSelect molecule — dropdown for selecting starting faction/allegiance
  */
-const FactionSelect: FC<FactionSelectProps> = ({
+const FactionSelect = ({
   value,
   factions,
   onChange,
   label = 'STARTING ALLEGIANCE',
   className,
-}) => (
+}: FactionSelectProps) => (
   <Label className={className}>
     <Head>{label}</Head>
     <Select value={value} onChange={e => onChange(e.target.value)}>

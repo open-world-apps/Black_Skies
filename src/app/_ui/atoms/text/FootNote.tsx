@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div`
@@ -19,7 +19,7 @@ interface FootNoteProps {
 /**
  * FootNote atom — small footnote text display
  */
-const FootNote: FC<FootNoteProps> = ({ children, className }) => (
+const FootNote = ({ children, className }: FootNoteProps) => (
   <Root className={className}>{children}</Root>
 );
 

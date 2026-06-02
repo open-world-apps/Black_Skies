@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button<{ $active: boolean }>`
@@ -30,7 +30,7 @@ interface TabProps {
 /**
  * Tab atom — single tab button with active state
  */
-const Tab: FC<TabProps> = ({ active, children, onClick, className }) => (
+const Tab = ({ active, children, onClick, className }: TabProps) => (
   <Button
     type="button"
     $active={active}

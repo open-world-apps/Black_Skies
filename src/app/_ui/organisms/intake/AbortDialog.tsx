@@ -84,7 +84,7 @@ const PurgeButton = styled.button`
   border-radius: 2px;
 `;
 
-const AbortDialog: FC<AbortDialogProps> = ({ onClose, onConfirm }) => {
+const AbortDialog = ({ onClose, onConfirm }: AbortDialogProps) => {
   useOverlayLock();
   return (
     <Backdrop>

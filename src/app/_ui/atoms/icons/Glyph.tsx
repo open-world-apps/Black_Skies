@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import { GlyphType } from '@/lib/intake/types';
 
@@ -9,12 +9,12 @@ interface GlyphProps {
   sw?: number;
 }
 
-const Glyph: FC<GlyphProps> = ({
+const Glyph = ({
   type = 'ring',
   size = 12,
   c = 'currentColor',
   sw = 1.5,
-}): ReactElement => {
+}: GlyphProps): ReactElement => {
   const shapes: Record<GlyphType, ReactElement> = {
     ring: <circle cx="8" cy="8" r="5.5" />,
     dot: <circle cx="8" cy="8" r="3" fill={c} stroke="none" />,

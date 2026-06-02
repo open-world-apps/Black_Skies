@@ -62,7 +62,7 @@ const SelectedTag = styled.span`
   color: var(--bs-ink);
 `;
 
-const AllegianceStep: FC<AllegianceStepProps> = ({ value, onChange, onNext, onBack }) => (
+const AllegianceStep = ({ value, onChange, onNext, onBack }: AllegianceStepProps) => (
   <Fragment>
     <StepHead
       index="05"

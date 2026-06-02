@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import Glyph from 'ui/atoms/icons/Glyph';
@@ -65,7 +65,7 @@ const Sel = styled.select<{ $hasValue: boolean }>`
   }
 `;
 
-const SelectField: FC<SelectFieldProps> = ({
+const SelectField = ({
   label,
   value,
   onChange,
@@ -74,7 +74,7 @@ const SelectField: FC<SelectFieldProps> = ({
   error,
   touched,
   onBlur,
-}) => {
+}: SelectFieldProps) => {
   const [focused, setFocused] = useState(false);
   const show = !!touched && !focused;
   const line = focused

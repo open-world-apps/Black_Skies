@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import Hint from 'ui/atoms/text/Hint';
@@ -62,13 +62,13 @@ const Text = styled.span`
   letter-spacing: 0.02em;
 `;
 
-const CheckRow: FC<CheckRowProps> = ({
+const CheckRow = ({
   checked,
   onChange,
   children,
   error,
   touched,
-}) => {
+}: CheckRowProps) => {
   const show = !!touched && !!error && !checked;
   return (
     <Wrap>

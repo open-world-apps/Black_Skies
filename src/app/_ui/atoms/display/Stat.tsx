@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.div``;
@@ -31,7 +31,7 @@ interface StatProps {
 /**
  * Stat atom — displays a single statistic with value and label
  */
-const Stat: FC<StatProps> = ({ value, label, className }) => (
+const Stat = ({ value, label, className }: StatProps) => (
   <Root className={className}>
     <Value>{value}</Value>
     <Label>{label}</Label>

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import CornerFrame from 'ui/atoms/layout/CornerFrame';
 
@@ -30,7 +30,7 @@ interface ConsoleBoxProps {
 /**
  * ConsoleBox molecule — glassmorphic console container with corner frame
  */
-const ConsoleBox: FC<ConsoleBoxProps> = ({ children, className }) => (
+const ConsoleBox = ({ children, className }: ConsoleBoxProps) => (
   <Wrap className={className}>
     <CornerFrame color="var(--bs-line)" len={16}>
       <Console>{children}</Console>

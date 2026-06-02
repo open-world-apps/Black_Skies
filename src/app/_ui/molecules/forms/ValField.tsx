@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 
 import Glyph from 'ui/atoms/icons/Glyph';
@@ -70,7 +70,7 @@ const Inp = styled.input`
   letter-spacing: 0.04em;
 `;
 
-const ValField: FC<ValFieldProps> = ({
+const ValField = ({
   label,
   value,
   onChange,
@@ -83,7 +83,7 @@ const ValField: FC<ValFieldProps> = ({
   autoFocus,
   hint,
   suffix,
-}) => {
+}: ValFieldProps) => {
   const [focused, setFocused] = useState(false);
   const show = !!touched && !focused;
   const line = focused

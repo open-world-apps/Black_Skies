@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface GlowButtonProps {
@@ -42,14 +42,14 @@ const Btn = styled.button<{ $col: string; $wide?: boolean }>`
   }
 `;
 
-const GlowButton: FC<GlowButtonProps> = ({
+const GlowButton = ({
   children,
   onClick,
   kind = 'a',
   wide,
   type = 'button',
   disabled,
-}) => {
+}: GlowButtonProps) => {
   const col = kind === 't' ? 'var(--bs-accent2)' : 'var(--bs-accent)';
   return (
     <Btn type={type} onClick={onClick} disabled={disabled} $col={col} $wide={wide}>

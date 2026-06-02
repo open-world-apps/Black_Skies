@@ -127,7 +127,7 @@ const Disclaimer = styled.div`
   line-height: 1.6;
 `;
 
-const ForgeStep: FC<ForgeStepProps> = ({ sheet, archetype, onNext, onBack }) => {
+const ForgeStep = ({ sheet, archetype, onNext, onBack }: ForgeStepProps) => {
   const [reveal, setReveal] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setReveal(true), 80);

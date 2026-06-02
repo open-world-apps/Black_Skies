@@ -112,7 +112,7 @@ const InvitedBy = styled.div`
   color: var(--bs-ink-dim);
 `;
 
-const FactionCard: FC<FactionCardProps> = ({ f, selected, onToggle }) => {
+const FactionCard = ({ f, selected, onToggle }: FactionCardProps) => {
   const accent = f.accent === 'a' ? 'var(--bs-accent)' : 'var(--bs-accent2)';
   const tint = f.accent === 'a' ? 'rgba(232, 147, 47, 0.06)' : 'rgba(63, 185, 201, 0.05)';
   return (

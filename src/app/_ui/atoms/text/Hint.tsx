@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface HintProps {
@@ -17,7 +17,7 @@ const Line = styled.span<{ $color: string }>`
   color: ${({ $color }) => $color};
 `;
 
-const Hint: FC<HintProps> = ({ error, ok }) => {
+const Hint = ({ error, ok }: HintProps) => {
   const color = error ? '#e06a55' : ok ? 'var(--bs-accent2)' : 'transparent';
   return (
     <Line $color={color}>{error ? '// ' + error : ok ? '// ' + ok : '·'}</Line>

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 import Glyph from 'ui/atoms/icons/Glyph';
 
@@ -23,7 +23,7 @@ interface BrandProps {
 /**
  * Brand molecule — displays logo glyph with brand name
  */
-const Brand: FC<BrandProps> = ({ className }) => (
+const Brand = ({ className }: BrandProps) => (
   <Root className={className}>
     <Glyph type="node" size={20} c="var(--bs-accent)" />
     <BrandName>BLACK&nbsp;SKIES</BrandName>

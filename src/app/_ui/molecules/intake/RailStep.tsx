@@ -97,7 +97,7 @@ const Sub = styled.div`
   line-height: 1.4;
 `;
 
-const RailStep: FC<RailStepProps> = ({ index, label, sub, status, last }) => {
+const RailStep = ({ index, label, sub, status, last }: RailStepProps) => {
   const ring =
     status === 'done'
       ? 'var(--bs-accent2)'

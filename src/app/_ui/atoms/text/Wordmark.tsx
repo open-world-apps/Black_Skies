@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 const Root = styled.h1`
@@ -40,7 +40,7 @@ interface WordmarkProps {
 /**
  * Wordmark atom — large BLACK SKIES title with glowing accent dot
  */
-const Wordmark: FC<WordmarkProps> = ({ className }) => (
+const Wordmark = ({ className }: WordmarkProps) => (
   <Root className={className}>
     BLACK
     <br />

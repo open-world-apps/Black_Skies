@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import LiveDot from 'ui/atoms/icons/LiveDot';
 
@@ -16,11 +16,11 @@ interface StatusIndicatorProps {
 /**
  * StatusIndicator molecule — displays status text with optional live indicator
  */
-const StatusIndicator: FC<StatusIndicatorProps> = ({
+const StatusIndicator = ({
   children,
   live,
   className,
-}) => (
+}: StatusIndicatorProps) => (
   <Root className={className}>
     {live && (
       <>

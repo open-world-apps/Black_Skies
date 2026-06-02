@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 import { scoreKey } from '@/lib/intake/validators';
@@ -38,7 +38,7 @@ const Caption = styled.div`
   color: var(--bs-ink-dim);
 `;
 
-const StrengthMeter: FC<StrengthMeterProps> = ({ pw }) => {
+const StrengthMeter = ({ pw }: StrengthMeterProps) => {
   const { score, label } = scoreKey(pw);
   const col =
     score <= 0

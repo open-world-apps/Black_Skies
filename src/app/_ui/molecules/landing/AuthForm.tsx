@@ -1,10 +1,14 @@
-import { FC, FormEvent } from 'react';
+import { FormEvent } from 'react';
 import styled from 'styled-components';
+
 import Field from 'ui/atoms/forms/Field';
 import FactionSelect from 'ui/molecules/forms/FactionSelect';
 import StatusMessage from 'ui/atoms/text/StatusMessage';
 import FootNote from 'ui/atoms/text/FootNote';
 import GlowButton from 'ui/atoms/buttons/GlowButton';
+
+import { useAppDispatch } from '@/lib/state/app/hooks';
+import { setCallSign } from '@/lib/state/reducers/game/charSlice';
 
 const Form = styled.form`
   display: flex;
@@ -49,7 +53,7 @@ interface AuthFormProps {
 /**
  * AuthForm molecule — authentication form for login/register
  */
-const AuthForm: FC<AuthFormProps> = ({
+const AuthForm = ({
   mode,
   phase,
   handle,
@@ -62,7 +66,7 @@ const AuthForm: FC<AuthFormProps> = ({
   onFactionChange,
   onSubmit,
   className,
-}) => (
+}: AuthFormProps) => (
   <Form onSubmit={onSubmit} className={className}>
     <Field
       label="HANDLE"

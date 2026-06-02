@@ -122,7 +122,7 @@ const Empty = styled.div`
   letter-spacing: 0.08em;
 `;
 
-const ArchetypeStep: FC<ArchetypeStepProps> = ({ value, onChange, onNext, onBack }) => {
+const ArchetypeStep = ({ value, onChange, onNext, onBack }: ArchetypeStepProps) => {
   const sel = ARCHETYPES.find(a => a.key === value);
   const go = () => {
     if (sel) onNext();

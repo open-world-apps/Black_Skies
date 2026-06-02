@@ -99,7 +99,7 @@ const Name = styled.span`
   color: var(--bs-accent);
 `;
 
-const GrantedModal: FC<GrantedModalProps> = ({ displayName, onEnter }) => {
+const GrantedModal = ({ displayName, onEnter }: GrantedModalProps) => {
   const lines = [
     'negotiating handshake with ' + WORLD.node + '…',
     'dossier sealed · registry write committed',

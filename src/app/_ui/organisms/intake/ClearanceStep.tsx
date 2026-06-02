@@ -76,7 +76,7 @@ const Accent2 = styled.span`
   color: var(--bs-accent2);
 `;
 
-const ClearanceStep: FC<ClearanceStepProps> = ({
+const ClearanceStep = ({
   form,
   set,
   touched,
@@ -84,7 +84,7 @@ const ClearanceStep: FC<ClearanceStepProps> = ({
   minAge,
   onNext,
   onBack,
-}) => {
+}: ClearanceStepProps) => {
   const eKey = validators.accessKey(form.accessKey);
   const dob = validators.dob(form.dob, minAge);
   const eTerms = form.agreedTerms

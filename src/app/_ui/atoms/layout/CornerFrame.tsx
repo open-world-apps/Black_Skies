@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties, FC, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface CornerFrameProps {
@@ -22,12 +22,12 @@ const Corner = styled.span<{ $len: number; $color: string }>`
   pointer-events: none;
 `;
 
-const CornerFrame: FC<CornerFrameProps> = ({
+const CornerFrame = ({
   children,
   color = 'var(--bs-line)',
   len = 14,
   style = {},
-}) => (
+}: CornerFrameProps) => (
   <Wrap style={style}>
     <Corner $len={len} $color={color} style={{ top: 0, left: 0, borderTop: '1px solid', borderLeft: '1px solid' }} />
     <Corner $len={len} $color={color} style={{ top: 0, right: 0, borderTop: '1px solid', borderRight: '1px solid' }} />

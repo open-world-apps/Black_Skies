@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface RiskPipsProps {
@@ -26,7 +26,7 @@ const Pip = styled.span<{ $on: boolean; $n: number }>`
       : 'rgba(255, 255, 255, 0.1)'};
 `;
 
-const RiskPips: FC<RiskPipsProps> = ({ n }) => (
+const RiskPips = ({ n }: RiskPipsProps) => (
   <Wrap>
     {[1, 2, 3, 4, 5].map(i => (
       <Pip key={i} $on={i <= n} $n={n} />

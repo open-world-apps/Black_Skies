@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 import Tab from 'ui/atoms/buttons/Tab';
 
@@ -22,12 +22,12 @@ interface AuthTabsProps {
 /**
  * AuthTabs molecule — tab switcher for authentication modes
  */
-const AuthTabs: FC<AuthTabsProps> = ({
+const AuthTabs = ({
   activeTab,
   tabs,
   onTabChange,
   className,
-}) => (
+}: AuthTabsProps) => (
   <Root className={className}>
     {tabs.map(([id, label]) => (
       <Tab key={id} active={activeTab === id} onClick={() => onTabChange(id)}>

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { isOverlayOpen } from '@/lib/intake/overlayState';
@@ -20,12 +20,12 @@ const Canvas = styled.canvas`
 
 type Star = { x: number; y: number; r: number; a: number; ph: number; sp: number };
 
-const Starfield: FC<StarfieldProps> = ({
+const Starfield = ({
   count = 160,
   drift = 0.015,
   twinkle = true,
   color = '255,255,255',
-}) => {
+}: StarfieldProps) => {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 'use client';
 
-import { Dispatch, FC, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 
 import { useQuery } from '@apollo/client/react';
 import { GraphQLError } from 'graphql';
@@ -38,11 +38,11 @@ interface ProviderProps {
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const DashProvider: FC<ProviderProps> = ({
+const DashProvider = ({
   setChars,
   setError,
   setLoading,
-}) => {
+}: ProviderProps) => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
 
   useEffect(() => {

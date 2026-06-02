@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 import Glyph from 'ui/atoms/icons/Glyph';
@@ -44,7 +44,7 @@ interface GrantedScreenProps {
 /**
  * GrantedScreen molecule — success state display after authentication
  */
-const GrantedScreen: FC<GrantedScreenProps> = ({ message, className }) => {
+const GrantedScreen = ({ message, className }: GrantedScreenProps) => {
   const router = useRouter();
 
   return (

@@ -121,7 +121,7 @@ const CornerTR = styled.div`
   color: var(--bs-accent);
 `;
 
-const StarMap: FC<StarMapProps> = ({ nodes, selectedKey, onSelect }) => {
+const StarMap = ({ nodes, selectedKey, onSelect }: StarMapProps) => {
   const lines: { a: SpawnNode; b: SpawnNode }[] = [];
   for (let i = 0; i < nodes.length; i++) {
     for (let j = i + 1; j < nodes.length; j++) {

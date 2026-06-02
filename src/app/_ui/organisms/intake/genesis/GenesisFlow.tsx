@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import ArchetypeStep from './ArchetypeStep';
 import DossierStep from './DossierStep';
@@ -25,14 +25,14 @@ interface GenesisFlowProps {
   onBackToClearance: () => void;
 }
 
-const GenesisFlow: FC<GenesisFlowProps> = ({
+const GenesisFlow = ({
   data,
   set,
   subIndex,
   setSubIndex,
   onComplete,
   onBackToClearance,
-}) => {
+}: GenesisFlowProps) => {
   const [analyzing, setAnalyzing] = useState(false);
   const goto = (i: number) => setSubIndex(i);
 

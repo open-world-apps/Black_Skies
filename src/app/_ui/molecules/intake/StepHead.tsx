@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 interface StepHeadProps {
@@ -43,7 +43,7 @@ const Blurb = styled.p`
   max-width: 460px;
 `;
 
-const StepHead: FC<StepHeadProps> = ({ index, kicker, title, blurb, total }) => (
+const StepHead = ({ index, kicker, title, blurb, total }: StepHeadProps) => (
   <Wrap>
     <Kicker>
       {index

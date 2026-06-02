@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 
 import StepHead from 'ui/molecules/intake/StepHead';
@@ -11,6 +11,8 @@ import GlowButton from 'ui/atoms/buttons/GlowButton';
 import { validators } from '@/lib/intake/validators';
 import { COUNTRIES } from '@/lib/intake/data';
 import { IntakeForm } from '@/lib/intake/types';
+import { useAppSelector, useAppDispatch } from '@/lib/state/app/hooks';
+import { setCallSign } from '@/lib/state/reducers/game/charSlice';
 
 interface IdentityStepProps {
   form: IntakeForm;
@@ -27,18 +29,29 @@ const Fields = styled.div`
   gap: 10px;
 `;
 
-const IdentityStep: FC<IdentityStepProps> = ({
+const IdentityStep = ({
   form,
   set,
   touched,
   touch,
   onNext,
   onAbort,
-}) => {
+}: IdentityStepProps) => {
   const eName = validators.displayName(form.displayName);
   const eMail = validators.email(form.email);
   const eCountry = validators.country(form.country);
   const ready = !eName && !eMail && !eCountry;
+  const callsign = useAppSelector(state => state.char.callsign);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (callsign) form.displayName = callsign;
+  }, []);
+
+  useEffect(() => {
+    if (callsign !== form.displayName) dispatch(setCallSign(form.displayName));
+  }, [form.displayName]);
 
   const go = () => {
     touch('displayName');
@@ -58,7 +71,7 @@ const IdentityStep: FC<IdentityStepProps> = ({
       <Fields>
         <ValField
           label="CALLSIGN"
-          value={form.displayName}
+          value={form.displayName || callsign}
           onChange={v => set('displayName', v)}
           placeholder="how the sector will know you"
           hint="3–18 · A–Z 0–9 _"

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 
 import SubRailStep, { SubStatus } from './SubRailStep';
@@ -18,7 +18,7 @@ const Wrap = styled.div`
   margin-top: -14px;
 `;
 
-const GenesisSubstepRail: FC<GenesisSubstepRailProps> = ({ subIndex, maxReached, onJump }) => (
+const GenesisSubstepRail = ({ subIndex, maxReached, onJump }: GenesisSubstepRailProps) => (
   <Wrap>
     {GENESIS_SUBSTEPS.map((s, i) => {
       const status: SubStatus = i < subIndex ? 'done' : i === subIndex ? 'active' : 'upcoming';

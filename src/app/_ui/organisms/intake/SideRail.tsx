@@ -71,7 +71,7 @@ const Live = styled.span`
   color: var(--bs-accent2);
 `;
 
-const SideRail: FC<SideRailProps> = ({ stepIndex, online, genesisSlot }) => (
+const SideRail = ({ stepIndex, online, genesisSlot }: SideRailProps) => (
   <Aside>
     <Brand />
     <Eyebrow>NEW PILOT</Eyebrow>

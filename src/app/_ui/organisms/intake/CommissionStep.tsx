@@ -168,7 +168,7 @@ const CancelButton = styled(TextButton)`
   color: #a85a4d;
 `;
 
-const CommissionStep: FC<CommissionStepProps> = ({
+const CommissionStep = ({
   form,
   genesis,
   minAge,
@@ -176,7 +176,7 @@ const CommissionStep: FC<CommissionStepProps> = ({
   onRestart,
   onAbort,
   onConfirm,
-}) => {
+}: CommissionStepProps) => {
   const dob = validators.dob(form.dob, minAge);
   const key = scoreKey(form.accessKey);
 

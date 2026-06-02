@@ -16,7 +16,11 @@ import GenesisFlow from 'ui/organisms/intake/genesis/GenesisFlow';
 import GenesisSubstepRail from 'ui/molecules/intake/GenesisSubstepRail';
 import { STEPS } from '@/lib/intake/steps';
 import { GENESIS_SUBSTEPS } from '@/lib/intake/genesis';
-import { BLANK_FORM, GENESIS_BLANK, DEFAULT_MIN_AGE } from '@/lib/intake/constants';
+import {
+  BLANK_FORM,
+  GENESIS_BLANK,
+  DEFAULT_MIN_AGE,
+} from '@/lib/intake/constants';
 import { GenesisData, IntakeForm } from '@/lib/intake/types';
 import { useTicker } from '@/lib/intake/useTicker';
 import { WORLD } from '@/lib/intake/data';
@@ -101,7 +105,7 @@ const ErrorNote = styled.div`
 
 const tick = () => Math.floor(Math.random() * 7) - 2;
 
-const PilotIntake: FC<PilotIntakeProps> = ({ minAge = DEFAULT_MIN_AGE }) => {
+const PilotIntake = ({ minAge = DEFAULT_MIN_AGE }: PilotIntakeProps) => {
   const router = useRouter();
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState<IntakeForm>(BLANK_FORM);
@@ -287,7 +291,7 @@ const PilotIntake: FC<PilotIntakeProps> = ({ minAge = DEFAULT_MIN_AGE }) => {
           onClose={() => setOverlay(null)}
           onConfirm={() => {
             setOverlay(null);
-            reset();
+            router.push('/');
           }}
         />
       )}

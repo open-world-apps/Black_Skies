@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { } from 'react';
 import styled from 'styled-components';
 import Stat from 'ui/atoms/display/Stat';
 
@@ -18,7 +18,7 @@ interface StatsProps {
 /**
  * Stats molecule — grid of stat displays
  */
-const Stats: FC<StatsProps> = ({ stats, className }) => (
+const Stats = ({ stats, className }: StatsProps) => (
   <Root className={className}>
     {stats.map(([label, value]) => (
       <Stat key={label} value={value} label={label} />
